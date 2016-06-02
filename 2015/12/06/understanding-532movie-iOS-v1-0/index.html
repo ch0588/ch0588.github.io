@@ -1,0 +1,649 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.3"/>
+
+
+
+
+  <meta name="keywords" content="swift," />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.3" />
+
+
+<meta name="description" content="综述原计划开学初上线的App，由于种种原因导致12月初才submitted。最近两个月完成了iOS部分的开发、设计、测试、运维，在本文中对开发过程进行记录。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="532movie iOS v1.0 开发总结">
+<meta property="og:url" content="http://yoursite.com/2015/12/06/understanding-532movie-iOS-v1-0/index.html">
+<meta property="og:site_name" content="陈辉的技术博客">
+<meta property="og:description" content="综述原计划开学初上线的App，由于种种原因导致12月初才submitted。最近两个月完成了iOS部分的开发、设计、测试、运维，在本文中对开发过程进行记录。">
+<meta property="og:image" content="http://yoursite.com/images/532movie/v1/pageview201511.png">
+<meta property="og:image" content="http://yoursite.com/images/532movie/v1/users201511.png">
+<meta property="og:image" content="http://yoursite.com/images/532movie/v1/operatingsystem201511.png">
+<meta property="og:image" content="http://yoursite.com/images/532movie/v1/systemversion.png">
+<meta property="og:updated_time" content="2016-05-26T14:20:27.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="532movie iOS v1.0 开发总结">
+<meta name="twitter:description" content="综述原计划开学初上线的App，由于种种原因导致12月初才submitted。最近两个月完成了iOS部分的开发、设计、测试、运维，在本文中对开发过程进行记录。">
+<meta name="twitter:image" content="http://yoursite.com/images/532movie/v1/pageview201511.png">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> 532movie iOS v1.0 开发总结 | 陈辉的技术博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">陈辉的技术博客</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            <i class="menu-item-icon icon-next-about"></i> <br />
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              532movie iOS v1.0 开发总结
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-12-06T14:53:02+08:00" content="Dec 6 2015">
+            Dec 6 2015
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/iOS/" itemprop="url" rel="index">
+                  <span itemprop="name">iOS</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/12/06/understanding-532movie-iOS-v1-0/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/06/understanding-532movie-iOS-v1-0/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h1 id="综述"><a href="#综述" class="headerlink" title="综述"></a>综述</h1><p>原计划开学初上线的App，由于种种原因导致12月初才submitted。最近两个月完成了iOS部分的开发、设计、测试、运维，在本文中对开发过程进行记录。<br><a id="more"></a></p>
+<h1 id="一、开发背景"><a href="#一、开发背景" class="headerlink" title="一、开发背景"></a>一、开发背景</h1><p>532Movie上线以来，一直面临高峰期卡顿问题，尤其今年上半年。2015年春季，后台大概是2台服务器在运转，平日每天吞吐量5TB，高峰期间每小时吞吐1TB。1TB/H什么概念呢？换算下单位就是<code>291MB/s</code>！对于普通的硬盘来说，100MB+/s的I/O读写不卡顿就是奇迹，不崩溃就是侥幸。相比于千兆带宽的网络，此时I/O读写显然成为短板。浪哥接连使用HLS协议将原有mp4视频切片，只有使用fastDFS分布式存储文件，最后用Varnish做缓存系统。一翻折腾过后，集群里面大概有5台服务器，独立出1台服务器处理web请求缓存。高峰期大部分用户都在看热门影片，这些影片的片段在cache中的命中率异常高，既保护了磁盘也提高了I/O速度。至此后台改造基本完成，那下一步怎么办？？机房的千兆带宽绝不是我们有能力改变的，当网络变成瓶颈的时候，如何还能进一步优化？<br>后台优化完了，那就写个APP优化前端吧<br>1.移动端屏幕小，可以在APP中播放低码率视频，节省高峰期带宽。<br>2.平峰时期开放离线下载功能，为高峰期分流。<br>3.客户端提供了P2P的想象空间，万不得已时，可以将热门影片P2P，不占用机房出口带宽。</p>
+<h1 id="二、-数据分析"><a href="#二、-数据分析" class="headerlink" title="二、 数据分析"></a>二、 数据分析</h1><p>网站中内嵌了Google Analytics，开发前简单观测了统计数据如下：<br><img src="/images/532movie/v1/pageview201511.png" alt="2015年11月 Pageviews"><br><img src="/images/532movie/v1/users201511.png" alt="2015年11月 Users"><br><code>注:网站仅限校内网访问，因此用户访问网站时如果没有连接外网，Google无法统计</code><br>上图可以看出访问量成明显的周期性波动，周末高峰期每日接近10万的pageviews，1万多的独立用户。师大每届只有2000多的本科生，全校本科生只有1万多人，这意味着大部分同学每天都会访问此网站。那么其中有多少iOS用户呢？<br><img src="/images/532movie/v1/operatingsystem201511.png" alt="2015年11月 操作系统比例"><br>大概有12.6%的用户使用iOS系统浏览网站，这还是很令我意外的。由于web页面没有对mobile做任何定制，所以网站在手机浏览器中用户体验并不能令人满意，但即使这样每天扔有1k+的同学使用iOS浏览网站。这坚定了我们的信息，哪怕只为了这1000多名同学，我们也要将iOS客户端写好。如果客户端的体验足够友好，恐怕会吸引更多的同学转战移动平台。<br>下面我关心的就是，如何选择适配的最低系统。我难以估量市场上各个版本系统所占比例，但是大学生群体相对更追求时尚，系统升级率会高于市场平均。果然Google Analytics的数据支持了我的想法：<br><img src="/images/532movie/v1/systemversion.png" alt="iOS系统版本比例"><br>只有3%左右的设备是iOS 8.0以下的系统，那么放弃iOS 8.0以下的设备不会对用户造成太大影响，同时可以增加选择新技术的自由度。</p>
+<p>通过简略的分析，可以得出<br>1.几乎全校学生都在浏览532的网站，给这样的网站开发APP是很有必要的<br>2.首先开发用户数更高的iOS设备<br>3.最低版本支持到iOS 8.0</p>
+<h1 id="三、-技术架构"><a href="#三、-技术架构" class="headerlink" title="三、 技术架构"></a>三、 技术架构</h1><h2 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h2><h3 id="语言选择"><a href="#语言选择" class="headerlink" title="语言选择"></a>语言选择</h3><p>2013年前后曾经用iOS写过两个单机的小APP，当时用的OC语言，这次开发前在纠结使用OC还是用Swift。看了一天Swift语法就不再纠结了，Swift用的很舒服，容易上手，但是想精通还是很难得。大概用两周时间看了斯坦福的cs193P iOS8公开课，其间穿插看《The Swift Programming Language (Swift 2.1)》这本书。</p>
+<h3 id="系统设计"><a href="#系统设计" class="headerlink" title="系统设计"></a>系统设计</h3><p>自己摸索着市场上的APP，设计了下拉刷新、加载更多、缓存、播放器手势等功能，自己搭建后台确定API接口。</p>
+<h3 id="编码开发"><a href="#编码开发" class="headerlink" title="编码开发"></a>编码开发</h3><p>iOS代码大概写了三五天，UI基本使用Story Board。三年前做iOS开发的时候好像只有一种比例的屏幕，随着屏幕的多样化，苹果出了Auto Layout布局方式，核心的Constraint源于一篇线性约束的论文，去简单读了下。好在532movie的布局不复杂，Auto Layout基本可以搞定。好久没写OC，但是大致可以看懂OC语法，因此程序中也混编了OC代码。绝大部分时间都在调试UICollectionView的性能问题，最终做到了丝滑体验。后期在做缓存设计，APP的服务器是校网内网IP，所以APP经常会无法访问后台，不想让空白的页面呈现在用户面前，选择了用key-value的方式存储JSON数据。</p>
+<h3 id="开源库"><a href="#开源库" class="headerlink" title="开源库"></a>开源库</h3><p>主要使用的开源库如下：</p>
+<h4 id="Alamofire"><a href="#Alamofire" class="headerlink" title="Alamofire"></a><a href="https://github.com/Alamofire/Alamofire" target="_blank" rel="external">Alamofire</a></h4><p>AFNetworking的作者发布的Swift版本，如作者所说，这个库的确非常Elegant。阅读了Alamofire的源码，有种想重敲一边的冲动，作者用很短的代码优雅的实现了HTTP Networking。</p>
+<h4 id="SwiftyJSON"><a href="#SwiftyJSON" class="headerlink" title="SwiftyJSON"></a><a href="https://github.com/SwiftyJSON/SwiftyJSON" target="_blank" rel="external">SwiftyJSON</a></h4><p>SwiftyJSON makes it easy to deal with JSON data in Swift.可以和Alamofire配合使用。</p>
+<h4 id="Kingfisher"><a href="#Kingfisher" class="headerlink" title="Kingfisher"></a><a href="https://github.com/onevcat/Kingfisher" target="_blank" rel="external">Kingfisher</a></h4><p>onevcat大大写的类似于SDWebImage的图片库，操作都是异步进行的，不会阻塞UI进程。多级缓存设计，可以将图片缓存在内存和硬盘中。</p>
+<h4 id="YTKKeyValueStore"><a href="#YTKKeyValueStore" class="headerlink" title="YTKKeyValueStore"></a><a href="https://github.com/yuantiku/YTKKeyValueStore" target="_blank" rel="external">YTKKeyValueStore</a></h4><h3 id="测试上线"><a href="#测试上线" class="headerlink" title="测试上线"></a>测试上线</h3><p>找同学帮忙拿到BNU内网环境测试，12.4日拿到开发者账号，晚上将App提交，变为waiting for review状态。</p>
+<h2 id="四、服务器端"><a href="#四、服务器端" class="headerlink" title="四、服务器端"></a>四、服务器端</h2><p>后台开发是由浪哥一人完成的，有个执行力很好地后台开发人员真的很爽。每次提出需求没有多久，浪哥就会顺利搞定。</p>
+<h3 id="本地环境-nginx-Virtualenv-Flask"><a href="#本地环境-nginx-Virtualenv-Flask" class="headerlink" title="本地环境 nginx+Virtualenv+Flask"></a>本地环境 nginx+Virtualenv+Flask</h3><p>设计后台API接口的时候，自己搭建了简易后台。为了使用RESTful，选用了Flask-RESTful，足够达到测试的目的。</p>
+<h3 id="部署环境-nginx-ThinkPHP"><a href="#部署环境-nginx-ThinkPHP" class="headerlink" title="部署环境 nginx+ThinkPHP"></a>部署环境 nginx+ThinkPHP</h3><p>532Movie Web版本就是这种环境，开发API的时候，直接在原有基础上加了一个模块。后台最大的问题是，532Movie的服务器在师大内网，外网无法访问。之前还可以通过IPv6或者VPN访问，但是学校11月刚刚把532Movie加入VPN的黑名单，台湾的大学竟然不支持IPv6。苹果公司审核App的时候，也需要App后台支持外网访问。最后经过简单的讨论，我们使用如下解决方案：<br>1.我在App中不请求IP地址，请求域名，浪哥将大陆教育网DNS指向BNU校内服务器，其余DNS指向美国的DigitalOcean服务器。<br>2.在DigitalOcean(DO)中搭建虚拟的532Movie后台，数据库和图片资源只有几百兆，可以直接迁移到DO服务器。但是影片资源不可能迁移到DO上面。之前写过一篇文章，介绍在DO上面搭建shadowsocks，利用DO的IPv6，实现在中国高校免费上网。现在我们将它倒转过来，在DO设置nginx反向代理，将来自IPv4的请求，通过IPv6访问校内服务器获取资源。<br>最后的结果是，全网可以访问532Movie后台，当在BNU外网访问影片资源时，经过DigitalOcean的IPv6跳转。</p>
+<h3 id="Trello"><a href="#Trello" class="headerlink" title="Trello"></a>Trello</h3><p><a href="https://trello.com/" target="_blank" rel="external">Trello</a>是一个scrum任务管理工具，免费，快捷，很适合个人和团队使用。我在上面记录todo和doing list，通过card管理任务的优先级。<br>目前的todo list是：<br>-评论回复模块<br>-收藏、订阅影片<br>-播放记录<br>-推送消息<br>-离线下载<br>-弹幕</p>
+<h1 id="五、感受"><a href="#五、感受" class="headerlink" title="五、感受"></a>五、感受</h1><p>完成App的“功能”开发很容易，但是对“细节”和“性能”的优化是一条很长的路，玩了那么多年算法，终于可以找个地方实践一下了。</p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/swift/" rel="tag">#swift</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/12/09/UICollectionView-performance/" rel="prev">UICollectionView性能优化</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/12/04/532movie-iOS-v1-0/" rel="next">532movie iOS v1.0</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="2015/12/06/understanding-532movie-iOS-v1-0/"
+                   data-title="532movie iOS v1.0 开发总结" data-url="http://yoursite.com/2015/12/06/understanding-532movie-iOS-v1-0/">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="http://7tsysl.com1.z0.glb.clouddn.com/head show.JPG" alt="Hui Chen" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">Hui Chen</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description"></p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">34</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">分类</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            
+              <span class="site-state-item-count">26</span>
+              <span class="site-state-item-name">标签</span>
+              
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ch0588" target="_blank">github</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/ch0588" target="_blank">weibo</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/ch0588" target="_blank">zhihu</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#综述"><span class="nav-number">1.</span> <span class="nav-text">综述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、开发背景"><span class="nav-number">2.</span> <span class="nav-text">一、开发背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、-数据分析"><span class="nav-number">3.</span> <span class="nav-text">二、 数据分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、-技术架构"><span class="nav-number">4.</span> <span class="nav-text">三、 技术架构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#客户端"><span class="nav-number">4.1.</span> <span class="nav-text">客户端</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#语言选择"><span class="nav-number">4.1.1.</span> <span class="nav-text">语言选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#系统设计"><span class="nav-number">4.1.2.</span> <span class="nav-text">系统设计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编码开发"><span class="nav-number">4.1.3.</span> <span class="nav-text">编码开发</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开源库"><span class="nav-number">4.1.4.</span> <span class="nav-text">开源库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Alamofire"><span class="nav-number">4.1.4.1.</span> <span class="nav-text">Alamofire</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SwiftyJSON"><span class="nav-number">4.1.4.2.</span> <span class="nav-text">SwiftyJSON</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Kingfisher"><span class="nav-number">4.1.4.3.</span> <span class="nav-text">Kingfisher</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#YTKKeyValueStore"><span class="nav-number">4.1.4.4.</span> <span class="nav-text">YTKKeyValueStore</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试上线"><span class="nav-number">4.1.5.</span> <span class="nav-text">测试上线</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、服务器端"><span class="nav-number">4.2.</span> <span class="nav-text">四、服务器端</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#本地环境-nginx-Virtualenv-Flask"><span class="nav-number">4.2.1.</span> <span class="nav-text">本地环境 nginx+Virtualenv+Flask</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部署环境-nginx-ThinkPHP"><span class="nav-number">4.2.2.</span> <span class="nav-text">部署环境 nginx+ThinkPHP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Trello"><span class="nav-number">4.2.3.</span> <span class="nav-text">Trello</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#五、感受"><span class="nav-number">5.</span> <span class="nav-text">五、感受</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hui Chen</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"devhui"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.3"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.3"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.3" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.3"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.3" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>

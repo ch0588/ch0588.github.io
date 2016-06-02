@@ -1,0 +1,766 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.3"/>
+
+
+
+
+  <meta name="keywords" content="Hexo,next" />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.3" />
+
+
+<meta name="description" content="lecture 7. Multiple MVCs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Developing iOS 8 Apps with Swift 学习笔记7">
+<meta property="og:url" content="http://yoursite.com/2015/11/12/Developing-iOS-8-Apps-with-Swift-class-7/index.html">
+<meta property="og:site_name" content="陈辉的技术博客">
+<meta property="og:description" content="lecture 7. Multiple MVCs">
+<meta property="og:updated_time" content="2016-05-26T14:20:27.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Developing iOS 8 Apps with Swift 学习笔记7">
+<meta name="twitter:description" content="lecture 7. Multiple MVCs">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> Developing iOS 8 Apps with Swift 学习笔记7 | 陈辉的技术博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">陈辉的技术博客</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            <i class="menu-item-icon icon-next-about"></i> <br />
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              Developing iOS 8 Apps with Swift 学习笔记7
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-11-12T10:04:00+08:00" content="Nov 12 2015">
+            Nov 12 2015
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/iOS/" itemprop="url" rel="index">
+                  <span itemprop="name">iOS</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/11/12/Developing-iOS-8-Apps-with-Swift-class-7/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/12/Developing-iOS-8-Apps-with-Swift-class-7/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p>lecture 7. Multiple MVCs</p>
+<a id="more"></a>
+<h3 id="Multiple-MVCs"><a href="#Multiple-MVCs" class="headerlink" title="Multiple MVCs"></a>Multiple MVCs</h3><p>Split View Controllers &amp; Navigation Controllers &amp; Tab Bar Controllers</p>
+<p>Segues</p>
+<p>Demo: Psychologist</p>
+<p>Popovers (time permitting)</p>
+<h2 id="Multiple-MVCs-1"><a href="#Multiple-MVCs-1" class="headerlink" title="Multiple MVCs"></a>Multiple MVCs</h2><h3 id="Time-to-build-more-powerful-applications"><a href="#Time-to-build-more-powerful-applications" class="headerlink" title="Time to build more powerful applications"></a>Time to build more powerful applications</h3><ul>
+<li><p>To do this, we must combine MVCs …</p>
+</li>
+<li><p>iOS provides some Controllers</p>
+<p>whose View is “other MVCs”</p>
+<p>Examples:</p>
+<p>UITabBarController </p>
+<p>UISplitViewController</p>
+<p>UINavigationController</p>
+</li>
+</ul>
+<h2 id="UITabBarController"><a href="#UITabBarController" class="headerlink" title="UITabBarController"></a>UITabBarController</h2><p>MVCs之间不应该有依赖，TabBar的各个mvc之间应该是同一层级的关系，而不应该是逻辑上相关的。<br>It lets the user choose between different MVCs …</p>
+<h2 id="UISplitViewController"><a href="#UISplitViewController" class="headerlink" title="UISplitViewController"></a>UISplitViewController</h2><p>  Puts two MVCs side-by-side …<br> Master通常决定Detail中的内容</p>
+<h2 id="UINavigationController"><a href="#UINavigationController" class="headerlink" title="UINavigationController"></a>UINavigationController</h2><h3 id="Pushes-and-pops-MVCs-off-of-a-stack-like-a-stack-of-cards-…"><a href="#Pushes-and-pops-MVCs-off-of-a-stack-like-a-stack-of-cards-…" class="headerlink" title="Pushes and pops MVCs off of a stack (like a stack of cards) …"></a>Pushes and pops MVCs off of a stack (like a stack of cards) …</h3><p>This top area is drawn by the UINavigationController</p>
+<p>But the contents of the top area (like the title or any buttons on the right) are determined by the MVC currently showing (in this case,the “All Settings” MVC)</p>
+<p>Each MVC communicates these contents via its UIViewController’s navigationItem property</p>
+<h2 id="Accessing-the-sub-MVCs"><a href="#Accessing-the-sub-MVCs" class="headerlink" title="Accessing the sub-MVCs"></a>Accessing the sub-MVCs</h2><h3 id="You-can-get-the-sub-MVCs-via-the-viewControllers-property"><a href="#You-can-get-the-sub-MVCs-via-the-viewControllers-property" class="headerlink" title="You can get the sub-MVCs via the viewControllers property!"></a>You can get the sub-MVCs via the viewControllers property!</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> viewControllers: [<span class="type">UIViewController</span>] &#123; <span class="keyword">get</span> <span class="keyword">set</span> &#125; <span class="comment">// possibly an optional</span></span><br></pre></td></tr></table></figure>
+<p>// for a tab bar, they are in order, left to right, in the array!</p>
+<p>// for a split view, [0] is the master and [1] is the detail!</p>
+<p>// for a navigation controller, [0] is the root and the rest are in order on the stack!</p>
+<p>// even though this is settable, usually setting happens via storyboard, segues, or other!</p>
+<p>// for example, navigation controller’s push and pop methods</p>
+<h3 id="But-how-do-you-get-ahold-of-the-SVC-TBC-or-NC-itself"><a href="#But-how-do-you-get-ahold-of-the-SVC-TBC-or-NC-itself" class="headerlink" title="But how do you get ahold of the SVC, TBC or NC itself?!"></a>But how do you get ahold of the SVC, TBC or NC itself?!</h3><p>Every UIViewController knows the Split View, Tab Bar or Navigation Controller it is currently in</p>
+<p>These are UIViewController properties …</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> tabBarController: <span class="type">UITabBarController</span>? &#123; <span class="keyword">get</span> &#125;</span><br><span class="line"><span class="keyword">var</span> splitViewController: <span class="type">UISplitViewController</span>? &#123; <span class="keyword">get</span> &#125;</span><br><span class="line"><span class="keyword">var</span> navigationController: <span class="type">UINavigationController</span>? &#123; <span class="keyword">get</span> &#125; !</span><br></pre></td></tr></table></figure>
+<p>So, for example, to get the detail of the split view controller you are in …</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> detailVC: <span class="type">UIViewController</span> = splitViewController?.viewControllers[<span class="number">1</span>] &#123; … &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Wiring-up-MVCs"><a href="#Wiring-up-MVCs" class="headerlink" title="Wiring up MVCs"></a>Wiring up MVCs</h2><h3 id="How-do-we-wire-all-this-stuff-up"><a href="#How-do-we-wire-all-this-stuff-up" class="headerlink" title="How do we wire all this stuff up?"></a>How do we wire all this stuff up?</h3><p>可以使用代码也可以使用storyboard拖拽连接</p>
+<ul>
+<li><p>Let’s say we have a Calculator MVC and a Calculator Graphing MVC</p>
+<p>How do we hook them up to be the two sides of a Split View?</p>
+</li>
+<li><p>Just drag out a SplitViewController(and delete all the extra  VCs it brings with it)</p>
+</li>
+<li><p>Then ctrl-drag from the UISplitViewController to the master and detail MVCs …</p>
+</li>
+</ul>
+<h3 id="But-split-view-can-only-do-its-thing-properly-on-iPad"><a href="#But-split-view-can-only-do-its-thing-properly-on-iPad" class="headerlink" title="But split view can only do its thing properly on iPad"></a>But split view can only do its thing properly on iPad</h3><p>split view不能在iPhone上并排显示，需要为它添加Navigation Controllers。<br>  So we need to put some Navigation Controllers in there so it will work on iPhone</p>
+<p>  The Navigation Controllers will be good for iPad too because the MVCs will get titles</p>
+<p>  The simplest way to wrap a Navigation Controller around an MVC is with Editor-&gt;Embed In </p>
+<p>##Segues</p>
+<h3 id="We’ve-built-up-our-Controllers-of-Controllers-now-what"><a href="#We’ve-built-up-our-Controllers-of-Controllers-now-what" class="headerlink" title="We’ve built up our Controllers of Controllers, now what?"></a>We’ve built up our Controllers of Controllers, now what?</h3><p>Now we need to make it so that one MVC can cause another to appear</p>
+<p>We call that a “segue”</p>
+<h3 id="Kinds-of-segues-they-will-adapt-to-their-environment"><a href="#Kinds-of-segues-they-will-adapt-to-their-environment" class="headerlink" title="Kinds of segues (they will adapt to their environment)"></a>Kinds of segues (they will adapt to their environment)</h3><p>本课程讨论如下四种segues<br>Show Segue (will push in a Navigation Controller, else Modal)</p>
+<p>Show Detail Segue (will show in Detail of a Split View or will push in a Navigation Controller)</p>
+<p>Modal Segue (take over the entire screen while the MVC is up)</p>
+<p>Popover Segue (make the MVC appear in a little popover window)</p>
+<p>###Segues always create a new instance of an MVC<br>Segues<code>总是</code>创建一个新的MVC，不会去找一个已经存在的MVC<br>This is important to understand</p>
+<p>The Detail of a Split View will get replaced with a new instance of that MVC</p>
+<p>When you segue in a Navigation Controller it will not segue to some old instance, it’ll be new</p>
+<h3 id="How-do-we-make-these-segues-happen"><a href="#How-do-we-make-these-segues-happen" class="headerlink" title="How do we make these segues happen?"></a>How do we make these segues happen?</h3><p>Ctrl-drag in a storyboard from an instigator (like a button) to the MVC to segue to</p>
+<p>Can be done in code as well</p>
+<h3 id="What’s-that-identifier-all-about"><a href="#What’s-that-identifier-all-about" class="headerlink" title="What’s that identifier all about?"></a>What’s that identifier all about?</h3><p>10%在代码中可以触发identifier，但大多数情况identifier用于<code>prepare</code>segues<br>You would need it to invoke this segue from code using this UIViewController method<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">performSegueWithIdentifier</span><span class="params">(identifier: String, sender: AnyObject?)</span></span></span><br></pre></td></tr></table></figure></p>
+<p>(but we almost never do this because we set usually ctrl-drag from the instigator)</p>
+<p>The sender can be whatever you want (you’ll see where it shows up in a moment)</p>
+<p>You can ctrl-drag from the Controller itself to another Controller if you’re segueing via code</p>
+<p>(because in that case, you’ll be specifying the sender above)</p>
+<h3 id="More-important-use-of-the-identifier-preparing-for-a-segue"><a href="#More-important-use-of-the-identifier-preparing-for-a-segue" class="headerlink" title="More important use of the identifier: preparing for a segue"></a>More important use of the identifier: preparing for a segue</h3><p>When a segue happens, the View Controller containing the instigator gets a chance<br>to prepare the destination View Controller to be segued to</p>
+<p>Usually this means setting up the segued-to MVC’s Model and display characteristics</p>
+<p>Remember that the MVC segued to is always a fresh instance (never a reused one)</p>
+<h2 id="Preparing-for-a-Segue"><a href="#Preparing-for-a-Segue" class="headerlink" title="Preparing for a Segue"></a>Preparing for a Segue</h2><h3 id="The-method-that-is-called-in-the-instigator’s-Controller"><a href="#The-method-that-is-called-in-the-instigator’s-Controller" class="headerlink" title="The method that is called in the instigator’s Controller"></a>The method that is called in the instigator’s Controller</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">prepareForSegue</span><span class="params">(segue: UIStoryboardSegue, sender: AnyObject?)</span></span> &#123;</span><br><span class="line">  <span class="keyword">if</span> <span class="keyword">let</span> identifier = segue.identifier &#123;</span><br><span class="line">    <span class="keyword">switch</span> identifier &#123;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">"Show Graph"</span>:</span><br><span class="line">      <span class="keyword">if</span> <span class="keyword">let</span> vc = segue.destinationViewController <span class="keyword">as</span>? <span class="type">MyController</span> &#123;</span><br><span class="line">        vc.property1 = …                 <span class="comment">//It is crucial to understand that this preparation is happening BEFORE outlets get set!!</span></span><br><span class="line">        vc.callMethodToSetItUp(…)        <span class="comment">//It is a very common bug to prepare an MVC thinking its outlets are set.</span></span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">default</span>: <span class="keyword">break</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>preparation 发生在 outlets get set<code>之前</code></p>
+<ul>
+<li><p>The segue passed in contains important information about this segue:</p>
+<ol>
+<li><p>the identifier from the storyboard</p>
+</li>
+<li><p>the Controller of the MVC you are segueing to (which was just created for you)</p>
+</li>
+</ol>
+</li>
+<li><p>The sender is either the instigating object from a storyboard (e.g. a UIButton)<br>or the sender you provided (see last slide) if you invoked the segue manually in code</p>
+</li>
+<li><p>Here is the identifier from the storyboard (it can be nil, so be sure to check for that case)</p>
+<p>Your Controller might support preparing for lots of different segues from different instigators<br>so this identifier is how you’ll know which one you’re preparing for</p>
+</li>
+<li><p>For this example, we’ll assume we entered “Show Graph” in the Attributes Inspector<br>when we had the segue selected in the storyboard</p>
+</li>
+<li><p>Here we are looking at the Controller of the MVC we’re segueing to</p>
+<p>It is AnyObject, so we must cast it to the Controller we (should) know it to be</p>
+</li>
+<li><p>This is where the actual preparation of the segued-to MVC occurs</p>
+<p>Hopefully the MVC has a clear public API that it wants you to use to prepare it</p>
+<p>Once the MVC is prepared, it should run on its own power (only using delegation to talk back)</p>
+</li>
+</ul>
+<p>#Preventing Segues</p>
+<p>###You can prevent a segue from happening too</p>
+<p> Just implement this in your UIViewController …<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">shouldPerformSegueWithIdentifier</span><span class="params">(identifier: String?, sender: AnyObject?)</span></span> -&gt; <span class="type">Bool</span></span><br></pre></td></tr></table></figure></p>
+<p>The identifier is the one in the storyboard.</p>
+<p>The sender is the instigating object (e.g. the button that is causing the segue).</p>
+<p>#Demo</p>
+<p>Psychologist</p>
+<ul>
+<li><p>This is all best understood via demonstration</p>
+</li>
+<li><p>We will create a new Psychologist MVC</p>
+</li>
+<li><p>The Psychologist will reveal his diagnosis by segueing to the Happiness MVC</p>
+</li>
+<li><p>We’ll put the MVCs into navigation controllers inside split view controllers</p>
+</li>
+<li><p>That way, it will work on both iPad and iPhone devices</p>
+</li>
+</ul>
+<p>#Popover</p>
+<p>###Popovers pop an entire MVC over the rest of the screen</p>
+<p>###Popovers are not quite the same as these other combiners<br>Tab Bar, Split View and Navigation Controllers are UIViewControllers, popovers are not</p>
+<p>###Seguing to a popover works almost exactly the same though</p>
+<p>You still ctrl-drag, you still have an identifier, you still get to prepare</p>
+<p>###Things to note when preparing for a popover segue</p>
+<p>All segues are managed via a UIPresentationController (but we’re not going to cover that)</p>
+<p>But we are going to talk about a popover’s UIPresentationController</p>
+<p>It can tell you what caused the popover to appear (a bar button item or just a rectangle)</p>
+<p>And it can let you control how the popover is presented</p>
+<p>For example, you can control what direction the popover’s arrow is allowed to point</p>
+<p>Or you can control how a popover adapts to different sizes classes (e.g. iPad vs iPhone)</p>
+<p>#Popover Prepare</p>
+<p>Here’s a prepareForSegue that prepares for a Popover segue</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">prepareForSegue</span><span class="params">(segue: UIStoryboardSegue, sender: AnyObject?)</span></span> &#123;</span><br><span class="line">  <span class="keyword">if</span> <span class="keyword">let</span> identifier = segue.identifier &#123;</span><br><span class="line">    <span class="keyword">switch</span> identifier &#123;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">"Do Something in a Popover Segue"</span>:</span><br><span class="line">      <span class="keyword">if</span> <span class="keyword">let</span> vc = segue.destinationViewController <span class="keyword">as</span>? <span class="type">MyController</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> ppc = vc.popoverPresentationController &#123;</span><br><span class="line">          ppc.permittedArrowDirections = <span class="type">UIPopoverArrowDirection</span>.<span class="type">Any</span>  </span><br><span class="line">           <span class="comment">//We can use it to set some properties that will control how the popover pops up</span></span><br><span class="line">          ppc.delegate = <span class="keyword">self</span></span><br><span class="line">          <span class="comment">//And we can control the presentation by setting ourself (the Controller) as the delegate</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// more preparation here</span></span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">default</span>: <span class="keyword">break</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>One thing that is different is that we are retrieving the popover’s presentation controller</p>
+<p>#Popover Presentation Controller</p>
+<p>###What can we control as the presentation controller’s delegate?</p>
+<p>One very interesting thing is how a popover “adapts” to different sizes</p>
+<p>By default, it will present on compact sizes Modally (i.e. take over the whole screen)</p>
+<p>But the delegate can control this “adaptation” behavior, either by preventing it …</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">adaptivePresentationStyleForPresentationController</span><span class="params">(UIPresentationController)</span></span></span><br><span class="line">-&gt; <span class="type">UIModalPresentationStyle</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="type">UIModalPresentationStyle</span>.<span class="type">None</span> <span class="comment">// don't adapt (default is .FullScreen)</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>… or by allowing the full screen presentation to happen, but modifying the MVC that is put up …</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">presentationController</span><span class="params">(UIPresentationController, </span><br><span class="line">viewControllerForAdaptivePresentationStyle: UIModalPresentatinoStyle)</span></span> -&gt; <span class="type">UIViewController</span>?</span><br><span class="line">&#123;</span><br><span class="line">  <span class="comment">// return a UIViewController to use (e.g. wrap a Navigation Controller around your MVC)</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>#Popover Size</p>
+<p>###Important Popover Issue: Size</p>
+<p>A popover will be made pretty large unless someone tells it otherwise.</p>
+<p>The MVC being presented knows best what it’s “preferred” size inside a popover would be.</p>
+<p>It expresses that via this property in itself (i.e. in the Controller of the MVC being presented) …<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> preferredContentSize: <span class="type">CGSize</span></span><br></pre></td></tr></table></figure></p>
+<p>The MVC is not guaranteed to be that size, but the system will try its best. </p>
+<p>#Demo</p>
+<p>###Popover in Psychologist</p>
+<p>  Add a popover that shows the patient’s diagnostic history </p>
+<p>重写property observer的方法，不会覆盖父类，而是先执行父类、在执行子类</p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/11/13/Developing-iOS-8-Apps-with-Swift-class-8/" rel="prev">Developing iOS 8 Apps with Swift 学习笔记8</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/11/08/Developing-iOS-8-Apps-with-Swift-class-6/" rel="next">Developing iOS 8 Apps with Swift 学习笔记5</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="2015/11/12/Developing-iOS-8-Apps-with-Swift-class-7/"
+                   data-title="Developing iOS 8 Apps with Swift 学习笔记7" data-url="http://yoursite.com/2015/11/12/Developing-iOS-8-Apps-with-Swift-class-7/">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="http://7tsysl.com1.z0.glb.clouddn.com/head show.JPG" alt="Hui Chen" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">Hui Chen</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description"></p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">34</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">分类</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            
+              <span class="site-state-item-count">26</span>
+              <span class="site-state-item-name">标签</span>
+              
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ch0588" target="_blank">github</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/ch0588" target="_blank">weibo</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/ch0588" target="_blank">zhihu</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Multiple-MVCs"><span class="nav-number">1.</span> <span class="nav-text">Multiple MVCs</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Multiple-MVCs-1"><span class="nav-number"></span> <span class="nav-text">Multiple MVCs</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Time-to-build-more-powerful-applications"><span class="nav-number">1.</span> <span class="nav-text">Time to build more powerful applications</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UITabBarController"><span class="nav-number"></span> <span class="nav-text">UITabBarController</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UISplitViewController"><span class="nav-number"></span> <span class="nav-text">UISplitViewController</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UINavigationController"><span class="nav-number"></span> <span class="nav-text">UINavigationController</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Pushes-and-pops-MVCs-off-of-a-stack-like-a-stack-of-cards-…"><span class="nav-number">1.</span> <span class="nav-text">Pushes and pops MVCs off of a stack (like a stack of cards) …</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Accessing-the-sub-MVCs"><span class="nav-number"></span> <span class="nav-text">Accessing the sub-MVCs</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#You-can-get-the-sub-MVCs-via-the-viewControllers-property"><span class="nav-number">1.</span> <span class="nav-text">You can get the sub-MVCs via the viewControllers property!</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#But-how-do-you-get-ahold-of-the-SVC-TBC-or-NC-itself"><span class="nav-number">2.</span> <span class="nav-text">But how do you get ahold of the SVC, TBC or NC itself?!</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Wiring-up-MVCs"><span class="nav-number"></span> <span class="nav-text">Wiring up MVCs</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#How-do-we-wire-all-this-stuff-up"><span class="nav-number">1.</span> <span class="nav-text">How do we wire all this stuff up?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#But-split-view-can-only-do-its-thing-properly-on-iPad"><span class="nav-number">2.</span> <span class="nav-text">But split view can only do its thing properly on iPad</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#We’ve-built-up-our-Controllers-of-Controllers-now-what"><span class="nav-number">3.</span> <span class="nav-text">We’ve built up our Controllers of Controllers, now what?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Kinds-of-segues-they-will-adapt-to-their-environment"><span class="nav-number">4.</span> <span class="nav-text">Kinds of segues (they will adapt to their environment)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#How-do-we-make-these-segues-happen"><span class="nav-number">5.</span> <span class="nav-text">How do we make these segues happen?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#What’s-that-identifier-all-about"><span class="nav-number">6.</span> <span class="nav-text">What’s that identifier all about?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#More-important-use-of-the-identifier-preparing-for-a-segue"><span class="nav-number">7.</span> <span class="nav-text">More important use of the identifier: preparing for a segue</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Preparing-for-a-Segue"><span class="nav-number"></span> <span class="nav-text">Preparing for a Segue</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#The-method-that-is-called-in-the-instigator’s-Controller"><span class="nav-number">1.</span> <span class="nav-text">The method that is called in the instigator’s Controller</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hui Chen</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"devhui"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.3"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.3"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.3" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.3"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.3" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>

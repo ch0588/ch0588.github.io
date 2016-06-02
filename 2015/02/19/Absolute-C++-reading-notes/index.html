@@ -1,0 +1,758 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.3"/>
+
+
+
+
+  <meta name="keywords" content="swift," />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.3" />
+
+
+<meta name="description" content="第1章 C++基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="完美C++(第五版)读书笔记">
+<meta property="og:url" content="http://yoursite.com/2015/02/19/Absolute-C++-reading-notes/index.html">
+<meta property="og:site_name" content="陈辉的技术博客">
+<meta property="og:description" content="第1章 C++基础">
+<meta property="og:updated_time" content="2016-05-26T14:20:27.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="完美C++(第五版)读书笔记">
+<meta name="twitter:description" content="第1章 C++基础">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> 完美C++(第五版)读书笔记 | 陈辉的技术博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">陈辉的技术博客</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            <i class="menu-item-icon icon-next-about"></i> <br />
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              完美C++(第五版)读书笔记
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-02-19T22:35:37+08:00" content="Feb 19 2015">
+            Feb 19 2015
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/iOS/" itemprop="url" rel="index">
+                  <span itemprop="name">iOS</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/02/19/Absolute-C++-reading-notes/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/02/19/Absolute-C++-reading-notes/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h1 id="第1章-C-基础"><a href="#第1章-C-基础" class="headerlink" title="第1章 C++基础"></a>第1章 C++基础</h1><a id="more"></a>
+<h2 id="变量、表达式及赋值语句"><a href="#变量、表达式及赋值语句" class="headerlink" title="变量、表达式及赋值语句"></a>变量、表达式及赋值语句</h2><h3 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h3><p>C++共有4-6种不同的类型转换。旧的类型转换有两种使用方式，而最近的新标准给出了四种新的类型转换方式。<br>四种新的类型转换方法如下所示：<br>    static_cast<type>(Expression)<br>    const_cast<type>(Expression)<br>    dynamic_cast<type>(Expression)<br>    reinterpret_cast<type>(Expression)<br>两种旧的<br>    double(42)<br>    (double)42</type></type></type></type></p>
+<h3 id="自增自减的求值顺序（trick）"><a href="#自增自减的求值顺序（trick）" class="headerlink" title="自增自减的求值顺序（trick）"></a>自增自减的求值顺序（trick）</h3><pre><code>(n+2)*(++n)+5
+</code></pre><p>不要将运算符优先级与表达式的求值顺序混为一谈，子表达式++n和(n+2)的计算顺序并不确定，取决于编译器</p>
+<h2 id="cout、cerr"><a href="#cout、cerr" class="headerlink" title="cout、cerr"></a>cout、cerr</h2><p>格式化浮点数如下：<br>    cout.setf(ios::fixed)<br>    cout.setf(ios::showpoint)<br>    cout.precision(2)<br>cerr输出到标准错误输出流（一般是控制台屏幕）</p>
+<hr>
+<h1 id="第2章-流程控制"><a href="#第2章-流程控制" class="headerlink" title="第2章 流程控制"></a>第2章 流程控制</h1><h2 id="文件输入简介"><a href="#文件输入简介" class="headerlink" title="文件输入简介"></a>文件输入简介</h2><p>ifstream读取文件</p>
+<hr>
+<h1 id="第3章-函数基础"><a href="#第3章-函数基础" class="headerlink" title="第3章 函数基础"></a>第3章 函数基础</h1><h2 id="函数设计"><a href="#函数设计" class="headerlink" title="函数设计"></a>函数设计</h2><p>1.前提条件（precondition）、运行结果（postcondition）<br>2.过程抽象、黑箱</p>
+<h2 id="作用域规则"><a href="#作用域规则" class="headerlink" title="作用域规则"></a>作用域规则</h2><p>语句块<br>嵌套作用域</p>
+<hr>
+<h1 id="第4章-函数与重载"><a href="#第4章-函数与重载" class="headerlink" title="第4章 函数与重载"></a>第4章 函数与重载</h1><p>形参是一种占位符，函数调用时，由函数的实参来替换。</p>
+<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><p>传值参数<br>引用传递调用机制详解</p>
+<h2 id="重载与默认实参"><a href="#重载与默认实参" class="headerlink" title="重载与默认实参"></a>重载与默认实参</h2><h3 id="重载解析的规则"><a href="#重载解析的规则" class="headerlink" title="重载解析的规则"></a>重载解析的规则</h3><p>简单地说：</p>
+<ol>
+<li>精确匹配</li>
+<li>自动类型转换后匹配</li>
+</ol>
+<p>详细的说：</p>
+<ol>
+<li>精确匹配</li>
+<li>int或float通过提升实现匹配</li>
+<li>通过预定义类型的其他转换实现匹配</li>
+<li>通过用户定义的类型进行转换实现匹配</li>
+<li>使用省略号进行匹配<h3 id="默认参数"><a href="#默认参数" class="headerlink" title="默认参数"></a>默认参数</h3>必须从右开始省略实参</li>
+</ol>
+<h2 id="函数的测试和调试"><a href="#函数的测试和调试" class="headerlink" title="函数的测试和调试"></a>函数的测试和调试</h2><p>assert宏：#define NDEBUG关闭assert调用<br>占位程序和驱动程序</p>
+<hr>
+<h1 id="第5章-数组"><a href="#第5章-数组" class="headerlink" title="第5章 数组"></a>第5章 数组</h1><p>数组参数既不是值传递调用参数，也不是引用传递调用参数，它是一种新的参数传递类型。<br>数组占用内存中的一部分连续空间。数组首地址、存储类型、数组大小三要素。<br>程序中个函数的const修饰数组风格要统一，防止嵌套调用问题。</p>
+<hr>
+<h1 id="第6章-结构体和类"><a href="#第6章-结构体和类" class="headerlink" title="第6章 结构体和类"></a>第6章 结构体和类</h1><h2 id="结构体的初始化"><a href="#结构体的初始化" class="headerlink" title="结构体的初始化"></a>结构体的初始化</h2><p>Date dueDate={12,31,2012}; 如果给出的初始化值多于结构体成员的数量，那么就会出错。允许初始值少于结构体成员的数量，按顺序初始化，未初始化的使用默认值。</p>
+<h2 id="作用域运算符"><a href="#作用域运算符" class="headerlink" title="作用域运算符::"></a>作用域运算符::</h2><p>作用域运算符和类名一起使用，而点运算符则和对象名一起使用。</p>
+<h2 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h2><p>通过类来隐藏成员函数以及数据的实现细节，只暴露相关的使用接口。通常将成员变量都设置为私有的，而将大多数成员函数都设置为公有的。</p>
+<h2 id="Set-amp-get"><a href="#Set-amp-get" class="headerlink" title="Set &amp; get"></a>Set &amp; get</h2><h2 id="接口和实现分离"><a href="#接口和实现分离" class="headerlink" title="接口和实现分离"></a>接口和实现分离</h2><p>接口包含两个部分：注释和公有成员函数。类的实现就是具体实现该类接口的C++代码。</p>
+<h2 id="结构体与类的区别"><a href="#结构体与类的区别" class="headerlink" title="结构体与类的区别"></a>结构体与类的区别</h2><p>结构体通常不包含成员函数，并且所有的成员变量也都是共有的。类的默认权限是私有的，而结构体的默认权限是公有的。</p>
+<hr>
+<h1 id="第7章-构造函数及其他工具"><a href="#第7章-构造函数及其他工具" class="headerlink" title="第7章 构造函数及其他工具"></a>第7章 构造函数及其他工具</h1><h2 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h2><p>构造函数是放在类的公有部分声明的，不能直接调用构造函数。</p>
+<h3 id="初始化列表"><a href="#初始化列表" class="headerlink" title="初始化列表"></a>初始化列表</h3><p>DayofYear::DayofYear(int monthValue,int dayValue):month(monthValue),day(dayValue){}</p>
+<h3 id="无参构造函数"><a href="#无参构造函数" class="headerlink" title="无参构造函数"></a>无参构造函数</h3><p>DayofYear date3(); 不需要加括号，编译器会认为该语句是函数定义。</p>
+<h3 id="默认构造函数"><a href="#默认构造函数" class="headerlink" title="默认构造函数"></a>默认构造函数</h3><p>无参构造函数被称为默认构造函数，编译器会自动生成。如果类中定义了构造函数，编译器就不用自动添加默认构造函数。因此只要手动编写构造函数，就一定要写上默认构造函数，否则会缺失默认构造函数。</p>
+<h2 id="const修饰符"><a href="#const修饰符" class="headerlink" title="const修饰符"></a>const修饰符</h2><p>const使用的一致性</p>
+<h2 id="inline内联函数"><a href="#inline内联函数" class="headerlink" title="inline内联函数"></a>inline内联函数</h2><p>在编译时，内联函数的代码会被直接插入到每个调用内联函数的地方，从而减少函数调用的开销。但是将类的定义和实现混为一谈，违背了OOP的封装原则，因此大多数编译器的内敛函数只能在定义它的源文件中使用。</p>
+<h2 id="static静态成员"><a href="#static静态成员" class="headerlink" title="static静态成员"></a>static静态成员</h2><p>被所有对象共享的变量成为静态变量，一个静态变量只能被初始化一次。<br>静态成员函数，它的定义不能使用任何与被调用对象有关的内容，关键字static只在静态成员函数的声明中出现，定义中不出现。</p>
+<h2 id="向量"><a href="#向量" class="headerlink" title="向量"></a>向量</h2><hr>
+<h1 id="第8章-运算符重载、友元和引用"><a href="#第8章-运算符重载、友元和引用" class="headerlink" title="第8章 运算符重载、友元和引用"></a>第8章 运算符重载、友元和引用</h1><h2 id="运算符重载"><a href="#运算符重载" class="headerlink" title="运算符重载"></a>运算符重载</h2><p>x+7本应表示为+(x,7)，运算符是语法糖。<br>陷阱：重载&amp;&amp; ||等运算符后，原有的短路求值性质消失，改为完全求值。</p>
+<p>运算符重载有普通运算符重载和成员函数重载。作为成员函数重载可以避免使用取值和赋值函数，从而提高效率。但是“构造函数的自动类型转换”概念，使得有时必须用普通运算符重载。baseAccount+25，本质上是先将25转换为Money类，在调用+运算。但是25+baseAccount如果使用成员函数的方式来重载+号，25不是类，Money类的构造函数可以对参数进行自动的类型转换，却不能对调用对象进行类型转换。兼顾普通运算符重载和成员函数重载优点的方法就是使用友元。</p>
+<h2 id="友元"><a href="#友元" class="headerlink" title="友元"></a>友元</h2><p>一个函数可以作为多个类的友元函数。使用友元类时，往往需要提前声明。例如</p>
+<h2 id="运算符重载规则"><a href="#运算符重载规则" class="headerlink" title="运算符重载规则"></a>运算符重载规则</h2><p>只能以成员函数的方式进行重载：= [] -&gt; ()<br>不可以创建新的运算符，只能对已有的运算符进行重载。<br>不可改变运算符的参数个数，例如将一元运算符重载为二元运算符。<br>重载后的运算符运算优先级不变。<br>以下运算符不能被冲在 . :: sizeof ?: .*</p>
+<h2 id="引用和其他重载运算符"><a href="#引用和其他重载运算符" class="headerlink" title="引用和其他重载运算符"></a>引用和其他重载运算符</h2><h3 id="左值右值"><a href="#左值右值" class="headerlink" title="左值右值"></a>左值右值</h3><p>如果希望函数的返回值可以作为左值，那么必须返回一个引用类型。</p>
+<h3 id="重载-gt-gt-和-lt-lt"><a href="#重载-gt-gt-和-lt-lt" class="headerlink" title="重载&gt;&gt;和&lt;&lt;"></a>重载&gt;&gt;和&lt;&lt;</h3><p>friend ostream&amp; operator &lt;&lt;(ostream&amp; outs,const Money&amp; amount);</p>
+<h3 id="如何使用返回值类型"><a href="#如何使用返回值类型" class="headerlink" title="如何使用返回值类型"></a>如何使用返回值类型</h3><p>函数中有四种不同的方式返回一个类型为T的返回值</p>
+<ol>
+<li>返回一般值 T f()</li>
+<li>返回一个常量值， const T f()</li>
+<li>返回一个引用， T&amp; f()</li>
+<li>返回一个常量引用，const T&amp; f()<br>简单类型使用const修饰无意义；<br>返回值作为左值或返回一个引用，必须返回引用类型T&amp; f()；<br>返回一个常量值，使用const T f()</li>
+</ol>
+<h3 id="重载自增、自减运算符"><a href="#重载自增、自减运算符" class="headerlink" title="重载自增、自减运算符"></a>重载自增、自减运算符</h3><p>intPair operator++(); //前置<br>intPair operator++(int);//后置，int参数无意义</p>
+<hr>
+<h1 id="第9章-字符串"><a href="#第9章-字符串" class="headerlink" title="第9章 字符串"></a>第9章 字符串</h1><h2 id="字符串类型数组"><a href="#字符串类型数组" class="headerlink" title="字符串类型数组"></a>字符串类型数组</h2><p>以’\0’作为结尾的数组中的字符串被称为C字符串。空字符串’\0’也占用一个字节。例如char s[10],只能存储长度不超过9的C字符串变量。一个数组所能存储的字符串的长度将始终比数组的容量少1。<br>getline函数可以读取整行，用法cin.getline(String_Var, Max_character+1)</p>
+<h2 id="字符串操作工具"><a href="#字符串操作工具" class="headerlink" title="字符串操作工具"></a>字符串操作工具</h2><h3 id="成员函数get和put，cin-get-nextSymbol-get可以读取任何字符，包括空格或者’-n’。"><a href="#成员函数get和put，cin-get-nextSymbol-get可以读取任何字符，包括空格或者’-n’。" class="headerlink" title="成员函数get和put，cin.get(nextSymbol),get可以读取任何字符，包括空格或者’\n’。"></a>成员函数get和put，cin.get(nextSymbol),get可以读取任何字符，包括空格或者’\n’。</h3><p>陷阱：输入时没有处理’\n’,cin&gt;&gt;读完不会跳过’\n’,接着用cin.get()读入的会是’\n’;</p>
+<h3 id="成员函数"><a href="#成员函数" class="headerlink" title="成员函数"></a>成员函数</h3><p>putback:cin.putback(),将char字符放回输入流<br>peek:cin.peek()，读取流中的第一个字符但是不会取走。<br>ignore:cin.ignore(1000,’\n’),忽略流中所有字符，直到遇到’\n’，参数1000是忽略的最大字符数。注：参数并不一定是1000和’\n’</p>
+<h3 id="中的常用函数"><a href="#中的常用函数" class="headerlink" title="中的常用函数"></a><cctype>中的常用函数</cctype></h3><p>toupper/tolower<br>islower 判断是否是小写字母<br>isalpha 判断是否是字母<br>isdigit 判断是否是0-9之间的数字<br>isalnum 判断是否是字母或者数字<br>isspace 判断表示的字符是否是空白字符（比如空格、换行）<br>ispunct 判断是否是标点符号<br>isprint 判断是否是空白以外可打印的<br>isctrl  判断是否是控制字符</p>
+<h2 id="标准string类"><a href="#标准string类" class="headerlink" title="标准string类"></a>标准string类</h2><p>构造函数默认是空串，可以将C字符串变量初始化为string类，例如string str(“hello”)或者string str(cString)</p>
+<h3 id="输入输出"><a href="#输入输出" class="headerlink" title="输入输出"></a>输入输出</h3><p>getline: getline(cin,line)</p>
+<h3 id="string类和C字符串的转换"><a href="#string类和C字符串的转换" class="headerlink" title="string类和C字符串的转换"></a>string类和C字符串的转换</h3><p>string不能直接转换为C字符串变量，可以显示的调用.c_str()成员函数。</p>
+<hr>
+<h1 id="第10章-指针和动态数组"><a href="#第10章-指针和动态数组" class="headerlink" title="第10章 指针和动态数组"></a>第10章 指针和动态数组</h1><h2 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h2><p>指针本质上是变量的内存的地址<br>new运算符可以生成一个没有使用标识符命名的变量。new操作时，如果没有足够的内存，在早期编译器中会返回null，在现代编译器中会中断。new运算符创建动态变量时，构造函数会自动调用。<br>悬空指针（dangling pointer），当对指针delete后，指针所指向的动态变量会被销毁，不过指针变量的值将会指向一个不确定的随机值，程序员应该跟踪悬空指针，并将其赋值为null<br>typedef int<em> intPter，不易出错，否则容易漏掉</em></p>
+<h2 id="动态数组"><a href="#动态数组" class="headerlink" title="动态数组"></a>动态数组</h2><p>数组变量实际上是一个指针，不能更改数组变量代表的指针变量的值，因为数组变量的类型不是<code>int*</code>而是<code>const int*</code>.<br>创建动态数组： <code>double* d = new double [10];</code> 动态数组的大小不一定是一个常量，他可以是一个变量。销毁动态数组<code>delete [] a;   delete a;</code>无法删除整个数组。<br>不可返回一个数组类型，但是可以返回指向数组的指针。<br>指针运算：加法是以一个该类型变量所占的字节长度为单元移动单位的。只有加减法，没有乘除法。指针减法的两个指针必须属于同一个数组，否则没意义。<br>多维动态数组：<code>typedef int* intArrayPtr; intArrayPtr *m = new IntArrayPtr[3]; for(int i=0; i&lt;3; ++i) m[i] = new int[4];</code></p>
+<h2 id="类、指针和动态数组"><a href="#类、指针和动态数组" class="headerlink" title="类、指针和动态数组"></a>类、指针和动态数组</h2><p>箭头运算符-&gt;,它结合了解引用运算符<em>和点运算符的功能. <code>p-&gt;grade</code>和`(</em>p).grade`完全一样。<br>重载赋值运算符时，需要用this指针特判运算符左右两边是否是同一个对象，否则delete []会出错。<br>浅拷贝、深拷贝、析构函数。使用默认构造函数时，如果在析构函数中delete []，调用函数会导致内存错误。<br>三大条原则：拷贝构造函数、赋值运算符及析构函数可以被称作三大条。专家们说如果类的定义中需要三者中的任何一个。</p>
+<hr>
+<h1 id="第11章-分散编译和命名空间"><a href="#第11章-分散编译和命名空间" class="headerlink" title="第11章 分散编译和命名空间"></a>第11章 分散编译和命名空间</h1><h2 id="分散编译"><a href="#分散编译" class="headerlink" title="分散编译"></a>分散编译</h2><p>C++允许一个程序分成不同的部分被写在不同的源文件中。每次编译时，为更改的文件甚至无需重新编译。</p>
+<h3 id="封装原则"><a href="#封装原则" class="headerlink" title="封装原则"></a>封装原则</h3><p>类的说明部分与实现部分分离。<br>接口实现：</p>
+<ol>
+<li>所有的成员变量设为私有成员</li>
+<li>所有与该类相关的基本操作都定义为该类的共有成员函数、友元函数、普通函数或者运算符重载</li>
+<li>让使用这个类的程序员不能获得这些基本操作的实现的细节</li>
+</ol>
+<h3 id="头文件和实现文件"><a href="#头文件和实现文件" class="headerlink" title="头文件和实现文件"></a>头文件和实现文件</h3><p>inlcude指令必须表明使用头文件是系统的库提供的还是自己编写的，系统是&lt;&gt;，自己写的是“”<br>程序所在的文件（即包含main函数的文件）通常被成为应用程序文件或者驱动文件<br>接口文件是不需要直接编译的(.h)</p>
+<h3 id="连接、连接器"><a href="#连接、连接器" class="headerlink" title="连接、连接器"></a>连接、连接器</h3><p>类的实现文件和应用文件编译完成后，还需要将两个文件连接在一起才能使它们正常工作，我们称这个步骤叫做“连接”。在UNIX系统中，通过make工具来完成这些工作。</p>
+<h3 id="为什么要使用分开的文件"><a href="#为什么要使用分开的文件" class="headerlink" title="为什么要使用分开的文件"></a>为什么要使用分开的文件</h3><ol>
+<li>接口文件独立于应用程序文件，使得其他应用程序中方便的使用该类</li>
+<li>实现文件只需被编译一次</li>
+<li>类有改动时，不必修改使用了这个类的应用程序文件</li>
+</ol>
+<h3 id="使用-ifndef"><a href="#使用-ifndef" class="headerlink" title="使用#ifndef"></a>使用#ifndef</h3><p>避免类的重复定义<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> DTIME_H</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DTIME_H</span></span><br><span class="line">&lt;某个类的定义&gt;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure></p>
+<h2 id="命名空间"><a href="#命名空间" class="headerlink" title="命名空间"></a>命名空间</h2><p>命名空间是一个名称定义的集合。我们编写的任何代码都将属于某个命名空间。如果没有显式地将代码放在任何指定的命名空间，那么代码将处于全局命名空间。</p>
+<h3 id="using指令的作用域"><a href="#using指令的作用域" class="headerlink" title="using指令的作用域"></a>using指令的作用域</h3><p>是从using指令出现的位置到语句块结束，如果出现在所有语句块之外，那么该指令将作用域其后的整个文件代码</p>
+<h3 id="创建命名空间"><a href="#创建命名空间" class="headerlink" title="创建命名空间"></a>创建命名空间</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> Name_Space_Name</span><br><span class="line">&#123;</span><br><span class="line">	Some_Code</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">using</span> namespcae Name_Space_Name;</span><br></pre></td></tr></table></figure>
+<p>一个好的方法是将姓氏或者某个唯一的字符串放在我们定义的命名空间中。</p>
+<h3 id="无名称的命名空间"><a href="#无名称的命名空间" class="headerlink" title="无名称的命名空间"></a>无名称的命名空间</h3><p>编码单元可以是文件，比如类的实现文件。可以使用无名称命名空间将某个名称的定义局限在某个编码单元中。不要混淆全局命名空间和无名称命名空间。在旧版本的C++中，常常使用修饰符static来将一个名称的定义限制在单个文件之内。但这种使用static的用法已经逐渐被淘汰。<br>隐藏帮助函数的方法：</p>
+<ol>
+<li>将帮助函数声明为类的私有成员函数，如果改帮助函数包含对对象的操作，将其设为私有成员函数</li>
+<li>将帮助函数放在类实现文件的无名称命名空间中。无需操作对象，放在无名称命名空间中可以避免函数名称修饰符的过多使用</li>
+</ol>
+<h3 id="应该如何指明使用的命名空间"><a href="#应该如何指明使用的命名空间" class="headerlink" title="应该如何指明使用的命名空间"></a>应该如何指明使用的命名空间</h3><ol>
+<li>using namespace theSpace; //获取命名空间的所有值</li>
+<li>using theSpace::f</li>
+<li>在所有使用f的地方用theSpace::f代替</li>
+</ol>
+<hr>
+<h1 id="第12章-流和文件I-O操作"><a href="#第12章-流和文件I-O操作" class="headerlink" title="第12章 流和文件I/O操作"></a>第12章 流和文件I/O操作</h1><p>程序的输入和输出都是由叫作流的特殊对象实现的。</p>
+<h2 id="I-O流"><a href="#I-O流" class="headerlink" title="I/O流"></a>I/O流</h2><p>流就是字符或者其他格式的数据的流动，数据流动方向是进入你的程序，那么叫作输入流，反之流动的方向是由程序向外，那么叫作输出流。</p>
+<h3 id=""><a href="#" class="headerlink" title=""></a><fstream></fstream></h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;fstream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="built_in">std</span>::ifstream;</span><br><span class="line"><span class="keyword">using</span> <span class="built_in">std</span>::ofstream;</span><br><span class="line">ifstream inStream;</span><br><span class="line">ofstream outStream;</span><br><span class="line">inStream.open(<span class="string">"infile.txt"</span>);</span><br></pre></td></tr></table></figure>
+<p>当程序的输入或者输出结束后，必须关闭打开过的文件，关闭文件将断开流对象与文件的关联。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># include&lt;fstream&gt;</span><br><span class="line">inStream.close();</span><br><span class="line">outStream.close();</span><br></pre></td></tr></table></figure></p>
+<p>如果程序结束前没有关闭打开的文件，操作系统将会为你自动关闭打开的文件。但是程序员应养成手动关闭的习惯：</p>
+<ol>
+<li>操作系统只会在程序正常退出的情况下才会自动关闭文件</li>
+<li>在写入文件关闭前，读取该文件。</li>
+</ol>
+<p>输出流的成员函数flush()，处于效率考虑，文件的写入过程都使用了缓存，flush可以刷新输出流，将缓存中的数据真正写到磁盘上的文件中。<code>OutStream.fulsh()</code><br>陷阱：流变量的使用限制，不能使用赋值表达式，流对象做参数时，该参数必须是一个引用参数，而不是一个传值参数。</p>
+<h3 id="向文件追加输出内容"><a href="#向文件追加输出内容" class="headerlink" title="向文件追加输出内容"></a>向文件追加输出内容</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ofstream outStream;</span><br><span class="line">outStream.open(<span class="string">"importan.txt"</span>,ios:app);</span><br></pre></td></tr></table></figure>
+<h3 id="检查一个文件是否已经被成功打开"><a href="#检查一个文件是否已经被成功打开" class="headerlink" title="检查一个文件是否已经被成功打开"></a>检查一个文件是否已经被成功打开</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;fstream&gt;</span></span></span><br><span class="line">inStream.open(<span class="string">"infile.txt"</span>);</span><br><span class="line"><span class="keyword">if</span>(inStream.fail())&#123;</span><br><span class="line">	<span class="comment">//...</span></span><br><span class="line">	<span class="built_in">exit</span>(<span class="number">1</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="I-O流工具"><a href="#I-O流工具" class="headerlink" title="I/O流工具"></a>I/O流工具</h2><p>格式化ostream的输出格式工具</p>
+<ol>
+<li>setf(ios_Flag)</li>
+<li>unsetf(ios_Flag)</li>
+<li>setf(0,ios::floatfield)</li>
+<li>precision(int)</li>
+<li>precision()</li>
+<li>width(int)</li>
+<li>fill(char)</li>
+</ol>
+<p>flags()可以保存格式设置</p>
+<h2 id="流的继承层次：继承概述"><a href="#流的继承层次：继承概述" class="headerlink" title="流的继承层次：继承概述"></a>流的继承层次：继承概述</h2><p>类ifstream是从类istream中派生而来的。</p>
+<h2 id="随机文件读取"><a href="#随机文件读取" class="headerlink" title="随机文件读取"></a>随机文件读取</h2><p>seekp()成员函数</p>
+<hr>
+<h1 id="第13章-递归"><a href="#第13章-递归" class="headerlink" title="第13章 递归"></a>第13章 递归</h1><p>在一个函数体内包含对它自身的调用就叫作递归。如果执行过程中遇到一个递归调用，那么函数的执行过程将在此处挂起，因为函数必须要得到递归调用的结果才能继续向下执行。</p>
+<h2 id="活动帧"><a href="#活动帧" class="headerlink" title="活动帧"></a>活动帧</h2><p>这些内存保存了一个函数定义体的引用，一个活动帧包含了足够支持计算机运行的信息。</p>
+<h2 id="尾递归"><a href="#尾递归" class="headerlink" title="尾递归"></a>尾递归</h2><p>大部分编译器会自动将简单地递归函数转换成为等价的迭代版本。使用了尾递归的函数在递归调用发生之后不会在进行进一步的计算。</p>
+<p>递归的好处是程序员可以忽略程序运行的细节而让计算机来管理这些细节。但是在相同的计算机系统中，迭代版本的程序运行效率要比递归实现的程序效率高。</p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/swift/" rel="tag">#swift</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/02/23/Best-Time-to-Buy-and-Sell-Stock/" rel="prev">leetcode-Best Time to Buy and Sell Stock 系列</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/01/17/2015-winter-vacation/" rel="next">2015年寒假西南游</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="2015/02/19/Absolute-C++-reading-notes/"
+                   data-title="完美C++(第五版)读书笔记" data-url="http://yoursite.com/2015/02/19/Absolute-C++-reading-notes/">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="http://7tsysl.com1.z0.glb.clouddn.com/head show.JPG" alt="Hui Chen" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">Hui Chen</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description"></p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">34</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">分类</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            
+              <span class="site-state-item-count">26</span>
+              <span class="site-state-item-name">标签</span>
+              
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ch0588" target="_blank">github</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/ch0588" target="_blank">weibo</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/ch0588" target="_blank">zhihu</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第1章-C-基础"><span class="nav-number">1.</span> <span class="nav-text">第1章 C++基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#变量、表达式及赋值语句"><span class="nav-number">1.1.</span> <span class="nav-text">变量、表达式及赋值语句</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类型转换"><span class="nav-number">1.1.1.</span> <span class="nav-text">类型转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自增自减的求值顺序（trick）"><span class="nav-number">1.1.2.</span> <span class="nav-text">自增自减的求值顺序（trick）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cout、cerr"><span class="nav-number">1.2.</span> <span class="nav-text">cout、cerr</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第2章-流程控制"><span class="nav-number">2.</span> <span class="nav-text">第2章 流程控制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#文件输入简介"><span class="nav-number">2.1.</span> <span class="nav-text">文件输入简介</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第3章-函数基础"><span class="nav-number">3.</span> <span class="nav-text">第3章 函数基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#函数设计"><span class="nav-number">3.1.</span> <span class="nav-text">函数设计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作用域规则"><span class="nav-number">3.2.</span> <span class="nav-text">作用域规则</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第4章-函数与重载"><span class="nav-number">4.</span> <span class="nav-text">第4章 函数与重载</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#参数"><span class="nav-number">4.1.</span> <span class="nav-text">参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重载与默认实参"><span class="nav-number">4.2.</span> <span class="nav-text">重载与默认实参</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#重载解析的规则"><span class="nav-number">4.2.1.</span> <span class="nav-text">重载解析的规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#默认参数"><span class="nav-number">4.2.2.</span> <span class="nav-text">默认参数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数的测试和调试"><span class="nav-number">4.3.</span> <span class="nav-text">函数的测试和调试</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第5章-数组"><span class="nav-number">5.</span> <span class="nav-text">第5章 数组</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第6章-结构体和类"><span class="nav-number">6.</span> <span class="nav-text">第6章 结构体和类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#结构体的初始化"><span class="nav-number">6.1.</span> <span class="nav-text">结构体的初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作用域运算符"><span class="nav-number">6.2.</span> <span class="nav-text">作用域运算符::</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#封装"><span class="nav-number">6.3.</span> <span class="nav-text">封装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Set-amp-get"><span class="nav-number">6.4.</span> <span class="nav-text">Set & get</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#接口和实现分离"><span class="nav-number">6.5.</span> <span class="nav-text">接口和实现分离</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结构体与类的区别"><span class="nav-number">6.6.</span> <span class="nav-text">结构体与类的区别</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第7章-构造函数及其他工具"><span class="nav-number">7.</span> <span class="nav-text">第7章 构造函数及其他工具</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#构造函数"><span class="nav-number">7.1.</span> <span class="nav-text">构造函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化列表"><span class="nav-number">7.1.1.</span> <span class="nav-text">初始化列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#无参构造函数"><span class="nav-number">7.1.2.</span> <span class="nav-text">无参构造函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#默认构造函数"><span class="nav-number">7.1.3.</span> <span class="nav-text">默认构造函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#const修饰符"><span class="nav-number">7.2.</span> <span class="nav-text">const修饰符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#inline内联函数"><span class="nav-number">7.3.</span> <span class="nav-text">inline内联函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#static静态成员"><span class="nav-number">7.4.</span> <span class="nav-text">static静态成员</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#向量"><span class="nav-number">7.5.</span> <span class="nav-text">向量</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第8章-运算符重载、友元和引用"><span class="nav-number">8.</span> <span class="nav-text">第8章 运算符重载、友元和引用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#运算符重载"><span class="nav-number">8.1.</span> <span class="nav-text">运算符重载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#友元"><span class="nav-number">8.2.</span> <span class="nav-text">友元</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运算符重载规则"><span class="nav-number">8.3.</span> <span class="nav-text">运算符重载规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引用和其他重载运算符"><span class="nav-number">8.4.</span> <span class="nav-text">引用和其他重载运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#左值右值"><span class="nav-number">8.4.1.</span> <span class="nav-text">左值右值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重载-gt-gt-和-lt-lt"><span class="nav-number">8.4.2.</span> <span class="nav-text">重载>>和<<</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何使用返回值类型"><span class="nav-number">8.4.3.</span> <span class="nav-text">如何使用返回值类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重载自增、自减运算符"><span class="nav-number">8.4.4.</span> <span class="nav-text">重载自增、自减运算符</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第9章-字符串"><span class="nav-number">9.</span> <span class="nav-text">第9章 字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串类型数组"><span class="nav-number">9.1.</span> <span class="nav-text">字符串类型数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串操作工具"><span class="nav-number">9.2.</span> <span class="nav-text">字符串操作工具</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#成员函数get和put，cin-get-nextSymbol-get可以读取任何字符，包括空格或者’-n’。"><span class="nav-number">9.2.1.</span> <span class="nav-text">成员函数get和put，cin.get(nextSymbol),get可以读取任何字符，包括空格或者’\n’。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#成员函数"><span class="nav-number">9.2.2.</span> <span class="nav-text">成员函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#中的常用函数"><span class="nav-number">9.2.3.</span> <span class="nav-text">中的常用函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标准string类"><span class="nav-number">9.3.</span> <span class="nav-text">标准string类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输入输出"><span class="nav-number">9.3.1.</span> <span class="nav-text">输入输出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#string类和C字符串的转换"><span class="nav-number">9.3.2.</span> <span class="nav-text">string类和C字符串的转换</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第10章-指针和动态数组"><span class="nav-number">10.</span> <span class="nav-text">第10章 指针和动态数组</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#指针"><span class="nav-number">10.1.</span> <span class="nav-text">指针</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动态数组"><span class="nav-number">10.2.</span> <span class="nav-text">动态数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类、指针和动态数组"><span class="nav-number">10.3.</span> <span class="nav-text">类、指针和动态数组</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第11章-分散编译和命名空间"><span class="nav-number">11.</span> <span class="nav-text">第11章 分散编译和命名空间</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#分散编译"><span class="nav-number">11.1.</span> <span class="nav-text">分散编译</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#封装原则"><span class="nav-number">11.1.1.</span> <span class="nav-text">封装原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#头文件和实现文件"><span class="nav-number">11.1.2.</span> <span class="nav-text">头文件和实现文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#连接、连接器"><span class="nav-number">11.1.3.</span> <span class="nav-text">连接、连接器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么要使用分开的文件"><span class="nav-number">11.1.4.</span> <span class="nav-text">为什么要使用分开的文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-ifndef"><span class="nav-number">11.1.5.</span> <span class="nav-text">使用#ifndef</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命名空间"><span class="nav-number">11.2.</span> <span class="nav-text">命名空间</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#using指令的作用域"><span class="nav-number">11.2.1.</span> <span class="nav-text">using指令的作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建命名空间"><span class="nav-number">11.2.2.</span> <span class="nav-text">创建命名空间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#无名称的命名空间"><span class="nav-number">11.2.3.</span> <span class="nav-text">无名称的命名空间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应该如何指明使用的命名空间"><span class="nav-number">11.2.4.</span> <span class="nav-text">应该如何指明使用的命名空间</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第12章-流和文件I-O操作"><span class="nav-number">12.</span> <span class="nav-text">第12章 流和文件I/O操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#I-O流"><span class="nav-number">12.1.</span> <span class="nav-text">I/O流</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#"><span class="nav-number">12.1.1.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#向文件追加输出内容"><span class="nav-number">12.1.2.</span> <span class="nav-text">向文件追加输出内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#检查一个文件是否已经被成功打开"><span class="nav-number">12.1.3.</span> <span class="nav-text">检查一个文件是否已经被成功打开</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#I-O流工具"><span class="nav-number">12.2.</span> <span class="nav-text">I/O流工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#流的继承层次：继承概述"><span class="nav-number">12.3.</span> <span class="nav-text">流的继承层次：继承概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#随机文件读取"><span class="nav-number">12.4.</span> <span class="nav-text">随机文件读取</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第13章-递归"><span class="nav-number">13.</span> <span class="nav-text">第13章 递归</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#活动帧"><span class="nav-number">13.1.</span> <span class="nav-text">活动帧</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#尾递归"><span class="nav-number">13.2.</span> <span class="nav-text">尾递归</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hui Chen</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"devhui"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.3"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.3"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.3" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.3"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.3" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>

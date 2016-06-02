@@ -1,0 +1,686 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.3"/>
+
+
+
+
+  <meta name="keywords" content="Hexo,next" />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.3" />
+
+
+<meta name="description" content="lecture 1. Logistics, iOS 8 Overview">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Developing iOS 8 Apps with Swift 学习笔记1">
+<meta property="og:url" content="http://yoursite.com/2015/10/29/Developing-iOS-8-Apps-with-Swift-class-1/index.html">
+<meta property="og:site_name" content="陈辉的技术博客">
+<meta property="og:description" content="lecture 1. Logistics, iOS 8 Overview">
+<meta property="og:image" content="http://yoursite.com/images/Developing iOS 8 Apps with Swift/cs193p.jpg">
+<meta property="og:updated_time" content="2016-05-26T14:20:27.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Developing iOS 8 Apps with Swift 学习笔记1">
+<meta name="twitter:description" content="lecture 1. Logistics, iOS 8 Overview">
+<meta name="twitter:image" content="http://yoursite.com/images/Developing iOS 8 Apps with Swift/cs193p.jpg">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> Developing iOS 8 Apps with Swift 学习笔记1 | 陈辉的技术博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">陈辉的技术博客</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            <i class="menu-item-icon icon-next-about"></i> <br />
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              Developing iOS 8 Apps with Swift 学习笔记1
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-10-29T23:14:24+08:00" content="Oct 29 2015">
+            Oct 29 2015
+          </time>
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/10/29/Developing-iOS-8-Apps-with-Swift-class-1/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/29/Developing-iOS-8-Apps-with-Swift-class-1/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p>lecture 1. Logistics, iOS 8 Overview<br><img src="/images/Developing iOS 8 Apps with Swift/cs193p.jpg" alt="mvc"><br>  <a id="more"></a></p>
+<h2 id="what’s-in-iOS"><a href="#what’s-in-iOS" class="headerlink" title="what’s in iOS"></a>what’s in iOS</h2><h3 id="Cocoa-Touch"><a href="#Cocoa-Touch" class="headerlink" title="Cocoa Touch"></a>Cocoa Touch</h3><p>  Multi-Touch    </p>
+<p>  Alerts</p>
+<p>  Core Motion   </p>
+<p>  Web View</p>
+<p>  View Hierarchy  </p>
+<p>  Map Kit</p>
+<p>  Localization   </p>
+<p>  Image Picker</p>
+<p>  Controls       </p>
+<p>  Camera</p>
+<h3 id="Media"><a href="#Media" class="headerlink" title="Media"></a>Media</h3><p>  Core Audio      </p>
+<p>  JPEG, PNG, TIFF</p>
+<p>  OpenAL          </p>
+<p>  PDF</p>
+<p>  Audio Mixing   </p>
+<p>  Quartz (2D)</p>
+<p>  Audio Recording</p>
+<p>  Core Animation</p>
+<p>  Video Playback </p>
+<p>  OpenGL ES</p>
+<h3 id="Core-Services"><a href="#Core-Services" class="headerlink" title="Core Services"></a>Core Services</h3><p>  Collections    </p>
+<p>  Core Location</p>
+<p>  Address Book   </p>
+<p>  Net Services </p>
+<p>  Networking    </p>
+<p>  Threading</p>
+<p>  File Access    </p>
+<p>  Preferences</p>
+<p>  SQLite       </p>
+<p>  URL Utilities</p>
+<h3 id="Core-OS"><a href="#Core-OS" class="headerlink" title="Core OS"></a>Core OS</h3><p>  OSX Kernel    </p>
+<p>  Power Management</p>
+<p>  Mach 3.0      </p>
+<p>  Keychain Access</p>
+<p>  BSD          </p>
+<p>  Certificates</p>
+<p>  Sockets       </p>
+<p>  File System</p>
+<p>  Security     </p>
+<p>  Bonjour</p>
+<h2 id="Platform-Components"><a href="#Platform-Components" class="headerlink" title="Platform Components"></a>Platform Components</h2><h3 id="Tools"><a href="#Tools" class="headerlink" title="Tools"></a>Tools</h3><p> Xcode 7.1       </p>
+<p> Instr uments</p>
+<h3 id="Language-s"><a href="#Language-s" class="headerlink" title="Language(s)"></a>Language(s)</h3><p>  let value = formatter.numberFromString(display.text!)?.doubleValue</p>
+<h3 id="Frameworks"><a href="#Frameworks" class="headerlink" title="Frameworks"></a>Frameworks</h3><p>   Foundation   </p>
+<p>   Core Data   </p>
+<p>   UIKit   </p>
+<p>   Map Kit   </p>
+<p>   Core Motion</p>
+<h3 id="Design-Strategy"><a href="#Design-Strategy" class="headerlink" title="Design Strategy"></a>Design Strategy</h3><p>   MVC</p>
+<h2 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h2><h3 id="Calculator"><a href="#Calculator" class="headerlink" title="Calculator"></a>Calculator</h3><p>All this stuff can be very abstract until you see it in action.</p>
+<p>We’ll start getting comfortable with Swift and Xcode 6 by building something right away.</p>
+<p>Two part demo starting today, finishing on Wednesday.</p>
+<h3 id="Today’s-topics-in-the-demo-…"><a href="#Today’s-topics-in-the-demo-…" class="headerlink" title="Today’s topics in the demo …"></a>Today’s topics in the demo …</h3><ul>
+<li>Creating a Project in Xcode 6</li>
+<li>Building a UI (and making it squishable/stretchable using Autolayout)</li>
+<li>The iOS Simulator</li>
+<li>println (and conversion to a String using () notation)</li>
+<li>Defining a class in Swift, including how to specify instance variables and methods</li>
+<li>Connecting properties (instance variables) from our Swift code to the UI (outlets)</li>
+<li>Connecting UI elements to invoke methods in our Swift code (actions)</li>
+<li>Accessing iOS documentation from our code</li>
+<li>Optionals (?, unwrapping implicitly by declaring with !, and unwrapping explicitly with ! and if let)</li>
+</ul>
+<h2 id="swift"><a href="#swift" class="headerlink" title="swift"></a>swift</h2><p>swift是强类型语言，但是有类型推导。swift中有optional类型，于对optional只能有两个值，一个是nil，一个是非nil。<br>swift支持闭包运算，一个有趣而又简单的应用是在写计算器程序时，会根据不同操作符进行运算。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span> operation&#123;</span><br><span class="line"><span class="keyword">case</span> <span class="string">"+"</span>:</span><br><span class="line">    <span class="keyword">if</span> operandStack.<span class="built_in">count</span> &gt;= <span class="number">2</span>&#123;</span><br><span class="line">        displayValue = operandStack.removeLast() + operandStack.removeLast()</span><br><span class="line">        enter()</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">case</span> <span class="string">"-"</span>:</span><br><span class="line">    <span class="keyword">if</span> operandStack.<span class="built_in">count</span> &gt;= <span class="number">2</span>&#123;</span><br><span class="line">        displayValue = operandStack.removeLast() - operandStack.removeLast()</span><br><span class="line">        enter()</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">case</span> <span class="string">"*"</span>:</span><br><span class="line">    <span class="keyword">if</span> operandStack.<span class="built_in">count</span> &gt;= <span class="number">2</span>&#123;</span><br><span class="line">        displayValue = operandStack.removeLast() * operandStack.removeLast()</span><br><span class="line">        enter()</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">case</span> <span class="string">"/"</span>:</span><br><span class="line">    <span class="keyword">if</span> operandStack.<span class="built_in">count</span> &gt;= <span class="number">2</span>&#123;</span><br><span class="line">        displayValue = operandStack.removeLast() / operandStack.removeLast()</span><br><span class="line">        enter()</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">default</span> :<span class="keyword">break</span></span><br></pre></td></tr></table></figure></p>
+<p>这是一段糟糕的代码，里面有大量重复的内容，不易于阅读和维护。我们发现四个case分支中几乎都在做同一件事。我们可以定义performOperation函数，这个函数传入的变量是另一个函数，如此可以提高代码可读性。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span> operation&#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">"+"</span>: performOperation(plus)</span><br><span class="line">        <span class="keyword">case</span> <span class="string">"-"</span>: performOperation(minus)</span><br><span class="line">        <span class="keyword">case</span> <span class="string">"*"</span>: performOperation(multiply)</span><br><span class="line">        <span class="keyword">case</span> <span class="string">"/"</span>: performOperation(divide)</span><br><span class="line">        <span class="keyword">default</span> :<span class="keyword">break</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="function"><span class="keyword">func</span> <span class="title">performOperation</span><span class="params">(operation:<span class="params">(Double, Double)</span></span></span> -&gt;<span class="type">Double</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span> operandStack.<span class="built_in">count</span> &gt;= <span class="number">2</span>&#123;</span><br><span class="line">                displayValue = operation(operandStack.removeLast(),operandStack.removeLast())</span><br><span class="line">                enter()</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">func</span> <span class="title">plus</span><span class="params">(op1: Double, op2: Double)</span></span> -&gt;<span class="type">Double</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> op1 + op2</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></p>
+<p>上面只列出了plus函数，如果将其余三个函数都写上，似乎代码变得更长了，岂不是越优化越糟糕？这时就需要使用swift中的闭包运算（closure）。<br>可以将<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="string">"+"</span>: performOperation(plus)</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">plus</span><span class="params">(op1: Double, op2: Double)</span></span> -&gt;<span class="type">Double</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> op1 + op2</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></p>
+<p>变成</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">case</span> “＋”: performOperation(&#123;(op1:<span class="type">Double</span>, op2:<span class="type">Double</span>) -&gt;<span class="type">Double</span> <span class="keyword">in</span> <span class="keyword">return</span> op1 + op2&#125;)</span><br><span class="line">```由于swift有强大的类型推导功能(type inference),我们在performOperation函数中已经定义了传入的参数是(<span class="type">Double</span>,<span class="type">Double</span>)，因此在闭包中可以不指明op1、op2的类型，可以简写为如下形式</span><br><span class="line"></span><br><span class="line">```swift</span><br><span class="line"><span class="keyword">case</span> <span class="string">"+"</span>: performOperation(&#123;(op1,op2) <span class="keyword">in</span> <span class="keyword">return</span> op1 + op2&#125;)</span><br></pre></td></tr></table></figure>
+<p>同理performOperation指明了返回值是Double，因此闭包中可以省略return关键字</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">case</span> “＋”：performOperation(&#123;(op1,op2) <span class="keyword">in</span> op1 + op2&#125;)</span><br></pre></td></tr></table></figure>
+<p>swift中并不是必须给参数命名，默认用$0、$1代表各个参数，因此以上语句又可以简写成</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="string">"+"</span>: performOperation(&#123;$<span class="number">0</span> + $<span class="number">1</span>&#125;)</span><br></pre></td></tr></table></figure>
+<p>swfit还有一个特性是，最后一个参数可以将它拿出来写， performOperation函数只有一个参数，因此这个参数必然是最后一个参数，将它移至外边改写成</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="string">"+"</span>: performOperation()&#123;$<span class="number">0</span> + $<span class="number">1</span>&#125;</span><br></pre></td></tr></table></figure>
+<p>最后完整的代码如下<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ViewController</span>: <span class="title">UIViewController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@IBOutlet</span> <span class="keyword">weak</span> <span class="keyword">var</span> display: <span class="type">UILabel</span>!</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> userInTheMiddleOfTypingNumber: <span class="type">Bool</span> = <span class="literal">false</span></span><br><span class="line">    </span><br><span class="line">    <span class="meta">@IBAction</span> <span class="function"><span class="keyword">func</span> <span class="title">operation</span><span class="params">(sender: UIButton)</span></span> &#123;</span><br><span class="line">        <span class="keyword">let</span> digit = sender.currentTitle!</span><br><span class="line">        <span class="keyword">if</span> userInTheMiddleOfTypingNumber &#123;</span><br><span class="line">        display.text = display.text! + digit</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            display.text = digit</span><br><span class="line">            userInTheMiddleOfTypingNumber = <span class="literal">true</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> operandStack: <span class="type">Array</span>&lt;<span class="type">Double</span>&gt; = <span class="type">Array</span>&lt;<span class="type">Double</span>&gt;()</span><br><span class="line"> </span><br><span class="line">    </span><br><span class="line">    <span class="meta">@IBAction</span> <span class="function"><span class="keyword">func</span> <span class="title">enter</span><span class="params">()</span></span> &#123;</span><br><span class="line">        userInTheMiddleOfTypingNumber = <span class="literal">false</span></span><br><span class="line">        operandStack.append(displayValue)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"operandStack<span class="subst">\(operandStack)</span>"</span>)</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> displayValue: <span class="type">Double</span> &#123;</span><br><span class="line">        <span class="keyword">get</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="type">NSNumberFormatter</span>().numberFromString(display.text!)!.doubleValue</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">set</span>&#123;</span><br><span class="line">            display.text = <span class="string">"<span class="subst">\(newValue)</span>"</span></span><br><span class="line">            userInTheMiddleOfTypingNumber = <span class="literal">false</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="meta">@IBAction</span> <span class="function"><span class="keyword">func</span> <span class="title">operateDigit</span><span class="params">(sender: UIButton)</span></span> &#123;</span><br><span class="line">        <span class="keyword">let</span> operate = sender.currentTitle!</span><br><span class="line">        <span class="keyword">if</span> userInTheMiddleOfTypingNumber&#123;</span><br><span class="line">            enter()</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">switch</span> operate&#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">"×"</span>: performOperation&#123; $<span class="number">0</span> * $<span class="number">1</span> &#125;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">"−"</span>: performOperation&#123; $<span class="number">1</span> - $<span class="number">0</span> &#125;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">"+"</span>: performOperation&#123; $<span class="number">0</span> + $<span class="number">1</span> &#125;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">"÷"</span>: performOperation&#123; $<span class="number">1</span> / $<span class="number">0</span> &#125;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">"√"</span>: performOperation1&#123; sqrt($<span class="number">0</span>) &#125;</span><br><span class="line">        <span class="keyword">default</span>: <span class="keyword">break</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">performOperation</span><span class="params">(operate:<span class="params">(Double, Double)</span></span></span> -&gt; <span class="type">Double</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span> operandStack.<span class="built_in">count</span> &gt;= <span class="number">2</span>&#123;</span><br><span class="line">            displayValue = operate(operandStack.removeLast(), operandStack.removeLast() )</span><br><span class="line">            enter()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">performOperation1</span><span class="params">(operate: Double -&gt; Double)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> operandStack.<span class="built_in">count</span> &gt;= <span class="number">1</span>&#123;</span><br><span class="line">            displayValue = operate(operandStack.removeLast() )</span><br><span class="line">            enter()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>另外值得一提的是，变量var displayValue手动设置get、set之后方便的将它与display.text UI绑定。swift中变量用var定义，常量用let定义。</p>
+<h2 id="Auto-Layout"><a href="#Auto-Layout" class="headerlink" title="Auto Layout"></a>Auto Layout</h2><p>本课还简要介绍了auto layout，之前的iOS开发大多采用绝对布局。随着近年来iOS设备尺寸的多样化，为了适配不同分辨率屏幕，苹果公司推出了这项技术,auto layout的核心是constraint。</p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/10/30/Developing-iOS-8-Apps-with-Swift-class-2/" rel="prev">Developing iOS 8 Apps with Swift 学习笔记2</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/10/06/Beauty-of-Programming-chapter-3/" rel="next">《编程之美读书笔记——第三章结构之法》</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="2015/10/29/Developing-iOS-8-Apps-with-Swift-class-1/"
+                   data-title="Developing iOS 8 Apps with Swift 学习笔记1" data-url="http://yoursite.com/2015/10/29/Developing-iOS-8-Apps-with-Swift-class-1/">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="http://7tsysl.com1.z0.glb.clouddn.com/head show.JPG" alt="Hui Chen" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">Hui Chen</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description"></p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">34</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">分类</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            
+              <span class="site-state-item-count">26</span>
+              <span class="site-state-item-name">标签</span>
+              
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ch0588" target="_blank">github</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/ch0588" target="_blank">weibo</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/ch0588" target="_blank">zhihu</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#what’s-in-iOS"><span class="nav-number">1.</span> <span class="nav-text">what’s in iOS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Cocoa-Touch"><span class="nav-number">1.1.</span> <span class="nav-text">Cocoa Touch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Media"><span class="nav-number">1.2.</span> <span class="nav-text">Media</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Core-Services"><span class="nav-number">1.3.</span> <span class="nav-text">Core Services</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Core-OS"><span class="nav-number">1.4.</span> <span class="nav-text">Core OS</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Platform-Components"><span class="nav-number">2.</span> <span class="nav-text">Platform Components</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Tools"><span class="nav-number">2.1.</span> <span class="nav-text">Tools</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Language-s"><span class="nav-number">2.2.</span> <span class="nav-text">Language(s)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Frameworks"><span class="nav-number">2.3.</span> <span class="nav-text">Frameworks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Design-Strategy"><span class="nav-number">2.4.</span> <span class="nav-text">Design Strategy</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Demo"><span class="nav-number">3.</span> <span class="nav-text">Demo</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Calculator"><span class="nav-number">3.1.</span> <span class="nav-text">Calculator</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Today’s-topics-in-the-demo-…"><span class="nav-number">3.2.</span> <span class="nav-text">Today’s topics in the demo …</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#swift"><span class="nav-number">4.</span> <span class="nav-text">swift</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Auto-Layout"><span class="nav-number">5.</span> <span class="nav-text">Auto Layout</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hui Chen</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"devhui"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.3"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.3"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.3" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.3"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.3" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>

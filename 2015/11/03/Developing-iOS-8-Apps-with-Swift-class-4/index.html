@@ -1,0 +1,878 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.3"/>
+
+
+
+
+  <meta name="keywords" content="Hexo,next" />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.3" />
+
+
+<meta name="description" content="lecture 4. More Swift and Foundation Frameworks">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Developing iOS 8 Apps with Swift 学习笔记4">
+<meta property="og:url" content="http://yoursite.com/2015/11/03/Developing-iOS-8-Apps-with-Swift-class-4/index.html">
+<meta property="og:site_name" content="陈辉的技术博客">
+<meta property="og:description" content="lecture 4. More Swift and Foundation Frameworks">
+<meta property="og:updated_time" content="2016-05-26T14:20:27.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Developing iOS 8 Apps with Swift 学习笔记4">
+<meta name="twitter:description" content="lecture 4. More Swift and Foundation Frameworks">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> Developing iOS 8 Apps with Swift 学习笔记4 | 陈辉的技术博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">陈辉的技术博客</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            <i class="menu-item-icon icon-next-about"></i> <br />
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              Developing iOS 8 Apps with Swift 学习笔记4
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-11-03T12:28:00+08:00" content="Nov 3 2015">
+            Nov 3 2015
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/iOS/" itemprop="url" rel="index">
+                  <span itemprop="name">iOS</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/11/03/Developing-iOS-8-Apps-with-Swift-class-4/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/03/Developing-iOS-8-Apps-with-Swift-class-4/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p>lecture 4. More Swift and Foundation Frameworks</p>
+<a id="more"></a>
+<h2 id="Today"><a href="#Today" class="headerlink" title="Today"></a>Today</h2><h3 id="More-Swift-amp-the-Foundation-Framework"><a href="#More-Swift-amp-the-Foundation-Framework" class="headerlink" title="More Swift &amp; the Foundation Framework"></a>More Swift &amp; the Foundation Framework</h3><ul>
+<li><p>Optionals and enum</p>
+</li>
+<li><p>Array<t>, Dictionary<k,v>, Range<t>, et. al.</t></k,v></t></p>
+</li>
+<li><p>Data Structures in Swift</p>
+</li>
+<li><p>Methods</p>
+</li>
+<li><p>Properties</p>
+</li>
+<li><p>Initialization</p>
+</li>
+<li><p>AnyObject, introspection and casting (is and as)</p>
+</li>
+<li><p>Helpful Methods and Functions String vs. NSString, Array vs. NSArray, Dictionary vs. NSDictionary</p>
+</li>
+<li><p>Property List NSUserDefaults</p>
+</li>
+</ul>
+<h2 id="Optional"><a href="#Optional" class="headerlink" title="Optional"></a>Optional</h2><h3 id="An-Optional-is-just-an-enum"><a href="#An-Optional-is-just-an-enum" class="headerlink" title="An Optional is just an enum"></a>An Optional is just an enum</h3><p>  Conceptually it is like this (the <t> is a generic like as in Array<t>) …<br>  类似于泛型<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">Optional</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="type">None</span></span><br><span class="line">    <span class="keyword">case</span> <span class="type">Some</span>(<span class="type">T</span>) </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> x: <span class="type">String</span>? = <span class="literal">nil</span></span><br></pre></td></tr></table></figure></t></t></p>
+<p>  … is …<br>  <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> x = <span class="type">Optional</span>&lt;<span class="type">String</span>&gt;.<span class="type">None</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> x: <span class="type">String</span>? = <span class="string">"hello"</span></span><br></pre></td></tr></table></figure></p>
+<p>  … is …<br>  <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> x = <span class="type">Optional</span>&lt;<span class="type">String</span>&gt;.<span class="type">Some</span>(<span class="string">"hello"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> y = x!</span><br></pre></td></tr></table></figure></p>
+<p>  … is …<br>  <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span> x &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="type">Some</span>(<span class="keyword">let</span> value): y = value</span><br><span class="line">    <span class="keyword">case</span> <span class="type">None</span>: <span class="comment">// raise an exception </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Array"><a href="#Array" class="headerlink" title="Array"></a>Array</h2><h3 id="Array-1"><a href="#Array-1" class="headerlink" title="Array"></a>Array</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="type">Array</span>&lt;<span class="type">String</span>&gt;()</span><br></pre></td></tr></table></figure>
+<p>  … is the same as …<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="type">String</span>]() </span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> animals = [<span class="string">"Giraffe"</span>, <span class="string">"Cow"</span>, <span class="string">"Doggie"</span>, <span class="string">"Bird"</span>] </span><br><span class="line">animals.append(<span class="string">"Ostrich"</span>) <span class="comment">// won't compile, animals is immutable (because of let) </span></span><br><span class="line"><span class="keyword">let</span> animal = animals[<span class="number">5</span>] <span class="comment">// crash (array index out of bounds)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// enumerating an Array </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> animal <span class="keyword">in</span> animals &#123;</span><br><span class="line">    <span class="built_in">println</span>(<span class="string">"<span class="subst">\(animal)</span>"</span>) </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>let声明的数组不可变</p>
+<h2 id="Dictionary"><a href="#Dictionary" class="headerlink" title="Dictionary"></a>Dictionary</h2><h3 id="Dictionary-1"><a href="#Dictionary-1" class="headerlink" title="Dictionary"></a>Dictionary</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> pac10teamRankings = <span class="type">Dictionary</span>&lt;<span class="type">String</span>, <span class="type">Int</span>&gt;()</span><br></pre></td></tr></table></figure>
+<p>  … is the same as …<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> pac10teamRankings = [<span class="type">String</span>:<span class="type">Int</span>]()</span><br><span class="line"> </span><br><span class="line">pac10teamRankings = [<span class="string">"Stanford"</span>:<span class="number">1</span>, <span class="string">"Cal"</span>:<span class="number">10</span>] </span><br><span class="line"><span class="keyword">let</span> ranking = pac10teamRankings[<span class="string">"Ohio State"</span>] <span class="comment">// ranking is an Int? (would be nil) </span></span><br><span class="line"></span><br><span class="line"><span class="comment">// use a tuple with for-in to enumerate a Dictionary </span></span><br><span class="line"><span class="keyword">for</span> (key, value) <span class="keyword">in</span> pac10teamRankings &#123; </span><br><span class="line">    <span class="built_in">println</span>(<span class="string">"<span class="subst">\(key)</span> = <span class="subst">\(value)</span>"</span>) </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Range"><a href="#Range" class="headerlink" title="Range"></a>Range</h2><h3 id="Range-1"><a href="#Range-1" class="headerlink" title="Range"></a>Range</h3><ul>
+<li><p>A Range in Swift is just two end points of a sensible type (not gonna explain right now) </p>
+</li>
+<li><p>Range is generic (e.g. Range<t>)</t></p>
+</li>
+<li><p>This is sort of a pseudo-representation of Range:</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Range</span>&lt;<span class="title">T</span>&gt; </span>&#123; </span><br><span class="line">   <span class="keyword">var</span> startIndex: <span class="type">T</span> </span><br><span class="line">   <span class="keyword">var</span> endIndex: <span class="type">T</span> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>An Array’s range would be a Range<int> (since Arrays are indexed by Int)</int></p>
+</li>
+<li><p>Warning: A String subrange is not Range<int> (it is Range<string.index> … we’ll talk later!)</string.index></int></p>
+</li>
+<li><p>There is special syntax for specifying a Range: either … (inclusive) or ..&lt; (open-ended) </p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> array = [<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"c"</span>,<span class="string">"d"</span>] </span><br><span class="line"><span class="keyword">let</span> subArray1 = array[<span class="number">2</span>...<span class="number">3</span>] <span class="comment">// subArray1 will be ["c","d"] </span></span><br><span class="line"><span class="keyword">let</span> subArray2 = array[<span class="number">2</span>..&lt;<span class="number">3</span>] <span class="comment">// subArray2 will be ["c"] </span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">27</span>...<span class="number">104</span> &#123; &#125; <span class="comment">// Range is enumeratable, like Array, String, Dictionary</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Other-Classes"><a href="#Other-Classes" class="headerlink" title="Other Classes"></a>Other Classes</h2><h3 id="NSObject"><a href="#NSObject" class="headerlink" title="NSObject"></a>NSObject</h3><ul>
+<li><p>Base class for all Objective-C classes</p>
+</li>
+<li><p>Some advanced features will require you to subclass from NSObject (and it can’t hurt to do so)<br>swift语言中可以继承NSObject类</p>
+</li>
+</ul>
+<h3 id="NSNumber"><a href="#NSNumber" class="headerlink" title="NSNumber"></a>NSNumber</h3><ul>
+<li>Generic number-holding class <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> n = <span class="type">NSNumber</span>(<span class="number">35.5</span>) </span><br><span class="line"><span class="keyword">let</span> intversion = n.intValue <span class="comment">// also doubleValue, boolValue, etc.</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="NSDate"><a href="#NSDate" class="headerlink" title="NSDate"></a>NSDate</h3><ul>
+<li><p>Used to find out the date and time right now or to store past or future dates.</p>
+</li>
+<li><p>See also NSCalendar, NSDateFormatter, NSDateComponents </p>
+</li>
+<li><p>If you are displaying a date in your UI, there are localization ramifications, so check these out!<br>NSDate无类型，类似于一个比特包或者一个指向内存的指针</p>
+</li>
+</ul>
+<h3 id="NSData"><a href="#NSData" class="headerlink" title="NSData"></a>NSData</h3><ul>
+<li>A “bag o’ bits”. Used to save/restore/transmit raw data throughout the iOS SDK. </li>
+</ul>
+<h2 id="Data-Structures-in-Swift"><a href="#Data-Structures-in-Swift" class="headerlink" title="Data Structures in Swift"></a>Data Structures in Swift</h2><h3 id="Classes-Structures-and-Enumerations"><a href="#Classes-Structures-and-Enumerations" class="headerlink" title="Classes, Structures and Enumerations"></a>Classes, Structures and Enumerations</h3><ul>
+<li>These are the 3 fundamental building blocks of data structures in Swift </li>
+</ul>
+<h3 id="Similarities"><a href="#Similarities" class="headerlink" title="Similarities"></a>Similarities</h3><ul>
+<li><p>Declaration syntax … </p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CalculatorBrain</span> </span>&#123; </span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Vertex</span> </span>&#123; </span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">Op</span> </span>&#123; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Properties and Functions … </p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">doit</span><span class="params">(argument: <span class="keyword">Type</span>)</span></span> -&gt; <span class="type">ReturnValue</span> &#123; </span><br><span class="line">&#125; </span><br><span class="line"><span class="keyword">var</span> storedProperty = &lt;initial value&gt; (not <span class="class"><span class="keyword">enum</span>) </span><br><span class="line"><span class="title">var</span> <span class="title">computedProperty</span>: <span class="title">Type</span> </span>&#123;</span><br><span class="line">    <span class="keyword">get</span> &#123;&#125;</span><br><span class="line">    <span class="keyword">set</span> &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Initializers (again, not enum) … <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">init</span>(argument1: <span class="type">Type</span>, argument2: <span class="type">Type</span>, …) &#123; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Differences"><a href="#Differences" class="headerlink" title="Differences"></a>Differences</h3><ul>
+<li><p>Inheritance (class only)</p>
+</li>
+<li><p>Introspection and casting (class only) 内省</p>
+</li>
+<li><p>Value type (struct, enum) vs. Reference type (class)<br>class是传引用，struct和enum是传值</p>
+</li>
+</ul>
+<h2 id="Value-vs-Reference"><a href="#Value-vs-Reference" class="headerlink" title="Value vs. Reference"></a>Value vs. Reference</h2><h3 id="Value-struct-and-enum"><a href="#Value-struct-and-enum" class="headerlink" title="Value (struct and enum)"></a>Value (struct and enum)</h3><p>  Copied when passed as an argument to a function </p>
+<p>  Copied when assigned to a different variable</p>
+<p>  Immutable if assigned to a variable with let </p>
+<p>  Remember that function parameters are, by default, constants</p>
+<p>  You can put the keyword var on an parameter, and it will be mutable, but it’s still a copy </p>
+<p>  You must note any func that can mutate a struct/enum with the keyword mutating</p>
+<h3 id="Reference-class"><a href="#Reference-class" class="headerlink" title="Reference (class)"></a>Reference (class)</h3><p>  Stored in the heap and reference counted (automatically)</p>
+<p>  Constant pointers to a class (let) still can mutate by calling methods and changing properties</p>
+<p>  When passed as an argument, does not make a copy (just passing a pointer to same instance) </p>
+<h3 id="Choosing-which-to-use"><a href="#Choosing-which-to-use" class="headerlink" title="Choosing which to use?"></a>Choosing which to use?</h3><p>  Usually you will choose class over struct. struct tends to be more for fundamental types. </p>
+<p>  Use of enum is situational (any time you have a type of data with discrete values). </p>
+<h2 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h2><h3 id="Obviously-you-can-override-methods-properties-in-your-superclass"><a href="#Obviously-you-can-override-methods-properties-in-your-superclass" class="headerlink" title="Obviously you can override methods/properties in your superclass"></a>Obviously you can override methods/properties in your superclass</h3><p>  Precede your <code>func</code> or <code>var</code> with the keyword <code>override</code> </p>
+<p>  A method can be marked <code>final</code> which will prevent subclasses from being able to override</p>
+<p>  Classes can also be marked final</p>
+<h3 id="Both-types-and-instances-can-have-methods-properties"><a href="#Both-types-and-instances-can-have-methods-properties" class="headerlink" title="Both types and instances can have methods/properties"></a>Both types and instances can have methods/properties</h3><p>  For this example, lets consider the struct Double (yes, Double is a struct)<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> d: <span class="type">Double</span> = … </span><br><span class="line"><span class="keyword">if</span> d.isSignMinus &#123; </span><br><span class="line">    d = <span class="type">Double</span>.<span class="built_in">abs</span>(d) </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>   isSignMinus is an instance property of a Double (you send it to a particular Double)</p>
+<p>   abs is a type method of Double (you send it to the type itself, not to a particular Double)</p>
+<p>   You declare a type method or property with a static prefix (or class in a class) …<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="function"><span class="keyword">func</span> <span class="title">abs</span><span class="params">(d: Double)</span></span> -&gt; <span class="type">Double</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="Parameters-Names"><a href="#Parameters-Names" class="headerlink" title="Parameters Names"></a>Parameters Names</h3><p>  All parameters to all functions have an <code>internal</code> name and an <code>external</code> name </p>
+<p>  The internal name is the name of the local variable you use inside the method </p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">foo</span><span class="params">(external <span class="keyword">internal</span>: Int)</span></span> &#123;</span><br><span class="line">    <span class="keyword">let</span> local = <span class="keyword">internal</span> </span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">bar</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">let</span> result = foo(external: <span class="number">123</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Parameters Names </p>
+<p>  All parameters to all functions have an internal name and an external name </p>
+<p>  The internal name is the name of the local variable you use inside the method</p>
+<p>  The external name is what callers will use to call the method </p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">foo</span><span class="params">(external <span class="keyword">internal</span>: Int)</span></span> &#123;</span><br><span class="line">    <span class="keyword">let</span> local = <span class="keyword">internal</span> </span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">bar</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">let</span> result = foo(external: <span class="number">123</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>You can put _ if you don’t want callers to use an external name at all for a given parameter </p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">foo</span><span class="params">(<span class="number">_</span> <span class="keyword">internal</span>: Int)</span></span> &#123;</span><br><span class="line">   <span class="keyword">let</span> local = <span class="keyword">internal</span> </span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">bar</span><span class="params">()</span></span> &#123;</span><br><span class="line">   <span class="keyword">let</span> result = foo(<span class="number">123</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>An _ is the default for the first parameter (only) in a method (but not for init methods)</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">foo</span><span class="params">(<span class="keyword">internal</span>: Int)</span></span> &#123;</span><br><span class="line">    <span class="keyword">let</span> local = <span class="keyword">internal</span> </span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">bar</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">let</span> result = foo(<span class="number">123</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>You can force the first parameter’s external name to be the internal name with # </p>
+</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">foo</span><span class="params">(#<span class="keyword">internal</span>: Int)</span></span> &#123;</span><br><span class="line">   <span class="keyword">let</span> local = <span class="keyword">internal</span> </span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">bar</span><span class="params">()</span></span> &#123;</span><br><span class="line">   <span class="keyword">let</span> result = foo(<span class="keyword">internal</span>: <span class="number">123</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>For other (not the first) parameters, the internal name is, by default, the external name </p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">foo</span><span class="params">(first: Int, second: Double)</span></span> &#123;</span><br><span class="line">    <span class="keyword">let</span> local = <span class="keyword">internal</span> </span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">bar</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">let</span> result = foo(<span class="number">123</span>, second: <span class="number">5.5</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Any parameter’s external name can be changed</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">foo</span><span class="params">(first: Int, externalSecond second: Double)</span></span> &#123;</span><br><span class="line">   <span class="keyword">let</span> local = <span class="keyword">internal</span> </span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">bar</span><span class="params">()</span></span> &#123;</span><br><span class="line">   <span class="keyword">let</span> result = foo(<span class="number">123</span>, externalSecond: <span class="number">5.5</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Or even omitted (though this would be sort of “anti-Swift”) </p>
+</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">foo</span><span class="params">(first: Int, <span class="number">_</span> second: Double)</span></span> &#123;</span><br><span class="line">   <span class="keyword">let</span> local = <span class="keyword">internal</span> </span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">bar</span><span class="params">()</span></span> &#123;</span><br><span class="line">   <span class="keyword">let</span> result = foo(<span class="number">123</span>, <span class="number">5.5</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Properties"><a href="#Properties" class="headerlink" title="Properties"></a>Properties</h2><h3 id="Property-Observers"><a href="#Property-Observers" class="headerlink" title="Property Observers"></a>Property Observers</h3><p>  You can observe changes to any property with willSet and didSet</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> someStoredProperty: <span class="type">Int</span> = <span class="number">42</span> &#123; </span><br><span class="line">    <span class="keyword">willSet</span> &#123; newValue <span class="keyword">is</span> the new value &#125; </span><br><span class="line">    <span class="keyword">didSet</span> &#123; oldValue <span class="keyword">is</span> the old value &#125; </span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">override</span> <span class="keyword">var</span> inheritedProperty &#123; </span><br><span class="line">    <span class="keyword">willSet</span> &#123; newValue <span class="keyword">is</span> the new value &#125; </span><br><span class="line">    <span class="keyword">didSet</span> &#123; oldValue <span class="keyword">is</span> the old value &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  One very common thing to do in an observer in a Controller is to update the user-interface</p>
+<h3 id="Lazy-Initialization"><a href="#Lazy-Initialization" class="headerlink" title="Lazy Initialization"></a>Lazy Initialization</h3><p>  A lazy property does not get initialized until someone accesses it</p>
+<p>  You can allocate an object, execute a closure, or call a method if you want<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">lazy</span> <span class="keyword">var</span> brain = <span class="type">CalculatorBrain</span>()  <span class="comment">// nice if CalculatorBrain used lots of resources </span></span><br><span class="line"></span><br><span class="line"><span class="built_in">lazy</span> <span class="keyword">var</span> someProperty: <span class="type">Type</span> = &#123;</span><br><span class="line">    <span class="comment">// construct the value of someProperty here </span></span><br><span class="line">    <span class="keyword">return</span> &lt;the constructed value&gt; </span><br><span class="line"> &#125;()</span><br><span class="line"> </span><br><span class="line"><span class="built_in">lazy</span> <span class="keyword">var</span> myProperty = <span class="keyword">self</span>.initializeMyProperty()</span><br></pre></td></tr></table></figure></p>
+<p>  This still satisfies the “you must initialize all of your properties” rule</p>
+<p>  Unfortunately, things initialized this way can’t be constants (i.e., var ok, let not okay)</p>
+<p>  This can be used to get around some initialization dependency conundrums </p>
+<h2 id="Initialization"><a href="#Initialization" class="headerlink" title="Initialization"></a>Initialization</h2><h3 id="When-is-an-init-method-needed"><a href="#When-is-an-init-method-needed" class="headerlink" title="When is an init method needed?"></a>When is an init method needed?</h3><p>  init methods are not so common because properties can have their defaults set using = </p>
+<p>  Or properties might be Optionals, in which case they start out nil </p>
+<p>  You can also initialize a property by executing a closureOr use lazy instantiation</p>
+<p>  So you only need init when a value can’t be set in any of these ways</p>
+<h3 id="You-also-get-some-“free”-init-methods"><a href="#You-also-get-some-“free”-init-methods" class="headerlink" title="You also get some “free” init methods"></a>You also get some “free” init methods</h3><p>  If all properties in a base class (no superclass) have defaults, you get init() for free</p>
+<p>  If a struct has no initializers, it will get a default one with all properties as arguments </p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">MyStruct</span> </span>&#123; </span><br><span class="line">   <span class="keyword">var</span> x: <span class="type">Int</span> = <span class="number">42</span> </span><br><span class="line">   <span class="keyword">var</span> y: <span class="type">String</span> = <span class="string">"moltuae"</span></span><br><span class="line"> </span><br><span class="line">   <span class="keyword">init</span>(x: <span class="type">Int</span>, y: <span class="type">String</span>) <span class="comment">// comes for free </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="What-can-you-do-inside-an-init"><a href="#What-can-you-do-inside-an-init" class="headerlink" title="What can you do inside an init?"></a>What can you do inside an init?</h3><p>  You can set any property’s value, even those with default values</p>
+<p>  Constant properties (i.e. properties declared with <code>let</code>) can be set</p>
+<p>  You can call other init methods in your own class using <code>self.init(&lt;args&gt;)</code></p>
+<p>  In a class, you can of course also call super.init(<args>)</args></p>
+<p>  But there are some rules for calling inits from inits in a class…<br>  let也可以在init中被重新复制</p>
+<h3 id="What-are-you-required-to-do-inside-init"><a href="#What-are-you-required-to-do-inside-init" class="headerlink" title="What are you required to do inside init?"></a>What are you required to do inside init?</h3><p>  By the time any init is done, <code>all properties</code> must have values (optionals can have the value nil)</p>
+<p>  There are two types of inits in a class, convenience and designated (i.e. not convenience)</p>
+<p>  A designated init must (and can only) call a designated init that is in its immediate superclass</p>
+<p>  You must initialize all properties introduced by your class before calling a superclass’s init</p>
+<p>  You must call a superclass’s init before you assign a value to an inherited property</p>
+<ul>
+<li>A convenience init must (and can only) call a designated init in its own class </li>
+<li>A convenience init may call a designated init indirectly (through another convenience init)</li>
+<li><p>A convenience init must call a designated init before it can set any property values </p>
+<p>The calling of other inits must be complete before you can access properties or invoke methods </p>
+</li>
+</ul>
+<h3 id="Inheriting-init"><a href="#Inheriting-init" class="headerlink" title="Inheriting init"></a>Inheriting init</h3><ul>
+<li>If you do not implement any designated inits, you’ll inherit all of your superclass’s designateds </li>
+<li>If you override all of your superclass’s designated inits, you’ll inherit all its convenience inits </li>
+<li><p>If you implement no inits, you’ll inherit all of your superclass’s inits </p>
+<p>Any init inherited by these rules qualifies to satisfy any of the rules on the previous slide </p>
+</li>
+</ul>
+<h3 id="Required-init"><a href="#Required-init" class="headerlink" title="Required init"></a>Required init</h3><p>  A class can mark one or more of its init methods as required </p>
+<p>  Any subclass must implement said init methods (though they can be inherited per above rules) </p>
+<h3 id="Failable-init"><a href="#Failable-init" class="headerlink" title="Failable init"></a>Failable init</h3><p>  If an init is declared with a ? (or !) after the word init, it returns an Optional<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">init</span>?(arg1: <span class="type">Type1</span>, …) &#123; </span><br><span class="line">    <span class="comment">// might return nil in here </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>  These are rare.</p>
+<p>  Note: The documentation does not seem to properly show these inits!</p>
+<p>  But you’ll be able to tell because the compiler will warn you about the type when you access it.</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> image = <span class="type">UIImage</span>(named: <span class="string">"foo"</span>) <span class="comment">// image is an Optional UIImage (i.e. UIImage?)</span></span><br></pre></td></tr></table></figure>
+<p>  Usually we would use if-let for these cases …<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> image = <span class="type">UIImage</span>(named: <span class="string">"foo"</span>) &#123; </span><br><span class="line">    <span class="comment">// image was successfully created </span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123; </span><br><span class="line">    <span class="comment">// couldn't create the image </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Creating-Objects"><a href="#Creating-Objects" class="headerlink" title="Creating Objects"></a>Creating Objects</h3><p>  Usually you create an object by calling it’s initializer via the type name …<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> x = <span class="type">CalculatorBrain</span>() </span><br><span class="line"><span class="keyword">let</span> y = <span class="type">ComplicatedObject</span>(arg1: <span class="number">42</span>, arg2: <span class="string">"hello"</span>, …) </span><br><span class="line"><span class="keyword">let</span> z = [<span class="type">String</span>]()</span><br></pre></td></tr></table></figure></p>
+<p>  But sometimes you create objects by calling type methods in classes …<br> <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> button = <span class="type">UIButton</span>.buttonWithType(<span class="type">UIButtonType</span>.<span class="type">System</span>)</span><br></pre></td></tr></table></figure></p>
+<p>  Or obviously sometimes other objects will create objects for you …<br> <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">  <span class="keyword">let</span> commaSeparatedArrayElements: <span class="type">String</span> = <span class="string">","</span>.<span class="built_in">join</span>(myArray) </span><br><span class="line"> ``` </span><br><span class="line"></span><br><span class="line">## <span class="type">AnyObject</span></span><br><span class="line"></span><br><span class="line">是一个指向未知类的指针，一般在兼容objc的程序中使用</span><br><span class="line">### <span class="type">Special</span> <span class="string">"Type"</span> (actually it's a <span class="type">Protocol</span>)</span><br><span class="line"></span><br><span class="line">  <span class="type">Used</span> primarily <span class="keyword">for</span> compatibility with existing <span class="type">Objective</span>-<span class="type">C</span>-based <span class="type">APIs</span></span><br><span class="line">  </span><br><span class="line">### <span class="type">Where</span> will you see it?</span><br><span class="line"></span><br><span class="line">  <span class="type">As</span> properties (either singularly or <span class="keyword">as</span> an array of them), e.g. … </span><br><span class="line">```swift</span><br><span class="line">   <span class="keyword">var</span> destinationViewController: <span class="type">AnyObject</span> </span><br><span class="line">   <span class="keyword">var</span> toolbarItems: [<span class="type">AnyObject</span>]</span><br></pre></td></tr></table></figure></p>
+<p>   … or as arguments to functions …<br> <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">prepareForSegue</span><span class="params">(segue: UIStoryboardSegue, sender: AnyObject)</span></span> </span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">addConstraints</span><span class="params">(constraints: [AnyObject])</span></span> </span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">appendDigit</span><span class="params">(sender: AnyObject)</span></span></span><br></pre></td></tr></table></figure></p>
+<p>  … or even as return types from functions …</p>
+ <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">func</span> <span class="title">buttonWithType</span>(<span class="title">buttonType</span>: <span class="title">UIButtonType</span>) -&gt; <span class="title">AnyObject</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="How-do-we-use-AnyObject"><a href="#How-do-we-use-AnyObject" class="headerlink" title="How do we use AnyObject?"></a>How do we use AnyObject?</h3><pre><code>不能向他发送任何信息
+</code></pre><p>  We don’t usually use it directly</p>
+<p>  Instead, we convert it to another, known type </p>
+<h3 id="How-do-we-convert-it"><a href="#How-do-we-convert-it" class="headerlink" title="How do we convert it?"></a>How do we convert it?</h3><p>  We need to create a new variable which is of a known object type (i.e. not AnyObject)</p>
+<p>  Then we assign this new variable to hold the thing that is AnyObject</p>
+<p>  Of course, that new variable has to be of a compatible type</p>
+<p>  If we try to force the AnyObject into something   incompatible, crash!</p>
+<p>  But there are ways to check compatibility (either before forcing or while forcing) … </p>
+<h3 id="Casting-AnyObject"><a href="#Casting-AnyObject" class="headerlink" title="Casting AnyObject"></a>Casting AnyObject</h3><p>  We “force” an AnyObject to be something else by “casting” it using the as keyword … </p>
+<p>  Let’s use var destinationViewController: AnyObject as an example …<br> <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> calcVC = destinationViewController <span class="keyword">as</span> <span class="type">CalculatorViewController</span></span><br></pre></td></tr></table></figure></p>
+<p>  … this would crash if dvc was not, in fact, a CalculatorViewController (or subclass thereof) </p>
+<p>  To protect against a crash, we can use if let with as? …<br>  <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> calcVC = destinationViewController <span class="keyword">as</span>? <span class="type">CalculatorViewController</span> &#123; … &#125;</span><br></pre></td></tr></table></figure></p>
+<p>  … as? returns an Optional (calcVC = nil if dvc was not a CalculatorViewController)</p>
+<p>  Or we can check before we even try to do as with the is keyword …<br>  <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> destinationViewController <span class="keyword">is</span> <span class="type">CalculatorViewController</span> &#123; … &#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Casting-Arrays-of-AnyObject"><a href="#Casting-Arrays-of-AnyObject" class="headerlink" title="Casting Arrays of AnyObject"></a>Casting Arrays of AnyObject</h3><p>  If you’re dealing with an [AnyObject], you can cast the elements or the entire array … </p>
+<p>  Let’s use var toolbarItems: [AnyObject] as an example …<br> <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> toolbarItems &#123; <span class="comment">// item's type is AnyObject </span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">let</span> toolbarItem = item <span class="keyword">as</span>? <span class="type">UIBarButtonItem</span> &#123; </span><br><span class="line">        <span class="comment">// do something with the toolbarItem (which will be a UIBarButtonItem here) </span></span><br><span class="line">     &#125; </span><br><span class="line">&#125; </span><br><span class="line">… or … </span><br><span class="line"><span class="keyword">for</span> toolbarItem <span class="keyword">in</span> toolbarItems <span class="keyword">as</span> [<span class="type">UIBarButtonItem</span>] &#123; <span class="comment">// better be so, else crash! </span></span><br><span class="line">      <span class="comment">// do something with the toolbarItem (which will be a UIBarButtonItem)</span></span><br><span class="line">&#125; </span><br><span class="line"><span class="comment">// can't do as? here because then it might be "for toolbarItem in nil" (makes no sense)</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="Another-example-…"><a href="#Another-example-…" class="headerlink" title="Another example …"></a>Another example …</h3><p>  Remember when we wired up our Actions in our storyboard?</p>
+<p>  The default in the dialog that popped up was AnyObject.</p>
+<p>  We changed it to UIButton.</p>
+<p>  But what if we hadn’t changed it to UIButton?</p>
+<p>  How would we have implemented appendDigit?<br>  <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@IBAction</span> <span class="function"><span class="keyword">func</span> <span class="title">appendDigit</span><span class="params">(sender: AnyObject)</span></span> &#123; </span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">let</span> sendingButton = sender <span class="keyword">as</span>? <span class="type">UIButton</span> &#123; </span><br><span class="line">        <span class="keyword">let</span> digit = sendingButton.currentTitle! </span><br><span class="line">        … </span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Yet-another-example-…"><a href="#Yet-another-example-…" class="headerlink" title="Yet another example …"></a>Yet another example …</h3><p>  It is possible to create a button in code using a UIButton type method …<br>  <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> button: <span class="type">AnyObject</span> = <span class="type">UIButton</span>.buttonWithType(<span class="type">UIButtonType</span>.<span class="type">System</span>)</span><br></pre></td></tr></table></figure></p>
+<p>  The type of this button is AnyObject (for historical reasons only)</p>
+<p>  To use it, we’d have to cast button to UIButton </p>
+<p>  We can do this on the fly if we want …<br>  <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> title = (button <span class="keyword">as</span> <span class="type">UIButton</span>).currentTitle</span><br></pre></td></tr></table></figure></p>
+<p>  Again, this would crash if button was not, in fact, a UIButton </p>
+<p>##Casting<br>要沿着继承链向下cast</p>
+<h3 id="Casting-is-not-just-for-AnyObject"><a href="#Casting-is-not-just-for-AnyObject" class="headerlink" title="Casting is not just for AnyObject"></a>Casting is not just for AnyObject</h3><p>  You can cast with as (or check with is) any object pointer that makes sense</p>
+<p>  For example …<br>  <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> vc: <span class="type">UIViewController</span> = <span class="type">CalculatorViewController</span>()</span><br></pre></td></tr></table></figure></p>
+<p>  The type of vc is UIViewController (because we explicitly typed it to be)</p>
+<p>  And the assignment is legal because a CalculatorViewController is a UIViewController</p>
+<p>  But we can’t say, for example, vc.enter()</p>
+ <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> calcVC = vc <span class="keyword">as</span>? <span class="type">CalculatorViewController</span> &#123; </span><br><span class="line">     <span class="comment">// in here we could say calcVC.enter() if we wanted to </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>#Functions </p>
+<p>###Some Array<t> Methods<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">+= [<span class="type">T</span>] <span class="comment">// not += T </span></span><br><span class="line">first -&gt; <span class="type">T</span>? <span class="comment">// note optional </span></span><br><span class="line">last -&gt; <span class="type">T</span>? <span class="comment">// note optional </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = [a,b,<span class="built_in">c</span>] <span class="comment">// assume a, b, c are of some type (the same type)</span></span><br><span class="line"></span><br><span class="line">append(<span class="type">T</span>) </span><br><span class="line">insert(<span class="type">T</span>, atIndex: <span class="type">Int</span>) <span class="comment">// a.insert(d, atIndex:1), a = [a,d,b,c] </span></span><br><span class="line">splice(<span class="type">Array</span>&lt;<span class="type">T</span>&gt;, atIndex: <span class="type">Int</span>) <span class="comment">// a.splice([d,e], atIndex:1), a = [a,d,e,b,c] </span></span><br><span class="line"></span><br><span class="line">removeAtIndex(<span class="type">Int</span>) <span class="comment">// a.removeAtIndex(1), a = [a,c] </span></span><br><span class="line">removeRange(<span class="type">Range</span>) <span class="comment">// a.removeRange(0..&lt;2), a = [c] </span></span><br><span class="line">replaceRange(<span class="type">Range</span>, [<span class="type">T</span>]) <span class="comment">// a.replaceRange(0...1, with: [x,y,z]), a = [x,y,z,b] </span></span><br><span class="line"></span><br><span class="line"><span class="built_in">sort</span>(isOrderedBefore: (<span class="type">T</span>, <span class="type">T</span>) -&gt; <span class="type">Bool</span>) <span class="comment">// e.g., a.sort &#123; $0 &lt; $1 &#125;</span></span><br></pre></td></tr></table></figure></t></p>
+<p>###More Array<t> Methods </t></p>
+<p>  This one creates a new array with any “undesirables” filtered out</p>
+<p>  The function passed as the argument returns false if an element is undesirable<br>  <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">filter</span>(includeElement: (<span class="type">T</span>) -&gt; <span class="type">Bool</span>) -&gt; [<span class="type">T</span>]</span><br></pre></td></tr></table></figure></p>
+<p>  Create a new array by transforming each element to something different</p>
+<p>  The thing it is transformed to can be of a different type than what is in the Array<br>  <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">map</span>(transform: (<span class="type">T</span>) -&gt; <span class="type">U</span>) -&gt; [<span class="type">U</span>] </span><br><span class="line"><span class="keyword">let</span> stringified: [<span class="type">String</span>] = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>].<span class="built_in">map</span> &#123; <span class="string">"<span class="subst">\($<span class="number">0</span>)</span>"</span> &#125;</span><br></pre></td></tr></table></figure></p>
+<p>  Reduce an entire array to a single value </p>
+  <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">reduce</span>(initial: <span class="type">U</span>, combine: (<span class="type">U</span>, <span class="type">T</span>) -&gt; <span class="type">U</span>) -&gt; <span class="type">U</span> </span><br><span class="line"><span class="keyword">let</span> sum: <span class="type">Int</span> = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>].<span class="built_in">reduce</span>(<span class="number">0</span>) &#123; $<span class="number">0</span> + $<span class="number">1</span> &#125; <span class="comment">// adds up the numbers in the Array</span></span><br></pre></td></tr></table></figure>
+<p>#String </p>
+<p>###String.Index </p>
+<p>  In Unicode, a given glyph might be represented by multiple Unicode characters (accents, etc.)</p>
+<p>  As a result, you can’t index a String by Int (because it’s a collection of characters, not glyphs) </p>
+<p>  So a lot of native Swift String functions take a String.Index to specify which glyph you want</p>
+<p>  You can get a String.Index by asking the string for its startIndex then advancing forward </p>
+<p>  You advance forward with the function (not method) advance(String.Index, Int) </p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s = <span class="string">"hello"</span> </span><br><span class="line"><span class="keyword">let</span> index = <span class="built_in">advance</span>(s.startIndex, <span class="number">2</span>) <span class="comment">// index is a String.Index to the 3rd glyph, "l" </span></span><br><span class="line">s.splice(<span class="string">"abc"</span>, index) <span class="comment">// s will now be "heabcllo" (abc inserted at 2) </span></span><br><span class="line"><span class="keyword">let</span> startIndex = <span class="built_in">advance</span>(s.startIndex, <span class="number">1</span>) </span><br><span class="line"><span class="keyword">let</span> endIndex = <span class="built_in">advance</span>(s.startIndex, <span class="number">6</span>) </span><br><span class="line"><span class="keyword">let</span> substring = s[index..&lt;endIndex] <span class="comment">// substring will be "eabcl"</span></span><br></pre></td></tr></table></figure>
+<p>  The method rangeOfString returns an Optional Range<string.index></string.index></p>
+<p>  As an example, to get whole number part of a string representing a double …<br>  <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> num = <span class="string">"56.25"</span> </span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> decimalRange = num.rangeOfString(<span class="string">"."</span>) &#123; <span class="comment">// decimalRange is Range&lt;String.Index&gt; </span></span><br><span class="line">   <span class="keyword">let</span> wholeNumberPart = num[num.startIndex..&lt;decimalRange.startIndex] </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>  We could remove the whole number part using this method …<br>  <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.removeRange([s.startIndex..&lt;decimalRange.startIndex])</span><br></pre></td></tr></table></figure></p>
+<p>  (there are other (defaulted) arguments to removeRange, but I’m not going to cover them now)</p>
+<p>  There’s also replaceRange(Range, String) </p>
+<h3 id="Other-String-Methods"><a href="#Other-String-Methods" class="headerlink" title="Other String Methods"></a>Other String Methods</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">description -&gt; <span class="type">String</span>                              <span class="comment">// Printable </span></span><br><span class="line">endIndex -&gt; <span class="type">String</span>.<span class="type">Index</span> </span><br><span class="line">hasPrefix(<span class="type">String</span>) -&gt; <span class="type">Bool</span> </span><br><span class="line">hasSuffix(<span class="type">String</span>) -&gt; <span class="type">Bool</span> </span><br><span class="line">toInt() -&gt; <span class="type">Int</span>?                                    <span class="comment">// no toDouble (# of sig digits? etc.) </span></span><br><span class="line">capitalizedString -&gt; <span class="type">String</span> </span><br><span class="line">lowercaseString -&gt; <span class="type">String</span> </span><br><span class="line">uppercaseString -&gt; <span class="type">String</span> </span><br><span class="line"><span class="built_in">join</span>(<span class="type">Array</span>) -&gt; <span class="type">String</span>                              <span class="comment">// ",".join(["1","2","3"]) = "1,2,3" </span></span><br><span class="line">componentsSeparatedByString(<span class="type">String</span>) -&gt; [<span class="type">String</span>]    <span class="comment">// "1,2,3".csbs(",") = ["1","2","3"]</span></span><br></pre></td></tr></table></figure>
+<p>#Type Conversion</p>
+<h3 id="Conversion-between-types-with-init"><a href="#Conversion-between-types-with-init" class="headerlink" title="Conversion between types with init()"></a>Conversion between types with init()</h3><p>  A sort of “hidden” way to convert between types is to create a new object by converting<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">let</span> d: <span class="type">Double</span> = <span class="number">37.5</span> </span><br><span class="line"><span class="keyword">let</span> f: <span class="type">Float</span> = <span class="number">37.5</span> </span><br><span class="line"><span class="keyword">let</span> x = <span class="type">Int</span>(d)                 <span class="comment">// truncates </span></span><br><span class="line"><span class="keyword">let</span> xd = <span class="type">Double</span>(x) </span><br><span class="line"><span class="keyword">let</span> cgf = <span class="type">CGFloat</span>(d)           <span class="comment">// we'll see CGFloat later in the quarter</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> a = <span class="type">Array</span>(<span class="string">"abc"</span>)           <span class="comment">// a = ["a","b","c"], i.e. array of Character </span></span><br><span class="line"><span class="keyword">let</span> s = <span class="type">String</span>([<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"c"</span>])  <span class="comment">// s = "abc" (the array is of Character, not String) </span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> s = <span class="type">String</span>(<span class="number">52</span>)             <span class="comment">// no floats </span></span><br><span class="line"><span class="keyword">let</span> s = <span class="string">"<span class="subst">\(<span class="number">37.5</span>)</span>"</span>              <span class="comment">// but don't forget about this mechanism</span></span><br></pre></td></tr></table></figure></p>
+<p>#Assertions </p>
+<p>###Debugging Aid<br>  Intentionally crash your program if some condition is not true (and give a message)<br> <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">assert</span>(() -&gt; <span class="type">Bool</span>, <span class="string">"message"</span>)</span><br></pre></td></tr></table></figure></p>
+<p>  The function argument is an “autoclosure” however, so you don’t need the { }</p>
+<p>  e.g. assert(validation() != nil, “the validation function returned nil”)</p>
+<p>  Will crash if validation() returns nil (because we are asserting that validation() does not)</p>
+<p>  The validation() != nil part could be any code you want</p>
+<p>  When building for release (to the AppStore or whatever), asserts are ignored completely </p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/11/03/Developing-iOS-8-Apps-with-Swift-class-5/" rel="prev">Developing iOS 8 Apps with Swift 学习笔记5</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/10/30/Developing-iOS-8-Apps-with-Swift-class-3/" rel="next">Developing iOS 8 Apps with Swift 学习笔记3</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="2015/11/03/Developing-iOS-8-Apps-with-Swift-class-4/"
+                   data-title="Developing iOS 8 Apps with Swift 学习笔记4" data-url="http://yoursite.com/2015/11/03/Developing-iOS-8-Apps-with-Swift-class-4/">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="http://7tsysl.com1.z0.glb.clouddn.com/head show.JPG" alt="Hui Chen" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">Hui Chen</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description"></p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">34</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">分类</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            
+              <span class="site-state-item-count">26</span>
+              <span class="site-state-item-name">标签</span>
+              
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ch0588" target="_blank">github</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/ch0588" target="_blank">weibo</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/ch0588" target="_blank">zhihu</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Today"><span class="nav-number">1.</span> <span class="nav-text">Today</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#More-Swift-amp-the-Foundation-Framework"><span class="nav-number">1.1.</span> <span class="nav-text">More Swift & the Foundation Framework</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Optional"><span class="nav-number">2.</span> <span class="nav-text">Optional</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#An-Optional-is-just-an-enum"><span class="nav-number">2.1.</span> <span class="nav-text">An Optional is just an enum</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Array"><span class="nav-number">3.</span> <span class="nav-text">Array</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Array-1"><span class="nav-number">3.1.</span> <span class="nav-text">Array</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dictionary"><span class="nav-number">4.</span> <span class="nav-text">Dictionary</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Dictionary-1"><span class="nav-number">4.1.</span> <span class="nav-text">Dictionary</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Range"><span class="nav-number">5.</span> <span class="nav-text">Range</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Range-1"><span class="nav-number">5.1.</span> <span class="nav-text">Range</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Other-Classes"><span class="nav-number">6.</span> <span class="nav-text">Other Classes</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#NSObject"><span class="nav-number">6.1.</span> <span class="nav-text">NSObject</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NSNumber"><span class="nav-number">6.2.</span> <span class="nav-text">NSNumber</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NSDate"><span class="nav-number">6.3.</span> <span class="nav-text">NSDate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NSData"><span class="nav-number">6.4.</span> <span class="nav-text">NSData</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Data-Structures-in-Swift"><span class="nav-number">7.</span> <span class="nav-text">Data Structures in Swift</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Classes-Structures-and-Enumerations"><span class="nav-number">7.1.</span> <span class="nav-text">Classes, Structures and Enumerations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Similarities"><span class="nav-number">7.2.</span> <span class="nav-text">Similarities</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Differences"><span class="nav-number">7.3.</span> <span class="nav-text">Differences</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Value-vs-Reference"><span class="nav-number">8.</span> <span class="nav-text">Value vs. Reference</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Value-struct-and-enum"><span class="nav-number">8.1.</span> <span class="nav-text">Value (struct and enum)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reference-class"><span class="nav-number">8.2.</span> <span class="nav-text">Reference (class)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Choosing-which-to-use"><span class="nav-number">8.3.</span> <span class="nav-text">Choosing which to use?</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Methods"><span class="nav-number">9.</span> <span class="nav-text">Methods</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Obviously-you-can-override-methods-properties-in-your-superclass"><span class="nav-number">9.1.</span> <span class="nav-text">Obviously you can override methods/properties in your superclass</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Both-types-and-instances-can-have-methods-properties"><span class="nav-number">9.2.</span> <span class="nav-text">Both types and instances can have methods/properties</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Parameters-Names"><span class="nav-number">9.3.</span> <span class="nav-text">Parameters Names</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Properties"><span class="nav-number">10.</span> <span class="nav-text">Properties</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Property-Observers"><span class="nav-number">10.1.</span> <span class="nav-text">Property Observers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Lazy-Initialization"><span class="nav-number">10.2.</span> <span class="nav-text">Lazy Initialization</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Initialization"><span class="nav-number">11.</span> <span class="nav-text">Initialization</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#When-is-an-init-method-needed"><span class="nav-number">11.1.</span> <span class="nav-text">When is an init method needed?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#You-also-get-some-“free”-init-methods"><span class="nav-number">11.2.</span> <span class="nav-text">You also get some “free” init methods</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#What-can-you-do-inside-an-init"><span class="nav-number">11.3.</span> <span class="nav-text">What can you do inside an init?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#What-are-you-required-to-do-inside-init"><span class="nav-number">11.4.</span> <span class="nav-text">What are you required to do inside init?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Inheriting-init"><span class="nav-number">11.5.</span> <span class="nav-text">Inheriting init</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Required-init"><span class="nav-number">11.6.</span> <span class="nav-text">Required init</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Failable-init"><span class="nav-number">11.7.</span> <span class="nav-text">Failable init</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Creating-Objects"><span class="nav-number">11.8.</span> <span class="nav-text">Creating Objects</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#How-do-we-use-AnyObject"><span class="nav-number">11.9.</span> <span class="nav-text">How do we use AnyObject?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#How-do-we-convert-it"><span class="nav-number">11.10.</span> <span class="nav-text">How do we convert it?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Casting-AnyObject"><span class="nav-number">11.11.</span> <span class="nav-text">Casting AnyObject</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Casting-Arrays-of-AnyObject"><span class="nav-number">11.12.</span> <span class="nav-text">Casting Arrays of AnyObject</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Another-example-…"><span class="nav-number">11.13.</span> <span class="nav-text">Another example …</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Yet-another-example-…"><span class="nav-number">11.14.</span> <span class="nav-text">Yet another example …</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Casting-is-not-just-for-AnyObject"><span class="nav-number">11.15.</span> <span class="nav-text">Casting is not just for AnyObject</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Other-String-Methods"><span class="nav-number">11.16.</span> <span class="nav-text">Other String Methods</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Conversion-between-types-with-init"><span class="nav-number">11.17.</span> <span class="nav-text">Conversion between types with init()</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hui Chen</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"devhui"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.3"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.3"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.3" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.3"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.3" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,699 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.3"/>
+
+
+
+
+  <meta name="keywords" content="Hexo,next" />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.3" />
+
+
+<meta name="description" content="lecture 8. View Controller Lifecycle, Autolayout">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Developing iOS 8 Apps with Swift 学习笔记8">
+<meta property="og:url" content="http://yoursite.com/2015/11/13/Developing-iOS-8-Apps-with-Swift-class-8/index.html">
+<meta property="og:site_name" content="陈辉的技术博客">
+<meta property="og:description" content="lecture 8. View Controller Lifecycle, Autolayout">
+<meta property="og:updated_time" content="2016-05-26T14:20:27.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Developing iOS 8 Apps with Swift 学习笔记8">
+<meta name="twitter:description" content="lecture 8. View Controller Lifecycle, Autolayout">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> Developing iOS 8 Apps with Swift 学习笔记8 | 陈辉的技术博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">陈辉的技术博客</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            <i class="menu-item-icon icon-next-about"></i> <br />
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              Developing iOS 8 Apps with Swift 学习笔记8
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-11-13T12:32:00+08:00" content="Nov 13 2015">
+            Nov 13 2015
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/iOS/" itemprop="url" rel="index">
+                  <span itemprop="name">iOS</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/11/13/Developing-iOS-8-Apps-with-Swift-class-8/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/13/Developing-iOS-8-Apps-with-Swift-class-8/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p>lecture 8. View Controller Lifecycle, Autolayout</p>
+<a id="more"></a>
+<p>#Today</p>
+<h3 id="View-Controller-Lifecycle"><a href="#View-Controller-Lifecycle" class="headerlink" title="View Controller Lifecycle"></a>View Controller Lifecycle</h3><p>  Tracking what is going on with your View Controller</p>
+<p>  Brief Demo</p>
+<h3 id="Autolayout"><a href="#Autolayout" class="headerlink" title="Autolayout"></a>Autolayout</h3><ul>
+<li><p>Review</p>
+</li>
+<li><p>Size Classes</p>
+</li>
+<li><p>Demos</p>
+</li>
+</ul>
+<h2 id="View-Controller-Lifecycle-1"><a href="#View-Controller-Lifecycle-1" class="headerlink" title="View Controller Lifecycle"></a>View Controller Lifecycle</h2><h3 id="View-Controllers-have-a-“Lifecycle”"><a href="#View-Controllers-have-a-“Lifecycle”" class="headerlink" title="View Controllers have a “Lifecycle”"></a>View Controllers have a “Lifecycle”</h3><p>  A sequence of messages is sent to a View Controller as it progresses through its “lifetime”.</p>
+<h3 id="Why-does-this-matter"><a href="#Why-does-this-matter" class="headerlink" title="Why does this matter?"></a>Why does this matter?</h3><p>  You very commonly override these methods to do certain work.</p>
+<h3 id="The-start-of-the-lifecycle-…"><a href="#The-start-of-the-lifecycle-…" class="headerlink" title="The start of the lifecycle …"></a>The start of the lifecycle …</h3><p>  Creation.</p>
+<p>  MVCs are most often instantiated out of a storyboard (as you’ve seen).</p>
+<p>  There are ways to do it in code (rare) as well which we may cover later in the quarter.</p>
+<h3 id="What-then"><a href="#What-then" class="headerlink" title="What then?"></a>What then?</h3><ul>
+<li><p>Preparation if being segued to.</p>
+</li>
+<li><p>Outlet setting.</p>
+</li>
+<li><p>Appearing and disappearing.</p>
+</li>
+<li><p>Geometry changes.</p>
+</li>
+<li><p>Low-memory situations.</p>
+</li>
+</ul>
+<h3 id="After-instantiation-and-outlet-setting-viewDidLoad-is-called"><a href="#After-instantiation-and-outlet-setting-viewDidLoad-is-called" class="headerlink" title="After instantiation and outlet-setting, viewDidLoad is called"></a>After instantiation and outlet-setting, viewDidLoad is called</h3><p>outlet此时已经设置完成</p>
+<ul>
+<li><p>This is an exceptionally good place to put a lot of setup code.</p>
+<p>It’s better than an init because your outlets are all set up by the time this is called.<br>记得调用super的viewDidLoad </p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">  <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</span><br><span class="line">      <span class="keyword">super</span>.viewDidLoad()  <span class="comment">// always let super have a chance in lifecycle methods</span></span><br><span class="line">      <span class="comment">// do some setup of my MVC</span></span><br><span class="line">  &#125;</span><br><span class="line"> ``` </span><br><span class="line"></span><br><span class="line"> - <span class="type">One</span> thing you may well want to <span class="keyword">do</span> here <span class="keyword">is</span> update your <span class="type">UI</span> from your <span class="type">Model</span>.</span><br><span class="line"> </span><br><span class="line">   <span class="type">Because</span> now you know all of your outlets are <span class="keyword">set</span>.</span><br><span class="line"></span><br><span class="line"> - <span class="type">But</span> be careful because the geometry of your view (its bounds) <span class="keyword">is</span> not <span class="keyword">set</span> yet!</span><br><span class="line"> </span><br><span class="line">   <span class="type">At</span> this point, you can't be sure you're on an iPhone <span class="number">5</span>-sized screen or an iPad or ???.</span><br><span class="line"></span><br><span class="line">   `<span class="type">So</span> <span class="keyword">do</span> not initialize things that are geometry-dependent here.`</span><br><span class="line">   有关几何位置的初始化不能再viewDidLoad中操作！</span><br><span class="line"></span><br><span class="line">### <span class="type">Just</span> before your view appears on screen, you <span class="keyword">get</span> notified</span><br><span class="line">```swift</span><br><span class="line">  <span class="function"><span class="keyword">func</span> <span class="title">viewWillAppear</span><span class="params">(animated: Bool)</span></span> <span class="comment">// animated is whether you are appearing over time</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Your view will only get “loaded” once, but it might appear and disappear a lot.</p>
+<p>So don’t put something in this method that really wants to be in viewDidLoad.</p>
+<p>Otherwise, you might be doing something over and over unnecessarily.</p>
+</li>
+<li><p>Do something here if things your display is changing while your MVC is off-screen.</p>
+</li>
+<li><p>You could use this to optimize performance by waiting until this method is called<br> (as opposed to viewDidLoad) to kick off an expensive operation (probably in another thread).</p>
+</li>
+<li><p>Your view’s geometry is set here, but there are other places to react to geometry.</p>
+</li>
+</ul>
+<p>###There is a “did” version of this as well</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">viewDidAppear</span><span class="params">(animated: Bool)</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="And-you-get-notified-when-you-will-disappear-off-screen-too"><a href="#And-you-get-notified-when-you-will-disappear-off-screen-too" class="headerlink" title="And you get notified when you will disappear off screen too"></a>And you get notified when you will disappear off screen too</h3><p>  This is where you put “remember what’s going on” and cleanup code.<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewWillDisappear</span><span class="params">(animated: Bool)</span></span> &#123;</span><br><span class="line">   <span class="keyword">super</span>.viewWillDisappear(animated) <span class="comment">// call super in all the viewWill/Did... methods</span></span><br><span class="line">   <span class="comment">// do some clean up now that we've been removed from the screen</span></span><br><span class="line">   <span class="comment">// but be careful not to do anything time-consuming here, or app will be sluggish</span></span><br><span class="line">   <span class="comment">// maybe even kick off a thread to do stuff here (again, we'll cover threads later)</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="There-is-a-“did”-version-of-this-too"><a href="#There-is-a-“did”-version-of-this-too" class="headerlink" title="There is a “did” version of this too"></a>There is a “did” version of this too</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">viewDidDisappear</span><span class="params">(animated: Bool)</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="Geometry-changed"><a href="#Geometry-changed" class="headerlink" title="Geometry changed?"></a>Geometry changed?</h3><p>  Most of the time this will be automatically handled with Autolayout.</p>
+<p>  But you can get involved in geometry changes directly with these methods …<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">funcviewWillLayoutSubviews()</span><br><span class="line">funcviewDidLayoutSubviews()</span><br></pre></td></tr></table></figure></p>
+<p>  They are called any time a view’s frame changed and its subviews were thus re-layed out.</p>
+<p>  For example, autorotation (more on this in a moment). </p>
+<p>  You can reset the frames of your subviews here or set other geometry-related properties.</p>
+<p>  These methods might be called more often than you’d imagine<br>  (e.g. for pre- and post- animation arrangement, etc.).</p>
+<p>  So don’t do anything in here that can’t properly (and efficiently) be done repeatedly.</p>
+<p>#Autorotation</p>
+<ul>
+<li><p>Usually, the UI changes shape when the user rotates the device between portrait/landscape</p>
+<p>You can control which orientations your app supports in the Settings of your project</p>
+</li>
+<li><p>Almost always, your UI just responds naturally to rotation with autolayout</p>
+</li>
+<li><p>But if you, for example, want to participate in the rotation animation, you can use this method …</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br></pre></td><td class="code"><pre><span class="line">  <span class="function"><span class="keyword">func</span> <span class="title">viewWillTransitionToSize</span><span class="params">(</span><br><span class="line">      size: CGSize,</span><br><span class="line">      withTransitionCoordinator: UIViewControllerTransitionCoordinator</span><br><span class="line">  )</span></span></span><br><span class="line">```  </span><br><span class="line"> </span><br><span class="line">  - <span class="type">The</span> coordinator provides a method to animate alongside the rotation animation</span><br><span class="line"> </span><br><span class="line">    <span class="type">We</span> are not going to be talking about animation, though, <span class="keyword">for</span> a couple of weeks</span><br><span class="line"></span><br><span class="line">    <span class="type">So</span> this <span class="keyword">is</span> just something to put <span class="keyword">in</span> the back of your mind (i.e. that it exists) <span class="keyword">for</span> now</span><br><span class="line"></span><br><span class="line">### <span class="type">In</span> low-memory situations, didReceiveMemoryWarning gets called ...</span><br><span class="line">  <span class="type">This</span> rarely happens, but well-designed code with big-ticket memory uses might anticipate it.</span><br><span class="line">  </span><br><span class="line">  <span class="type">Examples</span>: images and sounds.</span><br><span class="line">  </span><br><span class="line">  <span class="type">Anything</span> <span class="string">"big"</span> that <span class="keyword">is</span> not currently <span class="keyword">in</span> use and can be recreated relatively easily</span><br><span class="line">    should probably be released (by setting any pointers to it to <span class="literal">nil</span>)</span><br><span class="line">    </span><br><span class="line">### awakeFromNib</span><br><span class="line"></span><br><span class="line">  <span class="type">This</span> method <span class="keyword">is</span> sent to all objects that come out of a storyboard (including your <span class="type">Controller</span>).</span><br><span class="line">  </span><br><span class="line">  <span class="type">Happens</span> before outlets are <span class="keyword">set</span>! (i.e. before the <span class="type">MVC</span> <span class="keyword">is</span> <span class="string">"loaded"</span>)</span><br><span class="line">  </span><br><span class="line">  <span class="type">Put</span> code somewhere <span class="keyword">else</span> <span class="keyword">if</span> at all possible (e.g. viewDidLoad or viewWillAppear).</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">###<span class="type">Summary</span></span><br><span class="line"></span><br><span class="line"> - <span class="type">Instantiated</span> (from storyboard usually)</span><br><span class="line">  </span><br><span class="line"> - awakeFromNib</span><br><span class="line">  </span><br><span class="line"> - segue preparation happens</span><br><span class="line">  </span><br><span class="line"> - outlets <span class="keyword">get</span> <span class="keyword">set</span></span><br><span class="line">  </span><br><span class="line"> - viewDidLoad</span><br><span class="line">  </span><br><span class="line"> - <span class="type">These</span> pairs will be called each time your <span class="type">Controller's</span> view goes on/off screen …</span><br><span class="line">  </span><br><span class="line">     viewWillAppear and viewDidAppear</span><br><span class="line">     </span><br><span class="line">     viewWillDisappear and viewDidDisappear</span><br><span class="line">     </span><br><span class="line"> - <span class="type">These</span> <span class="string">"geometry changed"</span> methods might be called at any time after viewDidLoad …</span><br><span class="line">  </span><br><span class="line">     viewWillLayoutSubviews (… then autolayout happens, then …) viewDidLayoutSubviews</span><br><span class="line">     </span><br><span class="line"> - <span class="type">If</span> memory gets low, you might <span class="keyword">get</span> …</span><br><span class="line">  </span><br><span class="line">     didReceiveMemoryWarning</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### <span class="type">Demo</span></span><br><span class="line"> </span><br><span class="line">  <span class="type">Let's</span> plop some <span class="built_in">println</span> statements into the <span class="type">View</span> <span class="type">Controller</span> <span class="type">Lifecycle</span> methods <span class="keyword">in</span> <span class="type">Psychologist</span></span><br><span class="line">  </span><br><span class="line">  <span class="type">Then</span> we can watch <span class="keyword">as</span> <span class="type">Psychologist</span> and <span class="type">Happiness</span> <span class="type">MVCs</span> go through their lifecycle</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#<span class="type">Autolayout</span></span><br><span class="line">### <span class="type">You've</span> seen a lot of <span class="type">Autolayout</span> already</span><br><span class="line"> - <span class="type">Using</span> the dashed blue lines to <span class="keyword">try</span> to tell <span class="type">Xcode</span> what you intend</span><br><span class="line"> - <span class="type">Ctrl</span>-<span class="type">Dragging</span> between views to create relationships (spacing, etc.)</span><br><span class="line"> - <span class="type">The</span> <span class="string">"Pin"</span> and <span class="string">"Arrange"</span> popovers <span class="keyword">in</span> the lower <span class="keyword">right</span> of the storyboard</span><br><span class="line"> - <span class="type">Reset</span> to <span class="type">Suggested</span> <span class="type">Constraints</span> (<span class="keyword">if</span> the blue lines were enough to unambiguously <span class="keyword">set</span> constraints)</span><br><span class="line"> - <span class="type">Document</span> <span class="type">Outline</span> (see all constraints, resolve misplacements and even conflicts)</span><br><span class="line"> - <span class="type">Size</span> <span class="type">Inspector</span> (look at (and edit!) the details of the constraints on the selected view)</span><br><span class="line"> - <span class="type">Clicking</span> on a constraint to select it then bring up <span class="type">Attributes</span> <span class="type">Inspector</span> (to edit its details)</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">### <span class="type">Mastering</span> <span class="type">Autolayout</span> requires experience</span><br><span class="line">  <span class="type">You</span> just have to <span class="keyword">do</span> it to learn it</span><br><span class="line">  </span><br><span class="line">### <span class="type">Autolayout</span> can be done from code too</span><br><span class="line">  <span class="type">Though</span> you're probably better off doing it <span class="keyword">in</span> the storyboard wherever possible</span><br><span class="line"></span><br><span class="line">  <span class="type">The</span> demo today will show a simple <span class="keyword">case</span> of doing <span class="type">Autolayout</span> from code</span><br><span class="line">### <span class="type">What</span> about rotation?</span><br><span class="line">  <span class="type">Sometimes</span> rotating changes the geometry so drastically that autolayout <span class="keyword">is</span> not enough</span><br><span class="line">  </span><br><span class="line">  <span class="type">You</span> actually need to reposition the views to make them fit properly</span><br><span class="line">### <span class="type">Calculator</span></span><br><span class="line">  <span class="type">For</span> example, what <span class="keyword">if</span> we had <span class="number">20</span> buttons <span class="keyword">in</span> a <span class="type">Calculator</span>?</span><br><span class="line">  </span><br><span class="line">  <span class="type">It</span> might be better <span class="keyword">in</span> <span class="type">Landscape</span> to have the buttons <span class="number">5</span> across and <span class="number">4</span> down</span><br><span class="line">  </span><br><span class="line">  <span class="type">Versus</span> <span class="keyword">in</span> <span class="type">Portrait</span> have them <span class="number">4</span> across and <span class="number">5</span> down</span><br><span class="line">  </span><br><span class="line">### <span class="type">View</span> <span class="type">Controllers</span> might want this <span class="keyword">in</span> other situations too</span><br><span class="line">  <span class="type">For</span> example, your <span class="type">MVC</span> <span class="keyword">is</span> the master of a side-by-side <span class="built_in">split</span> view</span><br><span class="line">  </span><br><span class="line">  <span class="type">In</span> that <span class="keyword">case</span>, you'd want to draw just like a <span class="type">Portrait</span> iPhone does</span><br><span class="line">  </span><br><span class="line">### <span class="type">The</span> solution? <span class="type">Size</span> <span class="type">Classes</span> </span><br><span class="line">  <span class="type">Your</span> <span class="type">View</span> <span class="type">Controller</span> always exists <span class="keyword">in</span> a certain <span class="string">"size class"</span> environment <span class="keyword">for</span> width and height</span><br><span class="line">  </span><br><span class="line">  <span class="type">Currently</span> this <span class="keyword">is</span> either <span class="type">Compact</span> or <span class="type">Regular</span> (i.e. not compact)</span><br><span class="line">### iPhone <span class="number">6</span>+</span><br><span class="line">  <span class="type">The</span> iPhone <span class="number">6</span>+ <span class="keyword">in</span> <span class="type">Portrait</span> orientation <span class="keyword">is</span> <span class="type">Compact</span> <span class="keyword">in</span> width and <span class="type">Regular</span> <span class="keyword">in</span> height</span><br><span class="line">  </span><br><span class="line">  <span class="type">In</span> <span class="type">Landscape</span>, it <span class="keyword">is</span> <span class="type">Compact</span> <span class="keyword">in</span> height and <span class="type">Regular</span> <span class="keyword">in</span> width</span><br><span class="line">  </span><br><span class="line">### iPhone</span><br><span class="line">  <span class="type">Other</span> iPhones <span class="keyword">in</span> <span class="type">Portrait</span> are also <span class="type">Compact</span> <span class="keyword">in</span> width and <span class="type">Regular</span> <span class="keyword">in</span> height</span><br><span class="line">  </span><br><span class="line">  <span class="type">But</span> <span class="keyword">in</span> <span class="type">Landscape</span>, non-<span class="number">6</span>+ iPhones are treated <span class="keyword">as</span> <span class="type">Compact</span> <span class="keyword">in</span> both dimensions</span><br><span class="line">  </span><br><span class="line">### iPad</span><br><span class="line">  <span class="type">Always</span> <span class="type">Regular</span> <span class="keyword">in</span> both dimensions</span><br><span class="line">  </span><br><span class="line">  <span class="type">An</span> <span class="type">MVC</span> that <span class="keyword">is</span> the master <span class="keyword">in</span> a side-by-side <span class="built_in">split</span> view will be <span class="type">Compact</span> width, <span class="type">Regular</span> height</span><br><span class="line">  </span><br><span class="line">### <span class="type">Extensible</span></span><br><span class="line">  <span class="type">This</span> whole concept <span class="keyword">is</span> extensible to any <span class="string">"MVC's inside other MVC's"</span> situation (not just <span class="built_in">split</span> view)</span><br><span class="line">  </span><br><span class="line">  <span class="type">An</span> <span class="type">MVC</span> can <span class="built_in">find</span> out its size <span class="class"><span class="keyword">class</span> <span class="title">environment</span> <span class="title">via</span> <span class="title">this</span> <span class="title">method</span> <span class="title">in</span> <span class="title">UIViewController</span> …</span><br><span class="line">```<span class="title">swift</span>  </span><br><span class="line">  <span class="title">let</span> <span class="title">mySizeClass</span>: <span class="title">UIUserInterfaceSizeClass</span> = <span class="title">self</span>.<span class="title">traitCollection</span>.<span class="title">horizontalSizeClass</span></span></span><br></pre></td></tr></table></figure>
+<p>The return value is an enum .Compact or .Regular (or .Unspecified).</p>
+</li>
+</ul>
+<p>#Demos</p>
+<h3 id="ShowSizeClass"><a href="#ShowSizeClass" class="headerlink" title="ShowSizeClass"></a>ShowSizeClass</h3><p>  A trivial app to take a look at how we react to size class differences in our storyboard<br> 对于不同的屏幕可以利用SizeClass设置布局，共有3*3种状态，每种布局仅在对应SizeClass生效。</p>
+<h3 id="Autolayout-1"><a href="#Autolayout-1" class="headerlink" title="Autolayout"></a>Autolayout</h3><p>  Let’s pull it all together by building a UI that has some Autolayout challenges</p>
+<p>  Including needing to do something different in different size classes<br>  可以调节水平和竖直的hugging优先级，决定缩放的时候优先压缩哪个控件。</p>
+<p> 本课使用<code>extension</code>扩展了User和Image类。</p>
+<h3 id="A-Challenge-to-You"><a href="#A-Challenge-to-You" class="headerlink" title="A Challenge to You!"></a>A Challenge to You!</h3><p>  After watching today, see if you can make your Calculator react to size class changes</p>
+<p>  For example, change the number of rows and columns in different size class situations</p>
+<p>  Or even show more operations in one size class or another (like Apple’s Calculator app does)</p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/12/04/532movie-Privacy-Policy/" rel="prev">532movie Privacy Policy</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/11/12/Developing-iOS-8-Apps-with-Swift-class-7/" rel="next">Developing iOS 8 Apps with Swift 学习笔记7</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="2015/11/13/Developing-iOS-8-Apps-with-Swift-class-8/"
+                   data-title="Developing iOS 8 Apps with Swift 学习笔记8" data-url="http://yoursite.com/2015/11/13/Developing-iOS-8-Apps-with-Swift-class-8/">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="http://7tsysl.com1.z0.glb.clouddn.com/head show.JPG" alt="Hui Chen" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">Hui Chen</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description"></p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">34</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">分类</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            
+              <span class="site-state-item-count">26</span>
+              <span class="site-state-item-name">标签</span>
+              
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ch0588" target="_blank">github</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/ch0588" target="_blank">weibo</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/ch0588" target="_blank">zhihu</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#View-Controller-Lifecycle"><span class="nav-number">1.</span> <span class="nav-text">View Controller Lifecycle</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Autolayout"><span class="nav-number">2.</span> <span class="nav-text">Autolayout</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#View-Controller-Lifecycle-1"><span class="nav-number"></span> <span class="nav-text">View Controller Lifecycle</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#View-Controllers-have-a-“Lifecycle”"><span class="nav-number">1.</span> <span class="nav-text">View Controllers have a “Lifecycle”</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Why-does-this-matter"><span class="nav-number">2.</span> <span class="nav-text">Why does this matter?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-start-of-the-lifecycle-…"><span class="nav-number">3.</span> <span class="nav-text">The start of the lifecycle …</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#What-then"><span class="nav-number">4.</span> <span class="nav-text">What then?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#After-instantiation-and-outlet-setting-viewDidLoad-is-called"><span class="nav-number">5.</span> <span class="nav-text">After instantiation and outlet-setting, viewDidLoad is called</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#And-you-get-notified-when-you-will-disappear-off-screen-too"><span class="nav-number">6.</span> <span class="nav-text">And you get notified when you will disappear off screen too</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#There-is-a-“did”-version-of-this-too"><span class="nav-number">7.</span> <span class="nav-text">There is a “did” version of this too</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Geometry-changed"><span class="nav-number">8.</span> <span class="nav-text">Geometry changed?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ShowSizeClass"><span class="nav-number">9.</span> <span class="nav-text">ShowSizeClass</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Autolayout-1"><span class="nav-number">10.</span> <span class="nav-text">Autolayout</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#A-Challenge-to-You"><span class="nav-number">11.</span> <span class="nav-text">A Challenge to You!</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hui Chen</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"devhui"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.3"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.3"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.3" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.3"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.3" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>

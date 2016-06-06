@@ -28,7 +28,7 @@
 
 
 
-  <meta name="keywords" content="Hexo,next" />
+  <meta name="keywords" content="Stack," />
 
 
 
@@ -37,22 +37,16 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.3" />
 
 
-<meta name="description" content="Thinkpad X240笔记本已经卡到不能忍了，端午节前趁着6.18电商促销，买了256G的固态硬盘和8G内存条。小黑笔记本有点傲娇，只有一个内存卡槽，并且要低压内存。固态硬盘倒是可以选择替换原有的SATA接口机械硬盘，或者在3G模块部分新加固态硬盘。我选择的是替换原有的机械硬盘。">
+<meta name="description" content="将一个栈中的数据排序，只能使用push pop top empty四种操作，并且不能手动申请额外的内存。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Thinkpad x240 更换固态硬盘">
-<meta property="og:url" content="http://devhui.com/2015/06/26/x240-exchange-SSD/index.html">
+<meta property="og:title" content="Sort a Stack">
+<meta property="og:url" content="http://devhui.com/2016/06/06/sort-a-stack/index.html">
 <meta property="og:site_name" content="陈辉的技术博客">
-<meta property="og:description" content="Thinkpad X240笔记本已经卡到不能忍了，端午节前趁着6.18电商促销，买了256G的固态硬盘和8G内存条。小黑笔记本有点傲娇，只有一个内存卡槽，并且要低压内存。固态硬盘倒是可以选择替换原有的SATA接口机械硬盘，或者在3G模块部分新加固态硬盘。我选择的是替换原有的机械硬盘。">
-<meta property="og:image" content="http://editerupload.eepw.com.cn/201408/932956b13b25a4a083fe2c88bc452a93.jpg">
-<meta property="og:image" content="http://editerupload.eepw.com.cn/201408/7e4ff3ca05d6caa78b42f2d231cbc098.jpg">
-<meta property="og:image" content="http://imgsrc.baidu.com/forum/pic/item/881bd9f9d72a60590770801e2a34349b033bba62.jpg">
-<meta property="og:image" content="http://7tsysl.com1.z0.glb.clouddn.com/ssd更换完毕.jpg">
-<meta property="og:image" content="http://7tsysl.com1.z0.glb.clouddn.com/ssd大功告成.jpg">
-<meta property="og:updated_time" content="2016-05-26T14:20:27.000Z">
+<meta property="og:description" content="将一个栈中的数据排序，只能使用push pop top empty四种操作，并且不能手动申请额外的内存。">
+<meta property="og:updated_time" content="2016-06-06T14:47:04.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Thinkpad x240 更换固态硬盘">
-<meta name="twitter:description" content="Thinkpad X240笔记本已经卡到不能忍了，端午节前趁着6.18电商促销，买了256G的固态硬盘和8G内存条。小黑笔记本有点傲娇，只有一个内存卡槽，并且要低压内存。固态硬盘倒是可以选择替换原有的SATA接口机械硬盘，或者在3G模块部分新加固态硬盘。我选择的是替换原有的机械硬盘。">
-<meta name="twitter:image" content="http://editerupload.eepw.com.cn/201408/932956b13b25a4a083fe2c88bc452a93.jpg">
+<meta name="twitter:title" content="Sort a Stack">
+<meta name="twitter:description" content="将一个栈中的数据排序，只能使用push pop top empty四种操作，并且不能手动申请额外的内存。">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -62,7 +56,7 @@
   };
 </script>
 
-  <title> Thinkpad x240 更换固态硬盘 | 陈辉的技术博客 </title>
+  <title> Sort a Stack | 陈辉的技术博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -161,7 +155,7 @@
           
           
             
-              Thinkpad x240 更换固态硬盘
+              Sort a Stack
             
           
         </h1>
@@ -170,8 +164,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-06-26T23:25:31+08:00" content="Jun 26 2015">
-            Jun 26 2015
+          <time itemprop="dateCreated" datetime="2016-06-06T22:24:02+08:00" content="Jun 6 2016">
+            Jun 6 2016
           </time>
         </span>
 
@@ -180,8 +174,8 @@
             &nbsp; | &nbsp; 分类于
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/Life/" itemprop="url" rel="index">
-                  <span itemprop="name">Life</span>
+                <a href="/categories/Algorithms/" itemprop="url" rel="index">
+                  <span itemprop="name">Algorithms</span>
                 </a>
               </span>
 
@@ -196,8 +190,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/06/26/x240-exchange-SSD/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/26/x240-exchange-SSD/" itemprop="commentsCount"></span>
+              <a href="/2016/06/06/sort-a-stack/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/06/sort-a-stack/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -211,29 +205,33 @@
       
 
       
-        <span itemprop="articleBody"><p>Thinkpad X240笔记本已经卡到不能忍了，端午节前趁着6.18电商促销，买了256G的固态硬盘和8G内存条。小黑笔记本有点傲娇，只有一个内存卡槽，并且要低压内存。固态硬盘倒是可以选择替换原有的SATA接口机械硬盘，或者在3G模块部分新加固态硬盘。我选择的是替换原有的机械硬盘。<br><a id="more"></a></p>
-<h1 id="拆机"><a href="#拆机" class="headerlink" title="拆机"></a>拆机</h1><p>背部全部螺丝拧开，从掌托出开始拆，比较难拆的靠近电池的部分，那里有一排卡扣。按照网上的拆机视频讲解，向掌托方向用力，可以将卡扣解开。大力出奇迹。</p>
-<h1 id="换内存条"><a href="#换内存条" class="headerlink" title="换内存条"></a>换内存条</h1><p>将内存条两侧卡扣解开，向上用力即可取出内存条。<br><img src="http://editerupload.eepw.com.cn/201408/932956b13b25a4a083fe2c88bc452a93.jpg" alt=""></p>
-<h1 id="换固态硬盘"><a href="#换固态硬盘" class="headerlink" title="换固态硬盘"></a>换固态硬盘</h1><p>将原机机械键盘取出，不需要拧开硬盘上的任何螺丝。<br>硬盘外层有一圈胶皮，一个角的地方可以将胶皮掀开，然后将原硬盘取出。将下图左侧的接口拔出，插入新硬盘即可。<br><img src="http://editerupload.eepw.com.cn/201408/7e4ff3ca05d6caa78b42f2d231cbc098.jpg" alt=""><br><img src="http://imgsrc.baidu.com/forum/pic/item/881bd9f9d72a60590770801e2a34349b033bba62.jpg" alt=""><br>更换完毕，左下角黑色为256G SSD<br><img src="http://7tsysl.com1.z0.glb.clouddn.com/ssd更换完毕.jpg" alt=""><br>安装之后开机，还没有安装系统，只能进入Boot页面。<br><img src="http://7tsysl.com1.z0.glb.clouddn.com/ssd大功告成.jpg" alt=""></p>
-<h1 id="安装系统"><a href="#安装系统" class="headerlink" title="安装系统"></a>安装系统</h1><p>60GB win7，其余Linux，自从换上SSD小黑健步如飞，开机不费劲，一口气秒开好几个程序。</p>
+        <span itemprop="articleBody"><p>将一个栈中的数据排序，只能使用push pop top empty四种操作，并且不能手动申请额外的内存。</p>
+<a id="more"></a>
+<p>用栈实现选择排序，关键的步骤是insert函数：向一个已经有序的栈插入元素e，并保持有序性。由于不能手动申请新内存，可以用系统栈的递归调用实现。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="built_in">stack</span>&lt;T&gt; &amp;S, <span class="keyword">const</span> T &amp;e)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (S.empty() || S.top() &lt;= e) &#123;</span><br><span class="line">		S.push(e);</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		T f = S.top();</span><br><span class="line">		S.pop();</span><br><span class="line">		insert(S, e);</span><br><span class="line">		S.push(f);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>排序函数也同样是递归实现，将e插入栈底已经排好的序列中。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sort</span><span class="params">(<span class="built_in">stack</span>&lt;T&gt; &amp;S)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (!S.empty()) &#123;</span><br><span class="line">		T e = S.top();</span><br><span class="line">		S.pop();</span><br><span class="line">		sort(S);</span><br><span class="line">		insert(S, e);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>以上两个函数均使用了O(N)的系统栈内存，总时间复杂度为O(N^2)。</p>
 </span>
       
     </div>
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Stack/" rel="tag">#Stack</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/06/26/x240-wireless-driver-on-Linux/" rel="prev">Thinkpad x240 Linux无线网卡驱动</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/06/25/training-3-for-riding-tibet/" rel="next">骑行川藏拉练3——十渡</a>
+              <a href="/2016/06/02/Queue-With-MAX/" rel="next">Queue With MAX</a>
             
           </div>
         </div>
@@ -258,8 +256,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2015/06/26/x240-exchange-SSD/"
-                   data-title="Thinkpad x240 更换固态硬盘" data-url="http://devhui.com/2015/06/26/x240-exchange-SSD/">
+              <div class="ds-thread" data-thread-key="2016/06/06/sort-a-stack/"
+                   data-title="Sort a Stack" data-url="http://devhui.com/2016/06/06/sort-a-stack/">
               </div>
             
           </div>
@@ -355,7 +353,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#拆机"><span class="nav-number">1.</span> <span class="nav-text">拆机</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#换内存条"><span class="nav-number">2.</span> <span class="nav-text">换内存条</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#换固态硬盘"><span class="nav-number">3.</span> <span class="nav-text">换固态硬盘</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装系统"><span class="nav-number">4.</span> <span class="nav-text">安装系统</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

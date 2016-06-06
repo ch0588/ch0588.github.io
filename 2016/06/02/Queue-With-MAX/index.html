@@ -28,7 +28,7 @@
 
 
 
-  <meta name="keywords" content="Stack,Binary Tree," />
+  <meta name="keywords" content="Stack,Queue," />
 
 
 
@@ -43,7 +43,7 @@
 <meta property="og:url" content="http://devhui.com/2016/06/02/Queue-With-MAX/index.html">
 <meta property="og:site_name" content="陈辉的技术博客">
 <meta property="og:description" content="实现一个带有max操作的队列">
-<meta property="og:updated_time" content="2016-06-02T12:27:09.000Z">
+<meta property="og:updated_time" content="2016-06-06T14:46:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Queue With MAX">
 <meta name="twitter:description" content="实现一个带有max操作的队列">
@@ -207,8 +207,7 @@
       
         <span itemprop="articleBody"><p>实现一个带有max操作的队列</p>
 <a id="more"></a>
-<p>队列的前后两端数据都在变化，直接添加max操作，很难维护最大值。用降维的思想来考虑，固定一端不变，另一端进出数据（其实就是栈stack）。stack with max是一个很经典的问题，具体解法是利用两个栈来维护，A栈负责push，B栈负责记录可以update最大值得元素。代码如下：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> MaxStack &#123;</span><br><span class="line">    <span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; S, M;</span><br><span class="line">    </span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        S.push(x);</span><br><span class="line">        <span class="keyword">if</span> (M.empty() || M.top() &lt;= x) M.push(x);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (S.top() == M.top()) M.pop();</span><br><span class="line">        S.pop();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">top</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> S.top(); &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getMax</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> M.top(); &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>队列的前后两端数据都在变化，直接添加max操作，很难维护最大值。用降维的思想来考虑，固定一端不变，另一端进出数据（其实就是栈stack）。stack with max是一个很经典的问题，具体解法是利用两个栈来维护，A栈负责push，B栈负责记录可以update最大值得元素。代码如下：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> MaxStack &#123;</span><br><span class="line">    <span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; S, M;</span><br><span class="line">    </span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        S.push(x);</span><br><span class="line">        <span class="keyword">if</span> (M.empty() || M.top() &lt;= x) M.push(x);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (S.top() == M.top()) M.pop();</span><br><span class="line">        S.pop();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">top</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> S.top(); &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getMax</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> M.top(); &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 <p>如何将stack with max转成queue with max？显而易见，用stack实现queue的操作即可，思路还是两个栈，A栈负责push数据，pop的时候优先从B栈弹出元素，B栈为空时，将A栈的元素全部弹入置B栈。每个从B栈弹出的元素，都曾经从A栈弹出，负负得正，两次栈的操作保证了队列的有序性。pop的均摊复杂度O(1)。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Queue &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// Push element x to the back of queue.</span></span><br><span class="line">    <span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; in, out;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123; in.push(x); &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// Removes the element from in front of queue.</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">pop</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!out.empty())</span><br><span class="line">            out.pop();</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">while</span> (!in.empty()) &#123;</span><br><span class="line">                out.push(in.top());</span><br><span class="line">                in.pop();</span><br><span class="line">            &#125;</span><br><span class="line">            out.pop();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// Get the front element.</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">peek</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!out.empty())</span><br><span class="line">            <span class="keyword">return</span> out.top();</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">while</span> (!in.empty()) &#123;</span><br><span class="line">                out.push(in.top());</span><br><span class="line">                in.pop();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> out.top();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// Return whether the queue is empty.</span></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">empty</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123; <span class="keyword">return</span> in.empty() &amp;&amp; out.empty(); &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 <p>将以上两份代码略加综合，就是Queue With MAX的完整解法。</p>
 </span>
@@ -221,7 +220,7 @@
           
             <a href="/tags/Stack/" rel="tag">#Stack</a>
           
-            <a href="/tags/Binary-Tree/" rel="tag">#Binary Tree</a>
+            <a href="/tags/Queue/" rel="tag">#Queue</a>
           
         </div>
       
@@ -229,6 +228,8 @@
       
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/06/06/sort-a-stack/" rel="prev">Sort a Stack</a>
             
           </div>
 
@@ -300,7 +301,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">35</span>
+              <span class="site-state-item-count">36</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -314,7 +315,7 @@
 
           <div class="site-state-item site-state-tags">
             
-              <span class="site-state-item-count">28</span>
+              <span class="site-state-item-count">29</span>
               <span class="site-state-item-name">标签</span>
               
           </div>

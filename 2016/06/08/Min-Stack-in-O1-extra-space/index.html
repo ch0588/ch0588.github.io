@@ -1,0 +1,659 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.3"/>
+
+
+
+
+  <meta name="keywords" content="Stack," />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.3" />
+
+
+<meta name="description" content="Min Stack：支持getMin()操作的栈，前不久刚写过O(1)时间，O(N)额外空间的解法，并扩展到了Min Queue。详见Queue With MAX。
+昨晚在GeeksforGeeks上面看到了一篇文章Design a stack that supports getMin() in O(1) time and O(1) extra space，可以仅用O(1)时间、O(1)额外空间解">
+<meta property="og:type" content="article">
+<meta property="og:title" content="只用O(1)额外空间的Min Stack">
+<meta property="og:url" content="http://devhui.com/2016/06/08/Min-Stack-in-O1-extra-space/index.html">
+<meta property="og:site_name" content="陈辉的技术博客">
+<meta property="og:description" content="Min Stack：支持getMin()操作的栈，前不久刚写过O(1)时间，O(N)额外空间的解法，并扩展到了Min Queue。详见Queue With MAX。
+昨晚在GeeksforGeeks上面看到了一篇文章Design a stack that supports getMin() in O(1) time and O(1) extra space，可以仅用O(1)时间、O(1)额外空间解">
+<meta property="og:image" content="http://d1gjlxt8vb0knt.cloudfront.net//wp-content/uploads/stack_insert.png">
+<meta property="og:image" content="http://d1gjlxt8vb0knt.cloudfront.net//wp-content/uploads/stack_removal.png">
+<meta property="og:updated_time" content="2016-06-08T06:08:26.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="只用O(1)额外空间的Min Stack">
+<meta name="twitter:description" content="Min Stack：支持getMin()操作的栈，前不久刚写过O(1)时间，O(N)额外空间的解法，并扩展到了Min Queue。详见Queue With MAX。
+昨晚在GeeksforGeeks上面看到了一篇文章Design a stack that supports getMin() in O(1) time and O(1) extra space，可以仅用O(1)时间、O(1)额外空间解">
+<meta name="twitter:image" content="http://d1gjlxt8vb0knt.cloudfront.net//wp-content/uploads/stack_insert.png">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> 只用O(1)额外空间的Min Stack | 陈辉的技术博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">陈辉的技术博客</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            <i class="menu-item-icon icon-next-about"></i> <br />
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              只用O(1)额外空间的Min Stack
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-06-08T14:02:21+08:00" content="Jun 8 2016">
+            Jun 8 2016
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/Algorithms/" itemprop="url" rel="index">
+                  <span itemprop="name">Algorithms</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2016/06/08/Min-Stack-in-O1-extra-space/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/08/Min-Stack-in-O1-extra-space/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p><code>Min Stack</code>：支持<code>getMin()</code>操作的栈，前不久刚写过O(1)时间，O(N)额外空间的解法，并扩展到了Min Queue。详见<a href="http://devhui.com/2016/06/02/Queue-With-MAX/">Queue With MAX</a>。</p>
+<p>昨晚在GeeksforGeeks上面看到了一篇文章<a href="http://www.geeksforgeeks.org/design-a-stack-that-supports-getmin-in-o1-time-and-o1-extra-space/" target="_blank" rel="external">Design a stack that supports getMin() in O(1) time and O(1) extra space</a>，可以仅用O(1)时间、<code>O(1)额外空间</code>解决此问题。这个解法非常的genius，在此介绍这个方法。</p>
+<h1 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h1><p>定义变量minEle，代表当前栈中的最小元素。那么关键问题就是，如何在最小元素出栈后，维护minEle的值。为了维护minEle，入栈push(x)的时候，并不是将x入栈，而是将<code>2x - minEle</code>入栈，这样就可以根据当前的minEle获取到之前的minEle。下面是算法那的细节：</p>
+<h1 id="详细步骤"><a href="#详细步骤" class="headerlink" title="详细步骤"></a>详细步骤</h1><p><code>Push(x)</code>:</p>
+<p>如果栈空，则将x入栈，并将minEle = x<br>如果栈非空，则比较x和minEle<br>  （1）如果x &gt;= minEle，则直接将x入栈<br>  （2）如果x &lt; minEle,将<code>2*x - minEle</code>入栈，并将minEle = x，例如之前的minEle = 3，现在push(2)，则将minEle更新为2，并讲2*2 - 3 = 1入栈。</p>
+<p><code>Pop()</code>:<br>将栈顶元素出栈，令出栈的元素为y<br>如果y &gt;= minEle，则最小元素依旧在栈中，minEle不变<br>如果y &lt;= minEle,则最小元素变为2<em>minEle - y，所以将minEle = 2 </em> minEle - y。在这里我们通过当前的minEle，得到了之前的minEle。</p>
+<p><code>注意</code><br>如果当前值是栈中最小值，那么栈中存储的并不是它的真实值<br>minEle永远是栈中最小值的真实值。</p>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><h2 id="Push-x"><a href="#Push-x" class="headerlink" title="Push(x)"></a>Push(x)</h2><p><img src="http://d1gjlxt8vb0knt.cloudfront.net//wp-content/uploads/stack_insert.png" alt="Push(x)"></p>
+<ol>
+<li>Number to be Inserted: 3, Stack is empty, so insert 3 into stack and minEle = 3.</li>
+<li>Number to be Inserted: 5, Stack is not empty, 5&gt; minEle, insert 5 into stack and minEle = 3.</li>
+<li>Number to be Inserted: 2, Stack is not empty, 2&lt; minEle, insert (2 * 2-3 = 1) into stack and minEle = 2.</li>
+<li>Number to be Inserted: 1, Stack is not empty, 1&lt; minEle, insert (2 * 1-2 = 0) into stack and minEle = 1.</li>
+<li>Number to be Inserted: 1, Stack is not empty, 1 = minEle, insert 1 into stack and minEle = 1.</li>
+<li>Number to be Inserted: -1, Stack is not empty, -1 &lt; minEle, insert (2 * -1 – 1 = -3) into stack and minEle = -1.</li>
+</ol>
+<h2 id="Pop"><a href="#Pop" class="headerlink" title="Pop()"></a>Pop()</h2><p><img src="http://d1gjlxt8vb0knt.cloudfront.net//wp-content/uploads/stack_removal.png" alt="Pop()"></p>
+<ol>
+<li>Initially the minimum element minEle in the stack is -1.</li>
+<li>Number removed: -3, Since -3 is less than the minimum element the original number being removed is minEle which is -1, and the new minEle = 2 * -1 – (-3) = 1</li>
+<li>Number removed: 1, 1 == minEle, so number removed is 1 and minEle is still equal to 1.</li>
+<li>Number removed: 0, 0&lt; minEle, original number is minEle which is 1 and new minEle = 2 * 1 – 0 = 2.</li>
+<li>Number removed: 1, 1&lt; minEle, original number is minEle which is 2 and new minEle = 2 * 2 – 1 = 3.</li>
+<li>Number removed: 5, 5&gt; minEle, original number is 5 and minEle is still 3</li>
+</ol>
+<h1 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h1><p>源码摘自GeeksforGeeks</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// C++ program to implement a stack that supports</span></span><br><span class="line"><span class="comment">// getMinimum() in O(1) time and O(1) extra space.</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"> </span><br><span class="line"><span class="comment">// A user defined stack that supports getMin() in</span></span><br><span class="line"><span class="comment">// addition to push() and pop()</span></span><br><span class="line"><span class="keyword">struct</span> MyStack</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; s;</span><br><span class="line">    <span class="keyword">int</span> minEle;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// Prints minimum element of MyStack</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">getMin</span><span class="params">()</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (s.empty())</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">"Stack is empty\n"</span>;</span><br><span class="line"> </span><br><span class="line">        <span class="comment">// variable minEle stores the minimum element</span></span><br><span class="line">        <span class="comment">// in the stack.</span></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt;<span class="string">"Minimum Element in the stack is: "</span></span><br><span class="line">                 &lt;&lt; minEle &lt;&lt; <span class="string">"\n"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// Prints top element of MyStack</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">peek</span><span class="params">()</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (s.empty())</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">"Stack is empty "</span>;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">int</span> t = s.top(); <span class="comment">// Top element.</span></span><br><span class="line"> </span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"Top Most Element is: "</span>;</span><br><span class="line"> </span><br><span class="line">        <span class="comment">// If t &lt; minEle means minEle stores</span></span><br><span class="line">        <span class="comment">// value of t.</span></span><br><span class="line">        (t &lt; minEle)? <span class="built_in">cout</span> &lt;&lt; minEle: <span class="built_in">cout</span> &lt;&lt; t;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// Remove the top element from MyStack</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">pop</span><span class="params">()</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (s.empty())</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">"Stack is empty\n"</span>;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"Top Most Element Removed: "</span>;</span><br><span class="line">        <span class="keyword">int</span> t = s.top();</span><br><span class="line">        s.pop();</span><br><span class="line"> </span><br><span class="line">        <span class="comment">// Minimum will change as the minimum element</span></span><br><span class="line">        <span class="comment">// of the stack is being removed.</span></span><br><span class="line">        <span class="keyword">if</span> (t &lt; minEle)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; minEle &lt;&lt; <span class="string">"\n"</span>;</span><br><span class="line">            minEle = <span class="number">2</span>*minEle - t;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; t &lt;&lt; <span class="string">"\n"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// Removes top element from MyStack</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> x)</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="comment">// Insert new number into the stack</span></span><br><span class="line">        <span class="keyword">if</span> (s.empty())</span><br><span class="line">        &#123;</span><br><span class="line">            minEle = x;</span><br><span class="line">            s.push(x);</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt;  <span class="string">"Number Inserted: "</span> &lt;&lt; x &lt;&lt; <span class="string">"\n"</span>;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">        <span class="comment">// If new number is less than minEle</span></span><br><span class="line">        <span class="keyword">if</span> (x &lt; minEle)</span><br><span class="line">        &#123;</span><br><span class="line">            s.push(<span class="number">2</span>*x - minEle);</span><br><span class="line">            minEle = x;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">           s.push(x);</span><br><span class="line"> </span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt;  <span class="string">"Number Inserted: "</span> &lt;&lt; x &lt;&lt; <span class="string">"\n"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h1 id="为什么这个方法是正确的？"><a href="#为什么这个方法是正确的？" class="headerlink" title="为什么这个方法是正确的？"></a>为什么这个方法是正确的？</h1><p>当入栈元素x小于minEle，我们是将<code>2x - minEle</code>入栈，重点就在这里，易证2x - minEle必定小于x。当出栈的时候，如果发现出栈元素y小于当前的minEle时，就用2 * minEle - y维护minEle。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">How previous minimum element, prevMinEle is, 2 * minEle - y</span><br><span class="line">in pop() is y the popped element?</span><br><span class="line"></span><br><span class="line"> // We pushed y as 2x - prevMinEle. Here </span><br><span class="line"> // prevMinEle is minEle before y was inserted</span><br><span class="line"> y = 2*x - prevMinEle  </span><br><span class="line"></span><br><span class="line"> // Value of minEle was made equal to x</span><br><span class="line"> minEle = x .</span><br><span class="line">	</span><br><span class="line"> new minEle = 2 * minEle - y </span><br><span class="line">            = 2*x - (2*x - prevMinEle)</span><br><span class="line">            = prevMinEle // This is what we wanted</span><br></pre></td></tr></table></figure></p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Stack/" rel="tag">#Stack</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/08/Extension-of-Next-Permutation/" rel="next">Next Permutation的扩展</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="2016/06/08/Min-Stack-in-O1-extra-space/"
+                   data-title="只用O(1)额外空间的Min Stack" data-url="http://devhui.com/2016/06/08/Min-Stack-in-O1-extra-space/">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="http://7tsysl.com1.z0.glb.clouddn.com/head show.JPG" alt="Hui Chen" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">Hui Chen</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description"></p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">38</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">分类</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            
+              <span class="site-state-item-count">31</span>
+              <span class="site-state-item-name">标签</span>
+              
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ch0588" target="_blank">github</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/ch0588" target="_blank">weibo</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/ch0588" target="_blank">zhihu</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#算法思路"><span class="nav-number">1.</span> <span class="nav-text">算法思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#详细步骤"><span class="nav-number">2.</span> <span class="nav-text">详细步骤</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实例"><span class="nav-number">3.</span> <span class="nav-text">实例</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Push-x"><span class="nav-number">3.1.</span> <span class="nav-text">Push(x)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pop"><span class="nav-number">3.2.</span> <span class="nav-text">Pop()</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#源码"><span class="nav-number">4.</span> <span class="nav-text">源码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#为什么这个方法是正确的？"><span class="nav-number">5.</span> <span class="nav-text">为什么这个方法是正确的？</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hui Chen</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"devhui"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.3"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.3"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.3" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.3"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.3" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>

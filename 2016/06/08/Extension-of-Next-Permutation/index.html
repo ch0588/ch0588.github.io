@@ -28,7 +28,7 @@
 
 
 
-  <meta name="keywords" content="Stack," />
+  <meta name="keywords" content="Math,Greedy," />
 
 
 
@@ -37,16 +37,28 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.3" />
 
 
-<meta name="description" content="将一个栈中的数据排序，只能使用push pop top empty四种操作，并且不能手动申请额外的内存。">
+<meta name="description" content="写一个函数生成满足下面三个条件的整数
+
+非负
+不能有重复数字
+递增，既后面产生的比前面产生的要大">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Sort a Stack">
-<meta property="og:url" content="http://devhui.com/2016/06/06/sort-a-stack/index.html">
+<meta property="og:title" content="Next Permutation的扩展">
+<meta property="og:url" content="http://devhui.com/2016/06/08/Extension-of-Next-Permutation/index.html">
 <meta property="og:site_name" content="陈辉的技术博客">
-<meta property="og:description" content="将一个栈中的数据排序，只能使用push pop top empty四种操作，并且不能手动申请额外的内存。">
-<meta property="og:updated_time" content="2016-06-06T14:47:04.000Z">
+<meta property="og:description" content="写一个函数生成满足下面三个条件的整数
+
+非负
+不能有重复数字
+递增，既后面产生的比前面产生的要大">
+<meta property="og:updated_time" content="2016-06-08T04:44:50.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Sort a Stack">
-<meta name="twitter:description" content="将一个栈中的数据排序，只能使用push pop top empty四种操作，并且不能手动申请额外的内存。">
+<meta name="twitter:title" content="Next Permutation的扩展">
+<meta name="twitter:description" content="写一个函数生成满足下面三个条件的整数
+
+非负
+不能有重复数字
+递增，既后面产生的比前面产生的要大">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -56,7 +68,7 @@
   };
 </script>
 
-  <title> Sort a Stack | 陈辉的技术博客 </title>
+  <title> Next Permutation的扩展 | 陈辉的技术博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -155,7 +167,7 @@
           
           
             
-              Sort a Stack
+              Next Permutation的扩展
             
           
         </h1>
@@ -164,8 +176,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2016-06-06T22:24:02+08:00" content="Jun 6 2016">
-            Jun 6 2016
+          <time itemprop="dateCreated" datetime="2016-06-08T10:37:07+08:00" content="Jun 8 2016">
+            Jun 8 2016
           </time>
         </span>
 
@@ -190,8 +202,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2016/06/06/sort-a-stack/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/06/sort-a-stack/" itemprop="commentsCount"></span>
+              <a href="/2016/06/08/Extension-of-Next-Permutation/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/08/Extension-of-Next-Permutation/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -205,11 +217,113 @@
       
 
       
-        <span itemprop="articleBody"><p>将一个栈中的数据排序，只能使用push pop top empty四种操作，并且不能手动申请额外的内存。</p>
+        <span itemprop="articleBody"><p>写一个函数生成满足下面三个条件的整数</p>
+<ol>
+<li>非负</li>
+<li>不能有重复数字</li>
+<li>递增，既后面产生的比前面产生的要大</li>
+</ol>
 <a id="more"></a>
-<p>用栈实现选择排序，关键的步骤是insert函数：向一个已经有序的栈插入元素e，并保持有序性。由于不能手动申请新内存，可以用系统栈的递归调用实现。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="built_in">stack</span>&lt;T&gt; &amp;S, <span class="keyword">const</span> T &amp;e)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (S.empty() || S.top() &lt;= e) &#123;</span><br><span class="line">		S.push(e);</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		T f = S.top();</span><br><span class="line">		S.pop();</span><br><span class="line">		insert(S, e);</span><br><span class="line">		S.push(f);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>排序函数也同样是递归实现，将e插入栈底已经排好的序列中。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sort</span><span class="params">(<span class="built_in">stack</span>&lt;T&gt; &amp;S)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (!S.empty()) &#123;</span><br><span class="line">		T e = S.top();</span><br><span class="line">		S.pop();</span><br><span class="line">		sort(S);</span><br><span class="line">		insert(S, e);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>以上两个函数均使用了O(N)的系统栈内存，总时间复杂度为O(N^2)。</p>
+<h1 id="解法一、递归生成全部数据"><a href="#解法一、递归生成全部数据" class="headerlink" title="解法一、递归生成全部数据"></a>解法一、递归生成全部数据</h1><p>一个类似排列数的递归函数即可实现</p>
+<h1 id="解法二、nextNum"><a href="#解法二、nextNum" class="headerlink" title="解法二、nextNum"></a>解法二、nextNum</h1><p>实现nextNum()函数，对于给定一个符合条件的数字，如318，返回下一个（比输入大但是最小的）数字，319。如果能高效的实现这个函数，不断调用，就可递增的生成满足条件的整数。</p>
+<p>首先考虑一种特殊情况，当输入数字是10位数，那么0-9每个数字恰好出现一次，此时的nextNum()就是next_permutation。简单复习下next_permutation的算法：</p>
+<h2 id="2-1-next-permutation"><a href="#2-1-next-permutation" class="headerlink" title="2.1 next_permutation"></a>2.1 next_permutation</h2><pre><code class="cpp"><span class="function"><span class="keyword">void</span> <span class="title">nextPermutation</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>{
+    <span class="keyword">int</span> n = nums.size();
+    <span class="keyword">int</span> p = <span class="number">-1</span>;
+
+    <span class="comment">//from end,find first increase,nums[p]&lt;nums[p+1]</span>
+    <span class="keyword">for</span> (<span class="keyword">int</span> i = n - <span class="number">2</span>; i &gt;= <span class="number">0</span>; --i) {
+        <span class="keyword">if</span> (nums[i] &lt; nums[i+<span class="number">1</span>]) {
+            p = i;
+            <span class="keyword">break</span>;
+        }
+    }
+    <span class="keyword">if</span> (p == <span class="number">-1</span>) { <span class="comment">// all increase</span>
+        sort(nums.begin(),nums.end());
+        <span class="keyword">return</span>;
+    }
+
+    <span class="comment">//find the min value at nums[pos] which bigger than nums[p]</span>
+    <span class="comment">//have the same value,get the rightest</span>
+    <span class="keyword">int</span> value = nums[p+<span class="number">1</span>], pos = p+<span class="number">1</span>;
+    <span class="keyword">for</span> (<span class="keyword">int</span> i = p + <span class="number">2</span>; i &lt; n; ++i){
+        <span class="keyword">if</span> (nums[i] &gt; nums[p] &amp;&amp; nums[i] &lt;= value) {
+            value = nums[i];
+            pos = i;
+        }
+    }
+
+    swap(nums[p], nums[pos]);
+
+    <span class="comment">//reverse [p+1,end)</span>
+    <span class="keyword">int</span> l = p + <span class="number">1</span>, r = n - <span class="number">1</span>;
+    <span class="keyword">while</span> (l &lt;= r) {
+        swap(nums[l], nums[r]);
+        l++; r--;
+    }
+}
+</code></pre>
+<p>算法大概分为三步</p>
+<ol>
+<li>从后向前，找到第一个递增的位置p。无递增则无下一个排列数，例如54321。</li>
+<li>找到该p后，大于等于nums[p]的最小值，交换这两个数</li>
+<li>将p+1之后的元素翻转<br>例如，5 2 4 3 1<br>第一个递增位置是 2 4中的2<br>2之后，大于等于2的最小值是3，交换2 3变为5 3 4 2 1<br>翻转3之后的元素为，5 3 1 2 4</li>
+</ol>
+<h2 id="2-2-next-permutation的扩展"><a href="#2-2-next-permutation的扩展" class="headerlink" title="2.2 next_permutation的扩展"></a>2.2 next_permutation的扩展</h2><p>回到nextNum问题找几个例子就会看出一定的规律，<code>括号中是未出现的数字</code></p>
+<p>68543192 (07)<br>68543197 (02)<br>一个贪心策略是在未出现的数字中挑选出x来替换末位数字，x &gt; 末位数字</p>
+<p>但是如果未使用数字均小于末位数字呢？例如<br>38219607 （45）<br>38219640 （57）<br>那么可以稍稍扩展一下，当无法替换末位时，那就逐位向前比较，直到找比未使用数字小的那位。38219607倒数第二位0比未使用的4小，于是用4替换0，之后将未使用（0，5）由小到大的填入后面。</p>
+<p>换组数据检测下当前贪心策略<br>2341987 （056）<br>2345016 （789）<br>2341987中的倒数第四位的1才小于未使用数字（056），因此用未使用的5替换1，变为2345xxx(016789)，将未使用的0 1 6 7 8 9递增填入后面的空位得到2345016，貌似是对的。</p>
+<p>但是！<br>1573698（024）按照上面算法计算的结果是1574026，然而正确答案是1573802！<br>之前算法替换的是倒数第四位的3，而正确答案替换的是倒数第三位的6。为什么6比（024）小却可以替换呢？其实应该将比较失败的末尾数字加入到未使用集合，如此当比较到6的时候，未使用序列就是（02489），显然8比6大，因此用8替换6。</p>
+<p>那么整理下目前的贪心策略<br>1.将未出现的数字加入候选集合R<br>2.从末尾向前扫描，<br>如果x &gt; R中的全部数字，则将x加入R，继续向前扫描<br>如果x &lt; R中的某个数字，则从R中选取恰当数字替换x（大于x的最小值）<br>3.将R中的元素，递增的填入x之后的空位</p>
+<h2 id="2-3-nextNum与next-permutation比较"><a href="#2-3-nextNum与next-permutation比较" class="headerlink" title="2.3 nextNum与next_permutation比较"></a>2.3 nextNum与next_permutation比较</h2><p>这个算法本质是next_permutation的一般化，当R初始为空集时，就是next_permutation。第二步其实就对应next_permutation的寻找第一个递增位置，并swap元素；第三步对应next_permutation的reverse，因为next_permutation可以保证swap之后的元素是递减的，因此可以直接reverse，这里需要将R中元素排序后依次填入。</p>
+<p><code>注：需要考虑进位的边界情况, 9876-&gt;10234</code></p>
+<p>getNext()代码如下:</p>
+<pre><code class="cpp"><span class="function"><span class="keyword">int</span> <span class="title">getNext</span><span class="params">(<span class="keyword">int</span> n)</span> </span>{
+    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; num, R; <span class="comment">//num存储当前，R存储未使用数字</span>
+    <span class="keyword">bool</span> h[<span class="number">10</span>] = {<span class="number">0</span>};
+    <span class="keyword">while</span> (n) {
+        num.push_back(n % <span class="number">10</span>);
+        h[n % <span class="number">10</span>] = <span class="literal">true</span>;
+        n /= <span class="number">10</span>;
+    }
+
+    <span class="comment">//将未使用的数字加入R集合，R集合有序递增</span>
+    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; ++i)
+        <span class="keyword">if</span> (h[i] == <span class="literal">false</span>) R.push_back(i);
+
+    <span class="comment">//由于R有序，只需比较R中最大的R.back()</span>
+    <span class="keyword">int</span> p = <span class="number">0</span>;
+    <span class="keyword">while</span> (R.empty() || (p &lt; num.size() &amp;&amp; num[p] &gt; R.back())) {
+        <span class="comment">//当前位的数字num[p]大于R中所有元素，则将num[p]加入R集合</span>
+        R.push_back(num[p++]);
+    }
+
+    <span class="keyword">if</span> (p == num.size()) {
+        <span class="comment">//需要进位 9876-&gt;10234</span>
+        <span class="keyword">int</span> res = <span class="number">10</span>;
+        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= num.size(); ++i) {
+            res = res * <span class="number">10</span> + i;
+        }
+        <span class="keyword">return</span> res;
+    }
+
+    <span class="comment">//在R中寻找最小的&gt;=num[p]的位置pos</span>
+    <span class="keyword">auto</span> pos = lower_bound(R.begin(), R.end(), num[p]);
+    swap(*pos, num[p]);
+    sort(R.begin(), R.end()); <span class="comment">//swap后R无序，调整为有序</span>
+    <span class="comment">//将R中元素按顺序加入空位</span>
+    <span class="keyword">int</span> k = <span class="number">0</span>;
+    <span class="keyword">for</span> (<span class="keyword">int</span> i = p - <span class="number">1</span>; i &gt;= <span class="number">0</span> &amp;&amp; k &lt; R.size(); --i) {
+        num[i] = R[k++];
+    }
+
+    <span class="keyword">int</span> res = <span class="number">0</span>;
+    <span class="keyword">for</span> (<span class="keyword">int</span> i = (<span class="keyword">int</span>)num.size() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; --i) {
+        res = res * <span class="number">10</span> + num[i];
+    }
+    <span class="keyword">return</span> res;
+}
+</code></pre>
 </span>
       
     </div>
@@ -218,7 +332,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Stack/" rel="tag">#Stack</a>
+            <a href="/tags/Math/" rel="tag">#Math</a>
+          
+            <a href="/tags/Greedy/" rel="tag">#Greedy</a>
           
         </div>
       
@@ -227,13 +343,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/06/08/Extension-of-Next-Permutation/" rel="prev">Next Permutation的扩展</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/06/02/Queue-With-MAX/" rel="next">Queue With MAX</a>
+              <a href="/2016/06/06/sort-a-stack/" rel="next">Sort a Stack</a>
             
           </div>
         </div>
@@ -258,8 +372,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2016/06/06/sort-a-stack/"
-                   data-title="Sort a Stack" data-url="http://devhui.com/2016/06/06/sort-a-stack/">
+              <div class="ds-thread" data-thread-key="2016/06/08/Extension-of-Next-Permutation/"
+                   data-title="Next Permutation的扩展" data-url="http://devhui.com/2016/06/08/Extension-of-Next-Permutation/">
               </div>
             
           </div>
@@ -355,7 +469,7 @@
           <div class="post-toc">
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#解法一、递归生成全部数据"><span class="nav-number">1.</span> <span class="nav-text">解法一、递归生成全部数据</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解法二、nextNum"><span class="nav-number">2.</span> <span class="nav-text">解法二、nextNum</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-next-permutation"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 next_permutation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-next-permutation的扩展"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 next_permutation的扩展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-nextNum与next-permutation比较"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 nextNum与next_permutation比较</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

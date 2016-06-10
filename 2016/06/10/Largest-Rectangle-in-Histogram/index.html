@@ -28,7 +28,7 @@
 
 
 
-  <meta name="keywords" content="swift," />
+  <meta name="keywords" content="Stack,LeetCode," />
 
 
 
@@ -37,19 +37,18 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.3" />
 
 
-<meta name="description">
+<meta name="description" content="一道Leetcode原题，Largest Rectangle in Histogram给定n个非负整数，代表代表柱状图的高度（每个柱体宽度为1），找到柱状图中面积最大的矩形。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS下拉刷新与加载更多">
-<meta property="og:url" content="http://devhui.com/2015/12/09/Pull-to-refresh-and-load-more/index.html">
+<meta property="og:title" content="Largest Rectangle in Histogram">
+<meta property="og:url" content="http://devhui.com/2016/06/10/Largest-Rectangle-in-Histogram/index.html">
 <meta property="og:site_name" content="陈辉的技术博客">
-<meta property="og:description">
-<meta property="og:image" content="http://devhui.com/images/UICollectionView/pull to refresh.png">
-<meta property="og:image" content="http://devhui.com/images/UICollectionView/DGElasticPullToRefreshPreview.gif">
-<meta property="og:updated_time" content="2016-05-26T14:20:27.000Z">
+<meta property="og:description" content="一道Leetcode原题，Largest Rectangle in Histogram给定n个非负整数，代表代表柱状图的高度（每个柱体宽度为1），找到柱状图中面积最大的矩形。">
+<meta property="og:image" content="http://d1gjlxt8vb0knt.cloudfront.net//wp-content/uploads/histogram1.png">
+<meta property="og:updated_time" content="2016-06-10T14:44:09.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS下拉刷新与加载更多">
-<meta name="twitter:description">
-<meta name="twitter:image" content="http://devhui.com/images/UICollectionView/pull to refresh.png">
+<meta name="twitter:title" content="Largest Rectangle in Histogram">
+<meta name="twitter:description" content="一道Leetcode原题，Largest Rectangle in Histogram给定n个非负整数，代表代表柱状图的高度（每个柱体宽度为1），找到柱状图中面积最大的矩形。">
+<meta name="twitter:image" content="http://d1gjlxt8vb0knt.cloudfront.net//wp-content/uploads/histogram1.png">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -59,7 +58,7 @@
   };
 </script>
 
-  <title> iOS下拉刷新与加载更多 | 陈辉的技术博客 </title>
+  <title> Largest Rectangle in Histogram | 陈辉的技术博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -158,7 +157,7 @@
           
           
             
-              iOS下拉刷新与加载更多
+              Largest Rectangle in Histogram
             
           
         </h1>
@@ -167,8 +166,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-12-09T17:12:28+08:00" content="Dec 9 2015">
-            Dec 9 2015
+          <time itemprop="dateCreated" datetime="2016-06-10T20:28:45+08:00" content="Jun 10 2016">
+            Jun 10 2016
           </time>
         </span>
 
@@ -177,8 +176,8 @@
             &nbsp; | &nbsp; 分类于
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/iOS/" itemprop="url" rel="index">
-                  <span itemprop="name">iOS</span>
+                <a href="/categories/Algorithms/" itemprop="url" rel="index">
+                  <span itemprop="name">Algorithms</span>
                 </a>
               </span>
 
@@ -193,8 +192,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/12/09/Pull-to-refresh-and-load-more/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/09/Pull-to-refresh-and-load-more/" itemprop="commentsCount"></span>
+              <a href="/2016/06/10/Largest-Rectangle-in-Histogram/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/10/Largest-Rectangle-in-Histogram/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -208,21 +207,19 @@
       
 
       
-        <span itemprop="articleBody"><p><img src="/images/UICollectionView/pull to refresh.png" alt="瀑布流展示图片"></p>
+        <span itemprop="articleBody"><p>一道Leetcode原题，<a href="https://leetcode.com/problems/largest-rectangle-in-histogram/" target="_blank" rel="external">Largest Rectangle in Histogram</a><br>给定n个非负整数，代表代表柱状图的高度（每个柱体宽度为1），找到柱状图中面积最大的矩形。</p>
+<p><img src="http://d1gjlxt8vb0knt.cloudfront.net//wp-content/uploads/histogram1.png" alt="摘自GeeksForGeeks"></p>
 <a id="more"></a>
-<h1 id="下拉刷新"><a href="#下拉刷新" class="headerlink" title="下拉刷新"></a>下拉刷新</h1><p><a href="https://github.com/gontovnik/DGElasticPullToRefresh" target="_blank" rel="external">DGElasticPullToRefresh</a>是一款swift书写的弹性下拉刷新控件。<br><img src="/images/UICollectionView/DGElasticPullToRefreshPreview.gif" alt="DGElasticPullToRefresh预览"><br>UIScrollView的子类都可以使用该控件。</p>
-<p>不考虑本地缓存问题的话，下拉刷新功能非常简单，每次下拉时向后台API发送请求。返回结果存入Model中，reload即可。<br>api接口为 ../api/v1/videoinfos/count/50<br>在UICollectionView中有一个小trick，与UITableView不同的是，collectionView中的cells不足一屏幕时，是不能拖拽滚动条的。(UITableView哪怕没有cells也可以拖拽)。以竖直方向scroll为例<code>collectionView?.alwaysBounceVertical = true</code>可以使collectionView在任何情况下都能竖直拖拽。</p>
-<h1 id="加载更多"><a href="#加载更多" class="headerlink" title="加载更多"></a>加载更多</h1><p>Web开发中常用的分页方式，在移动端并不适用。如果用户加载更多的同时，有新数据插入，那么就会导致客户端的内容出现重复。这种判重可以在客户端进行，也可以在后台进行，我们选择在后台进行数据运算。客户端只需把列表中最后一条信息的addtime传给后台，服务器按时间排序后，将这个addtime之前的count条信息返回。<br>为和刷新接口同步，在../api/v1/videoinfos中加入addtime参数，addtime=0或者addtime为空时返回最新的count条信息，否则返回addtime小于给定值的前count条信息。（其中addtime是每部影片的UNIX时间戳，保证数据库中addtime唯一性）</p>
-<p>在处理好拼接逻辑后，另一个问题是何时发起加载更多请求。我们希望在用户不知不觉中，将数据加载完毕。重载scrollViewDidScroll，用户滚动到90%的时候，自动发起加载更多请求。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">scrollViewDidScroll</span><span class="params">(scrollView: UIScrollView)</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> scrollView.contentOffset.y + view.frame.size.height &gt; scrollView.contentSize.height * <span class="number">0.9</span> &#123; <span class="comment">// Loads more videos</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> lastadd = videos.last?.addtime &#123;</span><br><span class="line">            <span class="keyword">if</span> lastadd != lastAddTime &amp;&amp; lastAddTime != <span class="string">""</span>&#123;</span><br><span class="line">                populateVideoInfos()</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这种设计虽然方便了用户，但是要解决两个问题。<br><code>问题1，判断是否已没有更多数据</code><br>如果不进行判断，用户停留在scroll底部时，将会不断向服务器发送请求，造成网络压力过大。解决方法很简单，可以在返回数据中加入一项lastaddtime，即所有影片中addtime最小值。在发送请求前判断本地列表中是否已经包含lastaddtime。</p>
-<p><code>问题2，在同一位置可能会触发多次加载更多请求</code><br>滚动到底部时，会多次发送加载更多请求，他们的返回结果都是重复的。借鉴<a href="http://www.raywenderlich.com/85080/beginning-alamofire-tutorial" target="_blank" rel="external">Alamofire Tutorial Part 1: Getting Started</a>文中的方法，设置populatingVideoInfos bool变量，开始loadmore操作时，将populatingVideoInfos锁死，结束loadmore时在恢复populatingVideoInfos。对populatingVideoInfos的操作不要放在UI线程，要放在网络请求线程。</p>
-<h1 id="缓存设计"><a href="#缓存设计" class="headerlink" title="缓存设计"></a>缓存设计</h1><p>之前开发过一版直接套用UIWebView的App，当没有网络时，应用完全空白，非常影响用户体验。所以无论从性能角度，还是用户体验角度，都要对数据进行缓存。</p>
-<h2 id="图片缓存"><a href="#图片缓存" class="headerlink" title="图片缓存"></a>图片缓存</h2><p>图片资源非常占用网络资源，Kingfisher可以直接将网络图片持久化存储在本地。532Movie约有2000部影片，每部影片的封面50kb左右，将全部图片资源存储起来也只需要100MB空间，因此将全部图片缓存是可行的。</p>
-<h2 id="数据缓存"><a href="#数据缓存" class="headerlink" title="数据缓存"></a>数据缓存</h2><p>Kingfisher缓存的原理是以图片URL为key值进行hash。如果不将影片信息缓存，就无法获得图片url。影片信息如何缓存呢？<br>可以使用Core Data存储，但是会比较heavy。唐巧师兄开源了<a href="https://github.com/yuantiku/YTKKeyValueStore" target="_blank" rel="external">YTKKeyValueStore</a>。首先Nosql也可以实现复杂的业务逻辑，其次移动端存储的数据并不会很大。YTKKeyValueStore是对FMDB进行简单封装，底层是sqlite3。网上的资料显示小于20KB的文件，sqlite效率要高于Core Data。我们可以将服务器返回的json数据直接作为value存储起来。50条影片信息的json文件，只占12kb，存入sqlite毫无压力。<br>在iPhone6真机测试YTKKeyValueStore的效率，100KB的json读写100次，耗时2.5s，写入2s，读取0.5s。测试时使用的是系统自带的sqlite库，到官网下载最新的sqlite速度会更快。</p>
-<h3 id="增量更新"><a href="#增量更新" class="headerlink" title="增量更新"></a>增量更新</h3><p>目前影片最多的一个分类下面，大致有900条影片，将他们全部缓存大概需要40ms，相比于网络请求，这样的时间是可以接受的。</p>
-<p>目前的缓存逻辑是，用户refresh时，首先会从硬盘读取缓存信息，同时发起网络请求。将网络请求回的50条信息，增量加入本地列表。如果网络返回数据与本地列表没有交集，则用返回数据更新本地缓存，只有当用户不频繁访问App时才存在这种情况。</p>
-<p>以上的更新策略是假设客户端与服务器的影片时序完全相同，由于两边都采用addtime排序，只要影片的addtime不变，那么两边的顺序就不会有问题。对于影片来说，只会有一个addtime，但是对于正在更新的电视剧，addtime会是最新剧集的加入时间。因此电视剧的的排序会随着新剧集的加入而改变，之前的更新策略就不适用了。</p>
-<p>解决方案如下：<br>对于网络返回的每条数据，我们查找他在本地列表中的addtime，不相同则将列表中的记录删除。本地列表最多有500条电视剧信息，网络返回50条信息。如果使用数组存储，按addtime二分查找时间复杂度是O(log500*50)=O(500)。删除一条记录的最坏复杂度O(500)，由于存在重复的剧集不会太多，因此这种删除操作次数也不会很多，所以这种方案的时间效率可以接受。</p>
+<p>这里有分治+RMQ的解法<a href="http://www.geeksforgeeks.org/largest-rectangular-area-in-a-histogram-set-1/" target="_blank" rel="external">GeeksForGeeks分治解法</a>，时间复杂度为O(NlogN)，下面介绍一种O(N)的解法。</p>
+<h1 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h1><p>对于一个bar x，我们计算以x为最低点的面积最大的矩形，把全部bar都计算一遍，就可以找到柱状图中面积最大的矩形了。关键是如何找到以x为最低点的矩形？我们需要知道x左右两侧，第一个比x低的bar的位置，分别记做left index和right index。<br>从左至右遍历所有的bar，用栈来维护这些bar。保证栈中的bar是递增的，即新遇到的bar比栈顶元素低的时候，就弹出栈顶元素。当一个bar弹出栈的时候，这个bar就是x，新遇到的bar的坐标就是right index，栈中上一个元素坐标就是left index，具体代码如下：</p>
+<h1 id="详细解法"><a href="#详细解法" class="headerlink" title="详细解法"></a>详细解法</h1><ol>
+<li>创建一个空栈</li>
+<li>从第一个bar开始扫描<br>a)如果栈空或者height[i] &gt;= 栈顶元素高度，则将i压入栈中<br>b)如果height[i] &lt; 栈顶高度，不断弹出栈顶元素，直到height[i] &gt;= 栈顶元素高度或栈空。令弹出栈的的元素高度是height[tp],计算以height[tp]为最低点的矩形面积。对于height[tp]这个bar，left index是栈中前一个元素，right index是i。由于每个Bar入栈出栈各一次，因此总时间复杂度为O(N)。</li>
+</ol>
+<p><code>具体实现时，再尾部加入height = 0的bar，确保之前所有bar都能出栈</code></p>
+<p>代码如下：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">largestRectangleArea</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;height)</span> </span>&#123;</span><br><span class="line">   <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">   <span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt;index;</span><br><span class="line">   height.push_back(<span class="number">0</span>);</span><br><span class="line">   </span><br><span class="line">   <span class="keyword">int</span> i = <span class="number">0</span>, n = (<span class="keyword">int</span>)height.size();</span><br><span class="line">   <span class="keyword">while</span> (i &lt; n) &#123;</span><br><span class="line">       <span class="keyword">while</span> (!index.empty() &amp;&amp; height[index.top()] &gt;= height[i]) &#123;</span><br><span class="line">           <span class="keyword">int</span> h = height[index.top()];</span><br><span class="line">           index.pop();</span><br><span class="line">           <span class="keyword">int</span> idx = index.empty() ? <span class="number">-1</span> : index.top();</span><br><span class="line">           res = max(res, h * (i - idx - <span class="number">1</span>));</span><br><span class="line">       &#125;</span><br><span class="line">       index.push(i++);</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h1><p>LeetCode上面还有一道此题的进阶版，<a href="https://leetcode.com/problems/maximal-rectangle/" target="_blank" rel="external">Maximal Rectangle</a>，题意为：给定一个01矩阵，找出面积最大的全1子矩阵。<br>降维之后其实就是Largest Rectangle in Histogram，假设矩阵有N行M列，则做了N次Largest Rectangle in Histogram，因此复杂度为O(N*M)，代码如下：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getRectangle</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; height)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n = height.size();</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>, i = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; index;</span><br><span class="line">    <span class="keyword">while</span> (i &lt; n) &#123;</span><br><span class="line">        <span class="keyword">while</span> (!index.empty() &amp;&amp; height[index.top()] &gt;= height[i]) &#123;</span><br><span class="line">            <span class="keyword">int</span> h = height[index.top()];</span><br><span class="line">            index.pop();</span><br><span class="line">            <span class="keyword">int</span> idx = index.empty() ? <span class="number">-1</span> : index.top();</span><br><span class="line">            res = max(res, (i - idx - <span class="number">1</span>) * h);</span><br><span class="line">        &#125;</span><br><span class="line">        index.push(i++);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">maximalRectangle</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt;&gt;&amp; matrix)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> row = matrix.size();</span><br><span class="line">    <span class="keyword">if</span> (row == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> n = matrix[<span class="number">0</span>].size();</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; height;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i) height.push_back(matrix[<span class="number">0</span>][i] - <span class="string">'0'</span>);</span><br><span class="line">    height.push_back(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> r = <span class="number">1</span>; r &lt; row; ++r) &#123;</span><br><span class="line">        res = max(res, getRectangle(height));</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">            <span class="keyword">if</span> (matrix[r][i] == <span class="string">'1'</span>)</span><br><span class="line">                height[i]++;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                height[i] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    res = max(res, getRectangle(height));</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>类似的题目还有：<a href="http://www.geeksforgeeks.org/the-stock-span-problem/" target="_blank" rel="external">The Stock Span Problem</a></p>
 </span>
       
     </div>
@@ -231,7 +228,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/swift/" rel="tag">#swift</a>
+            <a href="/tags/Stack/" rel="tag">#Stack</a>
+          
+            <a href="/tags/LeetCode/" rel="tag">#LeetCode</a>
           
         </div>
       
@@ -240,13 +239,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/01/01/2015-summary/" rel="prev">2015年个人总结</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/12/09/UICollectionView-performance/" rel="next">UICollectionView性能优化</a>
+              <a href="/2016/06/08/Min-Stack-in-O1-extra-space/" rel="next">只用O(1)额外空间的Min Stack</a>
             
           </div>
         </div>
@@ -271,8 +268,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2015/12/09/Pull-to-refresh-and-load-more/"
-                   data-title="iOS下拉刷新与加载更多" data-url="http://devhui.com/2015/12/09/Pull-to-refresh-and-load-more/">
+              <div class="ds-thread" data-thread-key="2016/06/10/Largest-Rectangle-in-Histogram/"
+                   data-title="Largest Rectangle in Histogram" data-url="http://devhui.com/2016/06/10/Largest-Rectangle-in-Histogram/">
               </div>
             
           </div>
@@ -368,7 +365,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#下拉刷新"><span class="nav-number">1.</span> <span class="nav-text">下拉刷新</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#加载更多"><span class="nav-number">2.</span> <span class="nav-text">加载更多</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#缓存设计"><span class="nav-number">3.</span> <span class="nav-text">缓存设计</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#图片缓存"><span class="nav-number">3.1.</span> <span class="nav-text">图片缓存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据缓存"><span class="nav-number">3.2.</span> <span class="nav-text">数据缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#增量更新"><span class="nav-number">3.2.1.</span> <span class="nav-text">增量更新</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#算法思路"><span class="nav-number">1.</span> <span class="nav-text">算法思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#详细解法"><span class="nav-number">2.</span> <span class="nav-text">详细解法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#进阶"><span class="nav-number">3.</span> <span class="nav-text">进阶</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
